@@ -11,7 +11,7 @@ async function bootstrap() {
   app.use(helmet());
 
   // CORS - allow multiple localhost ports for development
-  const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:3006', 'https://vibeappbe-bfbnhvbga2ega5d6.southeastasia-01.azurewebsites.net'];
+  const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:3006', 'https://vibeappfe-d5d9chceafavd6bf.southeastasia-01.azurewebsites.net'];
   app.enableCors({
     origin: (origin, callback) => {
       // Allow requests with no origin (like mobile apps or curl)
