@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "nest build",
+    "postinstall": "prisma generate",
     "start": "node dist/src/main",
     "start:local": "nest start",
     "start:dev": "nest start --watch",
