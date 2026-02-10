@@ -33,9 +33,9 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = require("@prisma/client");
+const prisma_1 = require("../src/generated/prisma");
 const bcrypt = __importStar(require("bcryptjs"));
-const prisma = new client_1.PrismaClient();
+const prisma = new prisma_1.PrismaClient();
 async function main() {
     console.log('🌱 Seeding database...');
     const roles = await Promise.all([

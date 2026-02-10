@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const prisma_1 = require("../src/generated/prisma");
+const prisma = new prisma_1.PrismaClient();
 function d(n) {
-    return new client_1.Prisma.Decimal(n);
+    return new prisma_1.Prisma.Decimal(n);
 }
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

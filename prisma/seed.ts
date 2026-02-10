@@ -3,7 +3,7 @@
 // Run: npx prisma db seed   or   npm run prisma:seed
 // ============================================================================
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '../src/generated/prisma';
 import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();

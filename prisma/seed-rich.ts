@@ -4,7 +4,7 @@
 // Run: npx ts-node prisma/seed-rich.ts
 // ============================================================================
 
-import { PrismaClient, Prisma } from '@prisma/client';
+import { PrismaClient, Prisma } from '../src/generated/prisma';
 
 const prisma = new PrismaClient();
 
