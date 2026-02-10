@@ -62,7 +62,7 @@ export declare class SkuRecommenderService {
             theme: string | null;
             color: string | null;
             composition: string | null;
-            srp: import("@prisma/client/runtime/library").Decimal;
+            srp: import("src/generated/prisma/runtime/library").Decimal;
             brandId: string | null;
             seasonGroupId: string | null;
             imageUrl: string | null;
@@ -76,12 +76,12 @@ export declare class SkuRecommenderService {
         productName: string;
         budgetDetailId: string;
         skuId: string;
-        confidence: import("@prisma/client/runtime/library").Decimal;
+        confidence: import("src/generated/prisma/runtime/library").Decimal;
         reasoning: string | null;
         overallScore: number;
         riskLevel: string;
         recommendedQty: number;
-        recommendedValue: import("@prisma/client/runtime/library").Decimal;
+        recommendedValue: import("src/generated/prisma/runtime/library").Decimal;
         performanceScore: number;
         trendScore: number;
         assortmentScore: number;
@@ -98,12 +98,12 @@ export declare class SkuRecommenderService {
         productName: string;
         budgetDetailId: string;
         skuId: string;
-        confidence: import("@prisma/client/runtime/library").Decimal;
+        confidence: import("src/generated/prisma/runtime/library").Decimal;
         reasoning: string | null;
         overallScore: number;
         riskLevel: string;
         recommendedQty: number;
-        recommendedValue: import("@prisma/client/runtime/library").Decimal;
+        recommendedValue: import("src/generated/prisma/runtime/library").Decimal;
         performanceScore: number;
         trendScore: number;
         assortmentScore: number;

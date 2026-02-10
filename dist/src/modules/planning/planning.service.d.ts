@@ -1,5 +1,5 @@
 import { PrismaService } from '../../prisma/prisma.service';
-import { PlanningStatus, Prisma } from '@prisma/client';
+import { PlanningStatus, Prisma } from '../../generated/prisma';
 import { CreatePlanningDto, UpdatePlanningDto, UpdateDetailDto, ApprovalDecisionDto } from './dto/planning.dto';
 interface PlanningFilters {
     budgetDetailId?: string;
@@ -48,7 +48,7 @@ export declare class PlanningService {
                     seasonType: string;
                     fiscalYear: number;
                     totalBudget: Prisma.Decimal;
-                    status: import(".prisma/client").$Enums.BudgetStatus;
+                    status: import("../../generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
                     groupBrandId: string;
                     createdById: string;
@@ -63,7 +63,7 @@ export declare class PlanningService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.PlanningStatus;
+            status: import("../../generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
             versionNumber: number;
@@ -91,7 +91,7 @@ export declare class PlanningService {
             entityType: string;
             entityId: string;
             level: number;
-            action: import(".prisma/client").$Enums.ApprovalAction;
+            action: import("../../generated/prisma").$Enums.ApprovalAction;
             decidedAt: Date;
             deciderId: string;
         })[];
@@ -166,7 +166,7 @@ export declare class PlanningService {
                 seasonType: string;
                 fiscalYear: number;
                 totalBudget: Prisma.Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -180,7 +180,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -223,7 +223,7 @@ export declare class PlanningService {
                 seasonType: string;
                 fiscalYear: number;
                 totalBudget: Prisma.Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -238,7 +238,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -281,7 +281,7 @@ export declare class PlanningService {
                 seasonType: string;
                 fiscalYear: number;
                 totalBudget: Prisma.Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -296,7 +296,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -325,7 +325,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -353,7 +353,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -381,7 +381,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -409,7 +409,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -453,7 +453,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;
@@ -466,7 +466,7 @@ export declare class PlanningService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.PlanningStatus;
+        status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
         versionNumber: number;

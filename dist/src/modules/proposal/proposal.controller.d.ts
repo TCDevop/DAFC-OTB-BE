@@ -20,7 +20,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -31,8 +31,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -46,14 +46,14 @@ export declare class ProposalController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         })[];
         meta: {
             page: number;
@@ -71,7 +71,7 @@ export declare class ProposalController {
             totals: {
                 skuCount: number;
                 orderQty: number;
-                value: number | import("@prisma/client/runtime/library").Decimal;
+                value: number | import("src/generated/prisma/runtime/library").Decimal;
             };
         };
     }>;
@@ -89,7 +89,7 @@ export declare class ProposalController {
                 entityType: string;
                 entityId: string;
                 level: number;
-                action: import(".prisma/client").$Enums.ApprovalAction;
+                action: import("src/generated/prisma").$Enums.ApprovalAction;
                 decidedAt: Date;
                 deciderId: string;
             })[];
@@ -117,10 +117,10 @@ export declare class ProposalController {
                 theme: string | null;
                 color: string | null;
                 composition: string | null;
-                srp: import("@prisma/client/runtime/library").Decimal;
+                srp: import("src/generated/prisma/runtime/library").Decimal;
                 imageUrl: string | null;
-                totalValue: import("@prisma/client/runtime/library").Decimal;
-                unitCost: import("@prisma/client/runtime/library").Decimal;
+                totalValue: import("src/generated/prisma/runtime/library").Decimal;
+                unitCost: import("src/generated/prisma/runtime/library").Decimal;
                 orderQty: number;
                 customerTarget: string | null;
                 proposalId: string;
@@ -138,7 +138,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -149,8 +149,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -166,7 +166,7 @@ export declare class ProposalController {
                     };
                 } & {
                     id: string;
-                    budgetAmount: import("@prisma/client/runtime/library").Decimal;
+                    budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                     budgetId: string;
                     storeId: string;
                 };
@@ -174,26 +174,26 @@ export declare class ProposalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                status: import(".prisma/client").$Enums.PlanningStatus;
+                status: import("src/generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
-                snapshotData: import("@prisma/client/runtime/library").JsonValue | null;
+                snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
                 budgetDetailId: string;
             }) | null;
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     create(dto: CreateProposalDto, req: any): Promise<{
@@ -206,7 +206,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -217,8 +217,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -227,27 +227,27 @@ export declare class ProposalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                status: import(".prisma/client").$Enums.PlanningStatus;
+                status: import("src/generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
-                snapshotData: import("@prisma/client/runtime/library").JsonValue | null;
+                snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
                 budgetDetailId: string;
             } | null;
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     update(id: string, dto: UpdateProposalDto, req: any): Promise<{
@@ -260,7 +260,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -271,8 +271,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -281,27 +281,27 @@ export declare class ProposalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                status: import(".prisma/client").$Enums.PlanningStatus;
+                status: import("src/generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
-                snapshotData: import("@prisma/client/runtime/library").JsonValue | null;
+                snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
                 budgetDetailId: string;
             } | null;
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     addProduct(id: string, dto: AddProductDto, req: any): Promise<{
@@ -318,10 +318,10 @@ export declare class ProposalController {
             theme: string | null;
             color: string | null;
             composition: string | null;
-            srp: import("@prisma/client/runtime/library").Decimal;
+            srp: import("src/generated/prisma/runtime/library").Decimal;
             imageUrl: string | null;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
-            unitCost: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
+            unitCost: import("src/generated/prisma/runtime/library").Decimal;
             orderQty: number;
             customerTarget: string | null;
             proposalId: string;
@@ -349,7 +349,7 @@ export declare class ProposalController {
                     entityType: string;
                     entityId: string;
                     level: number;
-                    action: import(".prisma/client").$Enums.ApprovalAction;
+                    action: import("src/generated/prisma").$Enums.ApprovalAction;
                     decidedAt: Date;
                     deciderId: string;
                 })[];
@@ -377,10 +377,10 @@ export declare class ProposalController {
                     theme: string | null;
                     color: string | null;
                     composition: string | null;
-                    srp: import("@prisma/client/runtime/library").Decimal;
+                    srp: import("src/generated/prisma/runtime/library").Decimal;
                     imageUrl: string | null;
-                    totalValue: import("@prisma/client/runtime/library").Decimal;
-                    unitCost: import("@prisma/client/runtime/library").Decimal;
+                    totalValue: import("src/generated/prisma/runtime/library").Decimal;
+                    unitCost: import("src/generated/prisma/runtime/library").Decimal;
                     orderQty: number;
                     customerTarget: string | null;
                     proposalId: string;
@@ -398,7 +398,7 @@ export declare class ProposalController {
                         name: string;
                         isActive: boolean;
                         groupId: string;
-                        colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                        colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                         sortOrder: number;
                     };
                 } & {
@@ -409,8 +409,8 @@ export declare class ProposalController {
                     budgetCode: string;
                     seasonType: string;
                     fiscalYear: number;
-                    totalBudget: import("@prisma/client/runtime/library").Decimal;
-                    status: import(".prisma/client").$Enums.BudgetStatus;
+                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                    status: import("src/generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
                     groupBrandId: string;
                     createdById: string;
@@ -426,7 +426,7 @@ export declare class ProposalController {
                         };
                     } & {
                         id: string;
-                        budgetAmount: import("@prisma/client/runtime/library").Decimal;
+                        budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                         budgetId: string;
                         storeId: string;
                     };
@@ -434,26 +434,26 @@ export declare class ProposalController {
                     id: string;
                     createdAt: Date;
                     updatedAt: Date;
-                    status: import(".prisma/client").$Enums.PlanningStatus;
+                    status: import("src/generated/prisma").$Enums.PlanningStatus;
                     createdById: string;
                     planningCode: string;
                     versionNumber: number;
                     versionName: string | null;
                     isFinal: boolean;
-                    snapshotData: import("@prisma/client/runtime/library").JsonValue | null;
+                    snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
                     budgetDetailId: string;
                 }) | null;
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                status: import(".prisma/client").$Enums.ProposalStatus;
+                status: import("src/generated/prisma").$Enums.ProposalStatus;
                 createdById: string;
                 budgetId: string;
                 planningVersionId: string | null;
                 ticketName: string;
                 totalSkuCount: number;
                 totalOrderQty: number;
-                totalValue: import("@prisma/client/runtime/library").Decimal;
+                totalValue: import("src/generated/prisma/runtime/library").Decimal;
             };
         };
     }>;
@@ -471,10 +471,10 @@ export declare class ProposalController {
             theme: string | null;
             color: string | null;
             composition: string | null;
-            srp: import("@prisma/client/runtime/library").Decimal;
+            srp: import("src/generated/prisma/runtime/library").Decimal;
             imageUrl: string | null;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
-            unitCost: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
+            unitCost: import("src/generated/prisma/runtime/library").Decimal;
             orderQty: number;
             customerTarget: string | null;
             proposalId: string;
@@ -500,7 +500,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -511,8 +511,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -521,14 +521,14 @@ export declare class ProposalController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     approveLevel1(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
@@ -544,7 +544,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -555,8 +555,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -565,14 +565,14 @@ export declare class ProposalController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     approveLevel2(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
@@ -588,7 +588,7 @@ export declare class ProposalController {
                     name: string;
                     isActive: boolean;
                     groupId: string;
-                    colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+                    colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
                 };
             } & {
@@ -599,8 +599,8 @@ export declare class ProposalController {
                 budgetCode: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("@prisma/client/runtime/library").Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -609,14 +609,14 @@ export declare class ProposalController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("src/generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
             ticketName: string;
             totalSkuCount: number;
             totalOrderQty: number;
-            totalValue: import("@prisma/client/runtime/library").Decimal;
+            totalValue: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     remove(id: string): Promise<{

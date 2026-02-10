@@ -10,7 +10,7 @@ export declare class MasterDataController {
             name: string;
             isActive: boolean;
             groupId: string;
-            colorConfig: import("@prisma/client/runtime/library").JsonValue | null;
+            colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
             sortOrder: number;
         }[];
     }>;
@@ -82,7 +82,7 @@ export declare class MasterDataController {
             theme: string | null;
             color: string | null;
             composition: string | null;
-            srp: import("@prisma/client/runtime/library").Decimal;
+            srp: import("src/generated/prisma/runtime/library").Decimal;
             brandId: string | null;
             seasonGroupId: string | null;
             imageUrl: string | null;

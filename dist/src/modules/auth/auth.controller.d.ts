@@ -19,7 +19,7 @@ export declare class AuthController {
                 email: string;
                 name: string;
                 role: string;
-                permissions: import("@prisma/client/runtime/library").JsonValue;
+                permissions: import("src/generated/prisma/runtime/library").JsonValue;
                 storeAccess: string[];
                 brandAccess: string[];
             };
@@ -38,7 +38,7 @@ export declare class AuthController {
             email: string;
             name: string;
             role: string;
-            permissions: import("@prisma/client/runtime/library").JsonValue;
+            permissions: import("src/generated/prisma/runtime/library").JsonValue;
             storeAccess: string[];
             brandAccess: string[];
         };

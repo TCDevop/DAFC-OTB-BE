@@ -1,5 +1,5 @@
 import { PrismaService } from '../../prisma/prisma.service';
-import { ProposalStatus, Prisma } from '@prisma/client';
+import { ProposalStatus, Prisma } from '../../generated/prisma';
 import { CreateProposalDto, UpdateProposalDto, AddProductDto, BulkAddProductsDto, UpdateProductDto, ApprovalDecisionDto } from './dto/proposal.dto';
 interface ProposalFilters {
     budgetId?: string;
@@ -40,7 +40,7 @@ export declare class ProposalService {
                 seasonType: string;
                 fiscalYear: number;
                 totalBudget: Prisma.Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -54,7 +54,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("../../generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
@@ -82,7 +82,7 @@ export declare class ProposalService {
             entityType: string;
             entityId: string;
             level: number;
-            action: import(".prisma/client").$Enums.ApprovalAction;
+            action: import("../../generated/prisma").$Enums.ApprovalAction;
             decidedAt: Date;
             deciderId: string;
         })[];
@@ -143,7 +143,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -167,7 +167,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.PlanningStatus;
+            status: import("../../generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
             versionNumber: number;
@@ -179,7 +179,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -208,7 +208,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -217,7 +217,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.PlanningStatus;
+            status: import("../../generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
             versionNumber: number;
@@ -230,7 +230,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -259,7 +259,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -268,7 +268,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.PlanningStatus;
+            status: import("../../generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
             versionNumber: number;
@@ -281,7 +281,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -330,7 +330,7 @@ export declare class ProposalService {
                 entityType: string;
                 entityId: string;
                 level: number;
-                action: import(".prisma/client").$Enums.ApprovalAction;
+                action: import("../../generated/prisma").$Enums.ApprovalAction;
                 decidedAt: Date;
                 deciderId: string;
             })[];
@@ -391,7 +391,7 @@ export declare class ProposalService {
                 seasonType: string;
                 fiscalYear: number;
                 totalBudget: Prisma.Decimal;
-                status: import(".prisma/client").$Enums.BudgetStatus;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
                 groupBrandId: string;
                 createdById: string;
@@ -415,7 +415,7 @@ export declare class ProposalService {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                status: import(".prisma/client").$Enums.PlanningStatus;
+                status: import("../../generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
                 versionNumber: number;
@@ -427,7 +427,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import(".prisma/client").$Enums.ProposalStatus;
+            status: import("../../generated/prisma").$Enums.ProposalStatus;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
@@ -484,7 +484,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -493,7 +493,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -525,7 +525,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -534,7 +534,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -566,7 +566,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -575,7 +575,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -588,7 +588,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import(".prisma/client").$Enums.ProposalStatus;
+        status: import("../../generated/prisma").$Enums.ProposalStatus;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;

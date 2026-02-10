@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { ProposalStatus, ApprovalAction, Prisma } from '@prisma/client';
+import { ProposalStatus, ApprovalAction, Prisma } from '../../generated/prisma';
 import { CreateProposalDto, UpdateProposalDto, AddProductDto, BulkAddProductsDto, UpdateProductDto, ApprovalDecisionDto } from './dto/proposal.dto';
 
 interface ProposalFilters {

@@ -1,5 +1,5 @@
 import { PrismaService } from '../../prisma/prisma.service';
-import { BudgetStatus, Prisma } from '@prisma/client';
+import { BudgetStatus, Prisma } from '../../generated/prisma';
 import { CreateBudgetDto, UpdateBudgetDto, ApprovalDecisionDto } from './dto/budget.dto';
 interface BudgetFilters {
     fiscalYear?: number;
@@ -51,7 +51,7 @@ export declare class BudgetService {
             seasonType: string;
             fiscalYear: number;
             totalBudget: Prisma.Decimal;
-            status: import(".prisma/client").$Enums.BudgetStatus;
+            status: import("../../generated/prisma").$Enums.BudgetStatus;
             comment: string | null;
             groupBrandId: string;
             createdById: string;
@@ -75,7 +75,7 @@ export declare class BudgetService {
             entityType: string;
             entityId: string;
             level: number;
-            action: import(".prisma/client").$Enums.ApprovalAction;
+            action: import("../../generated/prisma").$Enums.ApprovalAction;
             decidedAt: Date;
             deciderId: string;
         })[];
@@ -115,7 +115,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;
@@ -153,7 +153,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;
@@ -191,7 +191,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;
@@ -205,7 +205,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;
@@ -219,7 +219,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;
@@ -257,7 +257,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;
@@ -295,7 +295,7 @@ export declare class BudgetService {
         seasonType: string;
         fiscalYear: number;
         totalBudget: Prisma.Decimal;
-        status: import(".prisma/client").$Enums.BudgetStatus;
+        status: import("../../generated/prisma").$Enums.BudgetStatus;
         comment: string | null;
         groupBrandId: string;
         createdById: string;

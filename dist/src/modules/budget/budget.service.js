@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BudgetService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../prisma/prisma.service");
-const client_1 = require("@prisma/client");
+const prisma_1 = require("../../generated/prisma");
 let BudgetService = class BudgetService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -106,7 +106,7 @@ let BudgetService = class BudgetService {
         const budget = await this.prisma.budget.findUnique({ where: { id } });
         if (!budget)
             throw new common_1.NotFoundException('Budget not found');
-        if (budget.status !== client_1.BudgetStatus.DRAFT) {
+        if (budget.status !== prisma_1.BudgetStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft budgets can be edited');
         }
         const updateData = {};
@@ -143,12 +143,12 @@ let BudgetService = class BudgetService {
         });
         if (!budget)
             throw new common_1.NotFoundException('Budget not found');
-        if (budget.status !== client_1.BudgetStatus.DRAFT) {
+        if (budget.status !== prisma_1.BudgetStatus.DRAFT) {
             throw new common_1.BadRequestException(`Cannot submit budget with status: ${budget.status}`);
         }
         return this.prisma.budget.update({
             where: { id },
-            data: { status: client_1.BudgetStatus.SUBMITTED },
+            data: { status: prisma_1.BudgetStatus.SUBMITTED },
         });
     }
     async remove(id) {
@@ -158,7 +158,7 @@ let BudgetService = class BudgetService {
         });
         if (!budget)
             throw new common_1.NotFoundException('Budget not found');
-        if (budget.status !== client_1.BudgetStatus.DRAFT) {
+        if (budget.status !== prisma_1.BudgetStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft budgets can be deleted');
         }
         const hasPlanning = budget.details.some(d => d.planningVersions.length > 0);
@@ -171,12 +171,12 @@ let BudgetService = class BudgetService {
         const budget = await this.prisma.budget.findUnique({ where: { id } });
         if (!budget)
             throw new common_1.NotFoundException('Budget not found');
-        if (budget.status !== client_1.BudgetStatus.SUBMITTED) {
+        if (budget.status !== prisma_1.BudgetStatus.SUBMITTED) {
             throw new common_1.BadRequestException(`Cannot approve budget with status: ${budget.status}. Must be SUBMITTED.`);
         }
         const newStatus = dto.action === 'APPROVED'
-            ? client_1.BudgetStatus.LEVEL1_APPROVED
-            : client_1.BudgetStatus.REJECTED;
+            ? prisma_1.BudgetStatus.LEVEL1_APPROVED
+            : prisma_1.BudgetStatus.REJECTED;
         await this.prisma.approval.create({
             data: {
                 entityType: 'budget',
@@ -200,12 +200,12 @@ let BudgetService = class BudgetService {
         const budget = await this.prisma.budget.findUnique({ where: { id } });
         if (!budget)
             throw new common_1.NotFoundException('Budget not found');
-        if (budget.status !== client_1.BudgetStatus.LEVEL1_APPROVED) {
+        if (budget.status !== prisma_1.BudgetStatus.LEVEL1_APPROVED) {
             throw new common_1.BadRequestException(`Cannot approve budget with status: ${budget.status}. Must be LEVEL1_APPROVED.`);
         }
         const newStatus = dto.action === 'APPROVED'
-            ? client_1.BudgetStatus.APPROVED
-            : client_1.BudgetStatus.REJECTED;
+            ? prisma_1.BudgetStatus.APPROVED
+            : prisma_1.BudgetStatus.REJECTED;
         await this.prisma.approval.create({
             data: {
                 entityType: 'budget',
@@ -242,7 +242,7 @@ let BudgetService = class BudgetService {
             }),
         ]);
         const approvedBudgets = await this.prisma.budget.aggregate({
-            where: { ...where, status: client_1.BudgetStatus.APPROVED },
+            where: { ...where, status: prisma_1.BudgetStatus.APPROVED },
             _sum: { totalBudget: true },
         });
         return {

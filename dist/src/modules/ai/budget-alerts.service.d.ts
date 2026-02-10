@@ -34,8 +34,8 @@ export declare class BudgetAlertsService {
         severity: string;
         title: string;
         message: string;
-        metricValue: import("@prisma/client/runtime/library").Decimal;
-        threshold: import("@prisma/client/runtime/library").Decimal;
+        metricValue: import("src/generated/prisma/runtime/library").Decimal;
+        threshold: import("src/generated/prisma/runtime/library").Decimal;
         isRead: boolean;
         isDismissed: boolean;
     })[]>;
@@ -48,8 +48,8 @@ export declare class BudgetAlertsService {
         severity: string;
         title: string;
         message: string;
-        metricValue: import("@prisma/client/runtime/library").Decimal;
-        threshold: import("@prisma/client/runtime/library").Decimal;
+        metricValue: import("src/generated/prisma/runtime/library").Decimal;
+        threshold: import("src/generated/prisma/runtime/library").Decimal;
         isRead: boolean;
         isDismissed: boolean;
     }>;
@@ -62,8 +62,8 @@ export declare class BudgetAlertsService {
         severity: string;
         title: string;
         message: string;
-        metricValue: import("@prisma/client/runtime/library").Decimal;
-        threshold: import("@prisma/client/runtime/library").Decimal;
+        metricValue: import("src/generated/prisma/runtime/library").Decimal;
+        threshold: import("src/generated/prisma/runtime/library").Decimal;
         isRead: boolean;
         isDismissed: boolean;
     }>;

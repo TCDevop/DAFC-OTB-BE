@@ -7,9 +7,10 @@
     "node": ">=22.20.0"
   },
   "scripts": {
-    "build": "nest build && prisma generate",
+    "build": "prisma generate && nest build && npm run copy:prisma",
+    "copy:prisma": "node -e \"const fs=require('fs');const path=require('path');function copyDir(src,dest){fs.mkdirSync(dest,{recursive:true});fs.readdirSync(src).forEach(f=>{const srcPath=path.join(src,f);const destPath=path.join(dest,f);fs.statSync(srcPath).isDirectory()?copyDir(srcPath,destPath):fs.copyFileSync(srcPath,destPath);});};copyDir('src/generated/prisma','dist/src/generated/prisma');\"",
     "postinstall": "prisma generate",
-    "start": "npx prisma generate && node dist/src/main",
+    "start": "node dist/src/main",
     "start:local": "nest start",
     "start:dev": "nest start --watch",
     "start:prod": "node dist/src/main",

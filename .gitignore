@@ -47,3 +47,6 @@ next-env.d.ts
 backend/dist
 backend/node_modules
 backend/.env
+
+# prisma generated
+src/generated

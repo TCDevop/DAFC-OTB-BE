@@ -43,12 +43,12 @@ export declare class OtbAllocationService {
         budgetDetailId: string;
         dimensionType: string;
         dimensionValue: string;
-        recommendedPct: import("@prisma/client/runtime/library").Decimal;
-        recommendedAmt: import("@prisma/client/runtime/library").Decimal;
-        confidence: import("@prisma/client/runtime/library").Decimal;
+        recommendedPct: import("src/generated/prisma/runtime/library").Decimal;
+        recommendedAmt: import("src/generated/prisma/runtime/library").Decimal;
+        confidence: import("src/generated/prisma/runtime/library").Decimal;
         reasoning: string | null;
         basedOnSeasons: number;
-        factors: import("@prisma/client/runtime/library").JsonValue | null;
+        factors: import("src/generated/prisma/runtime/library").JsonValue | null;
         isApplied: boolean;
     }[]>;
     applyRecommendations(budgetDetailId: string, dimensionType?: string): Promise<{
@@ -57,12 +57,12 @@ export declare class OtbAllocationService {
         budgetDetailId: string;
         dimensionType: string;
         dimensionValue: string;
-        recommendedPct: import("@prisma/client/runtime/library").Decimal;
-        recommendedAmt: import("@prisma/client/runtime/library").Decimal;
-        confidence: import("@prisma/client/runtime/library").Decimal;
+        recommendedPct: import("src/generated/prisma/runtime/library").Decimal;
+        recommendedAmt: import("src/generated/prisma/runtime/library").Decimal;
+        confidence: import("src/generated/prisma/runtime/library").Decimal;
         reasoning: string | null;
         basedOnSeasons: number;
-        factors: import("@prisma/client/runtime/library").JsonValue | null;
+        factors: import("src/generated/prisma/runtime/library").JsonValue | null;
         isApplied: boolean;
     }[]>;
     compareAllocation(budgetDetailId: string, userAllocation: Array<{
