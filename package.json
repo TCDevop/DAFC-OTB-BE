@@ -7,9 +7,9 @@
     "node": ">=22.20.0"
   },
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && prisma generate",
     "postinstall": "prisma generate",
-    "start": "node dist/src/main",
+    "start": "npx prisma generate && node dist/src/main",
     "start:local": "nest start",
     "start:dev": "nest start --watch",
     "start:prod": "node dist/src/main",
