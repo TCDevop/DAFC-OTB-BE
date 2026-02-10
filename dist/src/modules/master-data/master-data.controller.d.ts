@@ -6,9 +6,9 @@ export declare class MasterDataController {
         success: boolean;
         data: {
             id: string;
-            code: string;
             name: string;
             isActive: boolean;
+            code: string;
             groupId: string;
             colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
             sortOrder: number;
@@ -18,10 +18,10 @@ export declare class MasterDataController {
         success: boolean;
         data: {
             id: string;
-            code: string;
             name: string;
-            region: string | null;
             isActive: boolean;
+            code: string;
+            region: string | null;
         }[];
     }>;
     getCollections(): Promise<{
@@ -76,14 +76,14 @@ export declare class MasterDataController {
         data: {
             id: string;
             isActive: boolean;
-            skuCode: string;
-            productName: string;
             productType: string;
+            brandId: string | null;
+            productName: string;
+            skuCode: string;
             theme: string | null;
             color: string | null;
             composition: string | null;
             srp: import("src/generated/prisma/runtime/library").Decimal;
-            brandId: string | null;
             seasonGroupId: string | null;
             imageUrl: string | null;
         }[];

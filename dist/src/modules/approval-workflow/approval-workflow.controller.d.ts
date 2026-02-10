@@ -7,21 +7,21 @@ export declare class ApprovalWorkflowController {
         data: ({
             user: {
                 id: string;
-                name: string;
                 email: string;
+                name: string;
             } | null;
             brand: {
                 id: string;
-                code: string;
                 name: string;
+                code: string;
             };
         } & {
             id: string;
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            brandId: string;
             description: string | null;
+            brandId: string;
             stepNumber: number;
             roleName: string;
             roleCode: string | null;
@@ -40,8 +40,8 @@ export declare class ApprovalWorkflowController {
         data: ({
             user: {
                 id: string;
-                name: string;
                 email: string;
+                name: string;
             } | null;
             brand: {
                 id: string;
@@ -52,8 +52,8 @@ export declare class ApprovalWorkflowController {
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            brandId: string;
             description: string | null;
+            brandId: string;
             stepNumber: number;
             roleName: string;
             roleCode: string | null;
@@ -83,8 +83,8 @@ export declare class ApprovalWorkflowController {
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            brandId: string;
             description: string | null;
+            brandId: string;
             stepNumber: number;
             roleName: string;
             roleCode: string | null;
@@ -114,8 +114,8 @@ export declare class ApprovalWorkflowController {
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            brandId: string;
             description: string | null;
+            brandId: string;
             stepNumber: number;
             roleName: string;
             roleCode: string | null;
@@ -132,8 +132,8 @@ export declare class ApprovalWorkflowController {
         data: ({
             user: {
                 id: string;
-                name: string;
                 email: string;
+                name: string;
             } | null;
             brand: {
                 id: string;
@@ -144,8 +144,8 @@ export declare class ApprovalWorkflowController {
             isActive: boolean;
             createdAt: Date;
             updatedAt: Date;
-            brandId: string;
             description: string | null;
+            brandId: string;
             stepNumber: number;
             roleName: string;
             roleCode: string | null;

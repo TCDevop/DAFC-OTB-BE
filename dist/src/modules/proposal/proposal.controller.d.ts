@@ -5,20 +5,12 @@ export declare class ProposalController {
     constructor(proposalService: ProposalService);
     findAll(budgetId?: string, planningVersionId?: string, status?: any, page?: number, pageSize?: number): Promise<{
         data: ({
-            _count: {
-                products: number;
-            };
-            createdBy: {
-                id: string;
-                name: string;
-                email: string;
-            };
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -28,13 +20,13 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
             };
             planningVersion: {
@@ -42,6 +34,14 @@ export declare class ProposalController {
                 planningCode: string;
                 versionNumber: number;
             } | null;
+            _count: {
+                products: number;
+            };
+            createdBy: {
+                id: string;
+                email: string;
+                name: string;
+            };
         } & {
             id: string;
             createdAt: Date;
@@ -86,12 +86,12 @@ export declare class ProposalController {
             } & {
                 id: string;
                 comment: string | null;
+                action: import("src/generated/prisma").$Enums.ApprovalAction;
                 entityType: string;
                 entityId: string;
                 level: number;
-                action: import("src/generated/prisma").$Enums.ApprovalAction;
-                decidedAt: Date;
                 deciderId: string;
+                decidedAt: Date;
             })[];
             summary: {
                 byCollection: Record<string, {
@@ -105,38 +105,12 @@ export declare class ProposalController {
                     count: number;
                 }>;
             };
-            products: {
-                id: string;
-                sortOrder: number;
-                collection: string | null;
-                gender: string | null;
-                category: string | null;
-                subCategory: string | null;
-                skuCode: string;
-                productName: string;
-                theme: string | null;
-                color: string | null;
-                composition: string | null;
-                srp: import("src/generated/prisma/runtime/library").Decimal;
-                imageUrl: string | null;
-                totalValue: import("src/generated/prisma/runtime/library").Decimal;
-                unitCost: import("src/generated/prisma/runtime/library").Decimal;
-                orderQty: number;
-                customerTarget: string | null;
-                proposalId: string;
-                skuId: string;
-            }[];
-            createdBy: {
-                id: string;
-                name: string;
-                email: string;
-            };
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -146,29 +120,29 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
             };
             planningVersion: ({
                 budgetDetail: {
                     store: {
                         id: string;
-                        code: string;
                         name: string;
-                        region: string | null;
                         isActive: boolean;
+                        code: string;
+                        region: string | null;
                     };
                 } & {
                     id: string;
+                    storeId: string;
                     budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                     budgetId: string;
-                    storeId: string;
                 };
             } & {
                 id: string;
@@ -177,12 +151,38 @@ export declare class ProposalController {
                 status: import("src/generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
+                budgetDetailId: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
                 snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-                budgetDetailId: string;
             }) | null;
+            products: {
+                collection: string | null;
+                gender: string | null;
+                category: string | null;
+                subCategory: string | null;
+                id: string;
+                sortOrder: number;
+                productName: string;
+                skuCode: string;
+                theme: string | null;
+                color: string | null;
+                composition: string | null;
+                srp: import("src/generated/prisma/runtime/library").Decimal;
+                imageUrl: string | null;
+                totalValue: import("src/generated/prisma/runtime/library").Decimal;
+                skuId: string;
+                orderQty: number;
+                customerTarget: string | null;
+                proposalId: string;
+                unitCost: import("src/generated/prisma/runtime/library").Decimal;
+            }[];
+            createdBy: {
+                id: string;
+                email: string;
+                name: string;
+            };
             id: string;
             createdAt: Date;
             updatedAt: Date;
@@ -202,9 +202,9 @@ export declare class ProposalController {
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -214,13 +214,13 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
             };
             planningVersion: {
@@ -230,11 +230,11 @@ export declare class ProposalController {
                 status: import("src/generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
+                budgetDetailId: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
                 snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-                budgetDetailId: string;
             } | null;
         } & {
             id: string;
@@ -256,9 +256,9 @@ export declare class ProposalController {
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -268,13 +268,13 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
             };
             planningVersion: {
@@ -284,11 +284,11 @@ export declare class ProposalController {
                 status: import("src/generated/prisma").$Enums.PlanningStatus;
                 createdById: string;
                 planningCode: string;
+                budgetDetailId: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
                 snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-                budgetDetailId: string;
             } | null;
         } & {
             id: string;
@@ -307,25 +307,25 @@ export declare class ProposalController {
     addProduct(id: string, dto: AddProductDto, req: any): Promise<{
         success: boolean;
         data: {
-            id: string;
-            sortOrder: number;
             collection: string | null;
             gender: string | null;
             category: string | null;
             subCategory: string | null;
-            skuCode: string;
+            id: string;
+            sortOrder: number;
             productName: string;
+            skuCode: string;
             theme: string | null;
             color: string | null;
             composition: string | null;
             srp: import("src/generated/prisma/runtime/library").Decimal;
             imageUrl: string | null;
             totalValue: import("src/generated/prisma/runtime/library").Decimal;
-            unitCost: import("src/generated/prisma/runtime/library").Decimal;
+            skuId: string;
             orderQty: number;
             customerTarget: string | null;
             proposalId: string;
-            skuId: string;
+            unitCost: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     bulkAddProducts(id: string, dto: BulkAddProductsDto, req: any): Promise<{
@@ -346,12 +346,12 @@ export declare class ProposalController {
                 } & {
                     id: string;
                     comment: string | null;
+                    action: import("src/generated/prisma").$Enums.ApprovalAction;
                     entityType: string;
                     entityId: string;
                     level: number;
-                    action: import("src/generated/prisma").$Enums.ApprovalAction;
-                    decidedAt: Date;
                     deciderId: string;
+                    decidedAt: Date;
                 })[];
                 summary: {
                     byCollection: Record<string, {
@@ -365,38 +365,12 @@ export declare class ProposalController {
                         count: number;
                     }>;
                 };
-                products: {
-                    id: string;
-                    sortOrder: number;
-                    collection: string | null;
-                    gender: string | null;
-                    category: string | null;
-                    subCategory: string | null;
-                    skuCode: string;
-                    productName: string;
-                    theme: string | null;
-                    color: string | null;
-                    composition: string | null;
-                    srp: import("src/generated/prisma/runtime/library").Decimal;
-                    imageUrl: string | null;
-                    totalValue: import("src/generated/prisma/runtime/library").Decimal;
-                    unitCost: import("src/generated/prisma/runtime/library").Decimal;
-                    orderQty: number;
-                    customerTarget: string | null;
-                    proposalId: string;
-                    skuId: string;
-                }[];
-                createdBy: {
-                    id: string;
-                    name: string;
-                    email: string;
-                };
                 budget: {
                     groupBrand: {
                         id: string;
-                        code: string;
                         name: string;
                         isActive: boolean;
+                        code: string;
                         groupId: string;
                         colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                         sortOrder: number;
@@ -406,29 +380,29 @@ export declare class ProposalController {
                     createdAt: Date;
                     updatedAt: Date;
                     seasonGroupId: string;
-                    budgetCode: string;
+                    groupBrandId: string;
                     seasonType: string;
                     fiscalYear: number;
-                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
-                    groupBrandId: string;
+                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    budgetCode: string;
+                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
                 };
                 planningVersion: ({
                     budgetDetail: {
                         store: {
                             id: string;
-                            code: string;
                             name: string;
-                            region: string | null;
                             isActive: boolean;
+                            code: string;
+                            region: string | null;
                         };
                     } & {
                         id: string;
+                        storeId: string;
                         budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                         budgetId: string;
-                        storeId: string;
                     };
                 } & {
                     id: string;
@@ -437,12 +411,38 @@ export declare class ProposalController {
                     status: import("src/generated/prisma").$Enums.PlanningStatus;
                     createdById: string;
                     planningCode: string;
+                    budgetDetailId: string;
                     versionNumber: number;
                     versionName: string | null;
                     isFinal: boolean;
                     snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-                    budgetDetailId: string;
                 }) | null;
+                products: {
+                    collection: string | null;
+                    gender: string | null;
+                    category: string | null;
+                    subCategory: string | null;
+                    id: string;
+                    sortOrder: number;
+                    productName: string;
+                    skuCode: string;
+                    theme: string | null;
+                    color: string | null;
+                    composition: string | null;
+                    srp: import("src/generated/prisma/runtime/library").Decimal;
+                    imageUrl: string | null;
+                    totalValue: import("src/generated/prisma/runtime/library").Decimal;
+                    skuId: string;
+                    orderQty: number;
+                    customerTarget: string | null;
+                    proposalId: string;
+                    unitCost: import("src/generated/prisma/runtime/library").Decimal;
+                }[];
+                createdBy: {
+                    id: string;
+                    email: string;
+                    name: string;
+                };
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
@@ -460,25 +460,25 @@ export declare class ProposalController {
     updateProduct(id: string, productId: string, dto: UpdateProductDto, req: any): Promise<{
         success: boolean;
         data: {
-            id: string;
-            sortOrder: number;
             collection: string | null;
             gender: string | null;
             category: string | null;
             subCategory: string | null;
-            skuCode: string;
+            id: string;
+            sortOrder: number;
             productName: string;
+            skuCode: string;
             theme: string | null;
             color: string | null;
             composition: string | null;
             srp: import("src/generated/prisma/runtime/library").Decimal;
             imageUrl: string | null;
             totalValue: import("src/generated/prisma/runtime/library").Decimal;
-            unitCost: import("src/generated/prisma/runtime/library").Decimal;
+            skuId: string;
             orderQty: number;
             customerTarget: string | null;
             proposalId: string;
-            skuId: string;
+            unitCost: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     removeProduct(id: string, productId: string, req: any): Promise<{
@@ -490,15 +490,12 @@ export declare class ProposalController {
     submit(id: string, req: any): Promise<{
         success: boolean;
         data: {
-            _count: {
-                products: number;
-            };
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -508,14 +505,17 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
+            };
+            _count: {
+                products: number;
             };
         } & {
             id: string;
@@ -534,15 +534,12 @@ export declare class ProposalController {
     approveLevel1(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
         success: boolean;
         data: {
-            _count: {
-                products: number;
-            };
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -552,14 +549,17 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
+            };
+            _count: {
+                products: number;
             };
         } & {
             id: string;
@@ -578,15 +578,12 @@ export declare class ProposalController {
     approveLevel2(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
         success: boolean;
         data: {
-            _count: {
-                products: number;
-            };
             budget: {
                 groupBrand: {
                     id: string;
-                    code: string;
                     name: string;
                     isActive: boolean;
+                    code: string;
                     groupId: string;
                     colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                     sortOrder: number;
@@ -596,14 +593,17 @@ export declare class ProposalController {
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                status: import("src/generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("src/generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                 createdById: string;
+            };
+            _count: {
+                products: number;
             };
         } & {
             id: string;

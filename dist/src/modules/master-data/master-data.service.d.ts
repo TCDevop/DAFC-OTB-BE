@@ -5,19 +5,19 @@ export declare class MasterDataService {
     constructor(prisma: PrismaService);
     getBrands(): Promise<{
         id: string;
-        code: string;
         name: string;
         isActive: boolean;
+        code: string;
         groupId: string;
         colorConfig: Prisma.JsonValue | null;
         sortOrder: number;
     }[]>;
     getStores(): Promise<{
         id: string;
-        code: string;
         name: string;
-        region: string | null;
         isActive: boolean;
+        code: string;
+        region: string | null;
     }[]>;
     getCollections(): Promise<{
         id: string;
@@ -58,14 +58,14 @@ export declare class MasterDataService {
         data: {
             id: string;
             isActive: boolean;
-            skuCode: string;
-            productName: string;
             productType: string;
+            brandId: string | null;
+            productName: string;
+            skuCode: string;
             theme: string | null;
             color: string | null;
             composition: string | null;
             srp: Prisma.Decimal;
-            brandId: string | null;
             seasonGroupId: string | null;
             imageUrl: string | null;
         }[];

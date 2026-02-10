@@ -5,28 +5,20 @@ export declare class PlanningController {
     constructor(planningService: PlanningService);
     findAll(budgetDetailId?: string, budgetId?: string, status?: any, page?: number, pageSize?: number): Promise<{
         data: ({
-            _count: {
-                details: number;
-            };
-            createdBy: {
-                id: string;
-                name: string;
-                email: string;
-            };
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
                 budget: {
                     groupBrand: {
                         id: string;
-                        code: string;
                         name: string;
                         isActive: boolean;
+                        code: string;
                         groupId: string;
                         colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
                         sortOrder: number;
@@ -36,20 +28,28 @@ export declare class PlanningController {
                     createdAt: Date;
                     updatedAt: Date;
                     seasonGroupId: string;
-                    budgetCode: string;
+                    groupBrandId: string;
                     seasonType: string;
                     fiscalYear: number;
-                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
-                    groupBrandId: string;
+                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    budgetCode: string;
+                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                 budgetId: string;
-                storeId: string;
+            };
+            _count: {
+                details: number;
+            };
+            createdBy: {
+                id: string;
+                email: string;
+                name: string;
             };
         } & {
             id: string;
@@ -58,11 +58,11 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         })[];
         meta: {
             page: number;
@@ -83,17 +83,50 @@ export declare class PlanningController {
             } & {
                 id: string;
                 comment: string | null;
+                action: import("src/generated/prisma").$Enums.ApprovalAction;
                 entityType: string;
                 entityId: string;
                 level: number;
-                action: import("src/generated/prisma").$Enums.ApprovalAction;
-                decidedAt: Date;
                 deciderId: string;
+                decidedAt: Date;
             })[];
-            createdBy: {
+            budgetDetail: {
+                store: {
+                    id: string;
+                    name: string;
+                    isActive: boolean;
+                    code: string;
+                    region: string | null;
+                };
+                budget: {
+                    groupBrand: {
+                        id: string;
+                        name: string;
+                        isActive: boolean;
+                        code: string;
+                        groupId: string;
+                        colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                        sortOrder: number;
+                    };
+                } & {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    seasonGroupId: string;
+                    groupBrandId: string;
+                    seasonType: string;
+                    fiscalYear: number;
+                    comment: string | null;
+                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    budgetCode: string;
+                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
+                    createdById: string;
+                };
+            } & {
                 id: string;
-                name: string;
-                email: string;
+                storeId: string;
+                budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
+                budgetId: string;
             };
             details: ({
                 collection: {
@@ -123,54 +156,21 @@ export declare class PlanningController {
                 genderId: string | null;
                 categoryId: string | null;
                 dimensionType: string;
+                collectionId: string | null;
+                subCategoryId: string | null;
                 lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
                 lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
                 systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
                 userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-                otbValue: import("src/generated/prisma/runtime/library").Decimal;
-                variancePct: import("src/generated/prisma/runtime/library").Decimal;
                 userComment: string | null;
                 planningVersionId: string;
-                collectionId: string | null;
-                subCategoryId: string | null;
+                otbValue: import("src/generated/prisma/runtime/library").Decimal;
+                variancePct: import("src/generated/prisma/runtime/library").Decimal;
             })[];
-            budgetDetail: {
-                store: {
-                    id: string;
-                    code: string;
-                    name: string;
-                    region: string | null;
-                    isActive: boolean;
-                };
-                budget: {
-                    groupBrand: {
-                        id: string;
-                        code: string;
-                        name: string;
-                        isActive: boolean;
-                        groupId: string;
-                        colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
-                        sortOrder: number;
-                    };
-                } & {
-                    id: string;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    seasonGroupId: string;
-                    budgetCode: string;
-                    seasonType: string;
-                    fiscalYear: number;
-                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
-                    comment: string | null;
-                    groupBrandId: string;
-                    createdById: string;
-                };
-            } & {
+            createdBy: {
                 id: string;
-                budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
-                budgetId: string;
-                storeId: string;
+                email: string;
+                name: string;
             };
             id: string;
             createdAt: Date;
@@ -178,60 +178,60 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     create(dto: CreatePlanningDto, req: any): Promise<{
         success: boolean;
         data: {
-            details: {
-                id: string;
-                genderId: string | null;
-                categoryId: string | null;
-                dimensionType: string;
-                lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
-                lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
-                systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-                userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-                otbValue: import("src/generated/prisma/runtime/library").Decimal;
-                variancePct: import("src/generated/prisma/runtime/library").Decimal;
-                userComment: string | null;
-                planningVersionId: string;
-                collectionId: string | null;
-                subCategoryId: string | null;
-            }[];
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
                 budget: {
                     id: string;
                     createdAt: Date;
                     updatedAt: Date;
                     seasonGroupId: string;
-                    budgetCode: string;
+                    groupBrandId: string;
                     seasonType: string;
                     fiscalYear: number;
-                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
-                    groupBrandId: string;
+                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    budgetCode: string;
+                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                 budgetId: string;
-                storeId: string;
             };
+            details: {
+                id: string;
+                genderId: string | null;
+                categoryId: string | null;
+                dimensionType: string;
+                collectionId: string | null;
+                subCategoryId: string | null;
+                lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
+                lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
+                systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
+                userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
+                userComment: string | null;
+                planningVersionId: string;
+                otbValue: import("src/generated/prisma/runtime/library").Decimal;
+                variancePct: import("src/generated/prisma/runtime/library").Decimal;
+            }[];
         } & {
             id: string;
             createdAt: Date;
@@ -239,46 +239,46 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     createFromVersion(id: string, req: any): Promise<{
         success: boolean;
         data: {
+            budgetDetail: {
+                store: {
+                    id: string;
+                    name: string;
+                    isActive: boolean;
+                    code: string;
+                    region: string | null;
+                };
+            } & {
+                id: string;
+                storeId: string;
+                budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
+                budgetId: string;
+            };
             details: {
                 id: string;
                 genderId: string | null;
                 categoryId: string | null;
                 dimensionType: string;
+                collectionId: string | null;
+                subCategoryId: string | null;
                 lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
                 lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
                 systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
                 userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-                otbValue: import("src/generated/prisma/runtime/library").Decimal;
-                variancePct: import("src/generated/prisma/runtime/library").Decimal;
                 userComment: string | null;
                 planningVersionId: string;
-                collectionId: string | null;
-                subCategoryId: string | null;
+                otbValue: import("src/generated/prisma/runtime/library").Decimal;
+                variancePct: import("src/generated/prisma/runtime/library").Decimal;
             }[];
-            budgetDetail: {
-                store: {
-                    id: string;
-                    code: string;
-                    name: string;
-                    region: string | null;
-                    isActive: boolean;
-                };
-            } & {
-                id: string;
-                budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
-                budgetId: string;
-                storeId: string;
-            };
         } & {
             id: string;
             createdAt: Date;
@@ -286,60 +286,60 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     update(id: string, dto: UpdatePlanningDto, req: any): Promise<{
         success: boolean;
         data: {
-            details: {
-                id: string;
-                genderId: string | null;
-                categoryId: string | null;
-                dimensionType: string;
-                lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
-                lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
-                systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-                userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-                otbValue: import("src/generated/prisma/runtime/library").Decimal;
-                variancePct: import("src/generated/prisma/runtime/library").Decimal;
-                userComment: string | null;
-                planningVersionId: string;
-                collectionId: string | null;
-                subCategoryId: string | null;
-            }[];
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
                 budget: {
                     id: string;
                     createdAt: Date;
                     updatedAt: Date;
                     seasonGroupId: string;
-                    budgetCode: string;
+                    groupBrandId: string;
                     seasonType: string;
                     fiscalYear: number;
-                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
-                    groupBrandId: string;
+                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    budgetCode: string;
+                    totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                 budgetId: string;
-                storeId: string;
             };
+            details: {
+                id: string;
+                genderId: string | null;
+                categoryId: string | null;
+                dimensionType: string;
+                collectionId: string | null;
+                subCategoryId: string | null;
+                lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
+                lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
+                systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
+                userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
+                userComment: string | null;
+                planningVersionId: string;
+                otbValue: import("src/generated/prisma/runtime/library").Decimal;
+                variancePct: import("src/generated/prisma/runtime/library").Decimal;
+            }[];
         } & {
             id: string;
             createdAt: Date;
@@ -347,11 +347,11 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     updateDetail(id: string, detailId: string, dto: UpdateDetailDto, req: any): Promise<{
@@ -361,16 +361,16 @@ export declare class PlanningController {
             genderId: string | null;
             categoryId: string | null;
             dimensionType: string;
+            collectionId: string | null;
+            subCategoryId: string | null;
             lastSeasonSales: import("src/generated/prisma/runtime/library").Decimal;
             lastSeasonPct: import("src/generated/prisma/runtime/library").Decimal;
             systemBuyPct: import("src/generated/prisma/runtime/library").Decimal;
             userBuyPct: import("src/generated/prisma/runtime/library").Decimal;
-            otbValue: import("src/generated/prisma/runtime/library").Decimal;
-            variancePct: import("src/generated/prisma/runtime/library").Decimal;
             userComment: string | null;
             planningVersionId: string;
-            collectionId: string | null;
-            subCategoryId: string | null;
+            otbValue: import("src/generated/prisma/runtime/library").Decimal;
+            variancePct: import("src/generated/prisma/runtime/library").Decimal;
         };
     }>;
     submit(id: string, req: any): Promise<{
@@ -382,11 +382,11 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     approveLevel1(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
@@ -395,16 +395,16 @@ export declare class PlanningController {
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                 budgetId: string;
-                storeId: string;
             };
         } & {
             id: string;
@@ -413,11 +413,11 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     approveLevel2(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
@@ -426,16 +426,16 @@ export declare class PlanningController {
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                 budgetId: string;
-                storeId: string;
             };
         } & {
             id: string;
@@ -444,11 +444,11 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     markAsFinal(id: string, req: any): Promise<{
@@ -457,16 +457,16 @@ export declare class PlanningController {
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: import("src/generated/prisma/runtime/library").Decimal;
                 budgetId: string;
-                storeId: string;
             };
         } & {
             id: string;
@@ -475,11 +475,11 @@ export declare class PlanningController {
             status: import("src/generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
-            budgetDetailId: string;
         };
     }>;
     remove(id: string): Promise<{

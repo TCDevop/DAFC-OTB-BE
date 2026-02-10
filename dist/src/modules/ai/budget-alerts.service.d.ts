@@ -26,13 +26,13 @@ export declare class BudgetAlertsService {
             budgetCode: string;
         };
     } & {
-        id: string;
         category: string | null;
+        id: string;
         createdAt: Date;
+        title: string;
         budgetId: string;
         alertType: string;
         severity: string;
-        title: string;
         message: string;
         metricValue: import("src/generated/prisma/runtime/library").Decimal;
         threshold: import("src/generated/prisma/runtime/library").Decimal;
@@ -40,13 +40,13 @@ export declare class BudgetAlertsService {
         isDismissed: boolean;
     })[]>;
     markAsRead(alertId: string): Promise<{
-        id: string;
         category: string | null;
+        id: string;
         createdAt: Date;
+        title: string;
         budgetId: string;
         alertType: string;
         severity: string;
-        title: string;
         message: string;
         metricValue: import("src/generated/prisma/runtime/library").Decimal;
         threshold: import("src/generated/prisma/runtime/library").Decimal;
@@ -54,13 +54,13 @@ export declare class BudgetAlertsService {
         isDismissed: boolean;
     }>;
     dismissAlert(alertId: string): Promise<{
-        id: string;
         category: string | null;
+        id: string;
         createdAt: Date;
+        title: string;
         budgetId: string;
         alertType: string;
         severity: string;
-        title: string;
         message: string;
         metricValue: import("src/generated/prisma/runtime/library").Decimal;
         threshold: import("src/generated/prisma/runtime/library").Decimal;

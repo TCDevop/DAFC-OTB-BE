@@ -56,24 +56,24 @@ export declare class SkuRecommenderService {
         sku: {
             id: string;
             isActive: boolean;
-            skuCode: string;
-            productName: string;
             productType: string;
+            brandId: string | null;
+            productName: string;
+            skuCode: string;
             theme: string | null;
             color: string | null;
             composition: string | null;
             srp: import("src/generated/prisma/runtime/library").Decimal;
-            brandId: string | null;
             seasonGroupId: string | null;
             imageUrl: string | null;
         };
     } & {
-        id: string;
         category: string;
         subCategory: string | null;
+        id: string;
         createdAt: Date;
-        skuCode: string;
         productName: string;
+        skuCode: string;
         budgetDetailId: string;
         skuId: string;
         confidence: import("src/generated/prisma/runtime/library").Decimal;
@@ -90,12 +90,12 @@ export declare class SkuRecommenderService {
         isRejected: boolean;
     })[]>;
     updateRecommendationStatus(recommendationId: string, status: 'selected' | 'rejected'): Promise<{
-        id: string;
         category: string;
         subCategory: string | null;
+        id: string;
         createdAt: Date;
-        skuCode: string;
         productName: string;
+        skuCode: string;
         budgetDetailId: string;
         skuId: string;
         confidence: import("src/generated/prisma/runtime/library").Decimal;

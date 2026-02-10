@@ -29,13 +29,13 @@ export declare class AiController {
                 budgetCode: string;
             };
         } & {
-            id: string;
             category: string | null;
+            id: string;
             createdAt: Date;
+            title: string;
             budgetId: string;
             alertType: string;
             severity: string;
-            title: string;
             message: string;
             metricValue: import("src/generated/prisma/runtime/library").Decimal;
             threshold: import("src/generated/prisma/runtime/library").Decimal;
@@ -45,13 +45,13 @@ export declare class AiController {
     }>;
     markAlertRead(id: string): Promise<{
         data: {
-            id: string;
             category: string | null;
+            id: string;
             createdAt: Date;
+            title: string;
             budgetId: string;
             alertType: string;
             severity: string;
-            title: string;
             message: string;
             metricValue: import("src/generated/prisma/runtime/library").Decimal;
             threshold: import("src/generated/prisma/runtime/library").Decimal;
@@ -61,13 +61,13 @@ export declare class AiController {
     }>;
     dismissAlert(id: string): Promise<{
         data: {
-            id: string;
             category: string | null;
+            id: string;
             createdAt: Date;
+            title: string;
             budgetId: string;
             alertType: string;
             severity: string;
-            title: string;
             message: string;
             metricValue: import("src/generated/prisma/runtime/library").Decimal;
             threshold: import("src/generated/prisma/runtime/library").Decimal;
@@ -189,24 +189,24 @@ export declare class AiController {
             sku: {
                 id: string;
                 isActive: boolean;
-                skuCode: string;
-                productName: string;
                 productType: string;
+                brandId: string | null;
+                productName: string;
+                skuCode: string;
                 theme: string | null;
                 color: string | null;
                 composition: string | null;
                 srp: import("src/generated/prisma/runtime/library").Decimal;
-                brandId: string | null;
                 seasonGroupId: string | null;
                 imageUrl: string | null;
             };
         } & {
-            id: string;
             category: string;
             subCategory: string | null;
+            id: string;
             createdAt: Date;
-            skuCode: string;
             productName: string;
+            skuCode: string;
             budgetDetailId: string;
             skuId: string;
             confidence: import("src/generated/prisma/runtime/library").Decimal;
@@ -226,12 +226,12 @@ export declare class AiController {
     updateRecommendationStatus(recommendationId: string, status: 'selected' | 'rejected'): Promise<{
         success: boolean;
         data: {
-            id: string;
             category: string;
             subCategory: string | null;
+            id: string;
             createdAt: Date;
-            skuCode: string;
             productName: string;
+            skuCode: string;
             budgetDetailId: string;
             skuId: string;
             confidence: import("src/generated/prisma/runtime/library").Decimal;

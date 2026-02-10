@@ -5,21 +5,21 @@ export declare class ApprovalWorkflowService {
     findAll(brandId?: string): Promise<({
         user: {
             id: string;
-            name: string;
             email: string;
+            name: string;
         } | null;
         brand: {
             id: string;
-            code: string;
             name: string;
+            code: string;
         };
     } & {
         id: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        brandId: string;
         description: string | null;
+        brandId: string;
         stepNumber: number;
         roleName: string;
         roleCode: string | null;
@@ -28,8 +28,8 @@ export declare class ApprovalWorkflowService {
     findByBrand(brandId: string): Promise<({
         user: {
             id: string;
-            name: string;
             email: string;
+            name: string;
         } | null;
         brand: {
             id: string;
@@ -40,8 +40,8 @@ export declare class ApprovalWorkflowService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        brandId: string;
         description: string | null;
+        brandId: string;
         stepNumber: number;
         roleName: string;
         roleCode: string | null;
@@ -68,8 +68,8 @@ export declare class ApprovalWorkflowService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        brandId: string;
         description: string | null;
+        brandId: string;
         stepNumber: number;
         roleName: string;
         roleCode: string | null;
@@ -95,8 +95,8 @@ export declare class ApprovalWorkflowService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        brandId: string;
         description: string | null;
+        brandId: string;
         stepNumber: number;
         roleName: string;
         roleCode: string | null;
@@ -107,8 +107,8 @@ export declare class ApprovalWorkflowService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        brandId: string;
         description: string | null;
+        brandId: string;
         stepNumber: number;
         roleName: string;
         roleCode: string | null;
@@ -117,8 +117,8 @@ export declare class ApprovalWorkflowService {
     reorderSteps(brandId: string, stepIds: string[]): Promise<({
         user: {
             id: string;
-            name: string;
             email: string;
+            name: string;
         } | null;
         brand: {
             id: string;
@@ -129,8 +129,8 @@ export declare class ApprovalWorkflowService {
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
-        brandId: string;
         description: string | null;
+        brandId: string;
         stepNumber: number;
         roleName: string;
         roleCode: string | null;

@@ -13,28 +13,20 @@ export declare class PlanningService {
     constructor(prisma: PrismaService);
     findAll(filters: PlanningFilters): Promise<{
         data: ({
-            _count: {
-                details: number;
-            };
-            createdBy: {
-                id: string;
-                name: string;
-                email: string;
-            };
             budgetDetail: {
                 store: {
                     id: string;
-                    code: string;
                     name: string;
-                    region: string | null;
                     isActive: boolean;
+                    code: string;
+                    region: string | null;
                 };
                 budget: {
                     groupBrand: {
                         id: string;
-                        code: string;
                         name: string;
                         isActive: boolean;
+                        code: string;
                         groupId: string;
                         colorConfig: Prisma.JsonValue | null;
                         sortOrder: number;
@@ -44,20 +36,28 @@ export declare class PlanningService {
                     createdAt: Date;
                     updatedAt: Date;
                     seasonGroupId: string;
-                    budgetCode: string;
+                    groupBrandId: string;
                     seasonType: string;
                     fiscalYear: number;
-                    totalBudget: Prisma.Decimal;
-                    status: import("../../generated/prisma").$Enums.BudgetStatus;
                     comment: string | null;
-                    groupBrandId: string;
+                    status: import("../../generated/prisma").$Enums.BudgetStatus;
+                    budgetCode: string;
+                    totalBudget: Prisma.Decimal;
                     createdById: string;
                 };
             } & {
                 id: string;
+                storeId: string;
                 budgetAmount: Prisma.Decimal;
                 budgetId: string;
-                storeId: string;
+            };
+            _count: {
+                details: number;
+            };
+            createdBy: {
+                id: string;
+                email: string;
+                name: string;
             };
         } & {
             id: string;
@@ -66,11 +66,11 @@ export declare class PlanningService {
             status: import("../../generated/prisma").$Enums.PlanningStatus;
             createdById: string;
             planningCode: string;
+            budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
             snapshotData: Prisma.JsonValue | null;
-            budgetDetailId: string;
         })[];
         meta: {
             page: number;
@@ -88,17 +88,50 @@ export declare class PlanningService {
         } & {
             id: string;
             comment: string | null;
+            action: import("../../generated/prisma").$Enums.ApprovalAction;
             entityType: string;
             entityId: string;
             level: number;
-            action: import("../../generated/prisma").$Enums.ApprovalAction;
-            decidedAt: Date;
             deciderId: string;
+            decidedAt: Date;
         })[];
-        createdBy: {
+        budgetDetail: {
+            store: {
+                id: string;
+                name: string;
+                isActive: boolean;
+                code: string;
+                region: string | null;
+            };
+            budget: {
+                groupBrand: {
+                    id: string;
+                    name: string;
+                    isActive: boolean;
+                    code: string;
+                    groupId: string;
+                    colorConfig: Prisma.JsonValue | null;
+                    sortOrder: number;
+                };
+            } & {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                seasonGroupId: string;
+                groupBrandId: string;
+                seasonType: string;
+                fiscalYear: number;
+                comment: string | null;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: Prisma.Decimal;
+                createdById: string;
+            };
+        } & {
             id: string;
-            name: string;
-            email: string;
+            storeId: string;
+            budgetAmount: Prisma.Decimal;
+            budgetId: string;
         };
         details: ({
             collection: {
@@ -128,54 +161,21 @@ export declare class PlanningService {
             genderId: string | null;
             categoryId: string | null;
             dimensionType: string;
+            collectionId: string | null;
+            subCategoryId: string | null;
             lastSeasonSales: Prisma.Decimal;
             lastSeasonPct: Prisma.Decimal;
             systemBuyPct: Prisma.Decimal;
             userBuyPct: Prisma.Decimal;
-            otbValue: Prisma.Decimal;
-            variancePct: Prisma.Decimal;
             userComment: string | null;
             planningVersionId: string;
-            collectionId: string | null;
-            subCategoryId: string | null;
+            otbValue: Prisma.Decimal;
+            variancePct: Prisma.Decimal;
         })[];
-        budgetDetail: {
-            store: {
-                id: string;
-                code: string;
-                name: string;
-                region: string | null;
-                isActive: boolean;
-            };
-            budget: {
-                groupBrand: {
-                    id: string;
-                    code: string;
-                    name: string;
-                    isActive: boolean;
-                    groupId: string;
-                    colorConfig: Prisma.JsonValue | null;
-                    sortOrder: number;
-                };
-            } & {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                seasonGroupId: string;
-                budgetCode: string;
-                seasonType: string;
-                fiscalYear: number;
-                totalBudget: Prisma.Decimal;
-                status: import("../../generated/prisma").$Enums.BudgetStatus;
-                comment: string | null;
-                groupBrandId: string;
-                createdById: string;
-            };
-        } & {
+        createdBy: {
             id: string;
-            budgetAmount: Prisma.Decimal;
-            budgetId: string;
-            storeId: string;
+            email: string;
+            name: string;
         };
         id: string;
         createdAt: Date;
@@ -183,57 +183,57 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     create(dto: CreatePlanningDto, userId: string): Promise<{
-        details: {
-            id: string;
-            genderId: string | null;
-            categoryId: string | null;
-            dimensionType: string;
-            lastSeasonSales: Prisma.Decimal;
-            lastSeasonPct: Prisma.Decimal;
-            systemBuyPct: Prisma.Decimal;
-            userBuyPct: Prisma.Decimal;
-            otbValue: Prisma.Decimal;
-            variancePct: Prisma.Decimal;
-            userComment: string | null;
-            planningVersionId: string;
-            collectionId: string | null;
-            subCategoryId: string | null;
-        }[];
         budgetDetail: {
             store: {
                 id: string;
-                code: string;
                 name: string;
-                region: string | null;
                 isActive: boolean;
+                code: string;
+                region: string | null;
             };
             budget: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: Prisma.Decimal;
-                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: Prisma.Decimal;
                 createdById: string;
             };
         } & {
             id: string;
+            storeId: string;
             budgetAmount: Prisma.Decimal;
             budgetId: string;
-            storeId: string;
         };
+        details: {
+            id: string;
+            genderId: string | null;
+            categoryId: string | null;
+            dimensionType: string;
+            collectionId: string | null;
+            subCategoryId: string | null;
+            lastSeasonSales: Prisma.Decimal;
+            lastSeasonPct: Prisma.Decimal;
+            systemBuyPct: Prisma.Decimal;
+            userBuyPct: Prisma.Decimal;
+            userComment: string | null;
+            planningVersionId: string;
+            otbValue: Prisma.Decimal;
+            variancePct: Prisma.Decimal;
+        }[];
     } & {
         id: string;
         createdAt: Date;
@@ -241,57 +241,57 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     update(id: string, dto: UpdatePlanningDto, userId: string): Promise<{
-        details: {
-            id: string;
-            genderId: string | null;
-            categoryId: string | null;
-            dimensionType: string;
-            lastSeasonSales: Prisma.Decimal;
-            lastSeasonPct: Prisma.Decimal;
-            systemBuyPct: Prisma.Decimal;
-            userBuyPct: Prisma.Decimal;
-            otbValue: Prisma.Decimal;
-            variancePct: Prisma.Decimal;
-            userComment: string | null;
-            planningVersionId: string;
-            collectionId: string | null;
-            subCategoryId: string | null;
-        }[];
         budgetDetail: {
             store: {
                 id: string;
-                code: string;
                 name: string;
-                region: string | null;
                 isActive: boolean;
+                code: string;
+                region: string | null;
             };
             budget: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 seasonGroupId: string;
-                budgetCode: string;
+                groupBrandId: string;
                 seasonType: string;
                 fiscalYear: number;
-                totalBudget: Prisma.Decimal;
-                status: import("../../generated/prisma").$Enums.BudgetStatus;
                 comment: string | null;
-                groupBrandId: string;
+                status: import("../../generated/prisma").$Enums.BudgetStatus;
+                budgetCode: string;
+                totalBudget: Prisma.Decimal;
                 createdById: string;
             };
         } & {
             id: string;
+            storeId: string;
             budgetAmount: Prisma.Decimal;
             budgetId: string;
-            storeId: string;
         };
+        details: {
+            id: string;
+            genderId: string | null;
+            categoryId: string | null;
+            dimensionType: string;
+            collectionId: string | null;
+            subCategoryId: string | null;
+            lastSeasonSales: Prisma.Decimal;
+            lastSeasonPct: Prisma.Decimal;
+            systemBuyPct: Prisma.Decimal;
+            userBuyPct: Prisma.Decimal;
+            userComment: string | null;
+            planningVersionId: string;
+            otbValue: Prisma.Decimal;
+            variancePct: Prisma.Decimal;
+        }[];
     } & {
         id: string;
         createdAt: Date;
@@ -299,27 +299,27 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     updateDetail(planningId: string, detailId: string, dto: UpdateDetailDto, userId: string): Promise<{
         id: string;
         genderId: string | null;
         categoryId: string | null;
         dimensionType: string;
+        collectionId: string | null;
+        subCategoryId: string | null;
         lastSeasonSales: Prisma.Decimal;
         lastSeasonPct: Prisma.Decimal;
         systemBuyPct: Prisma.Decimal;
         userBuyPct: Prisma.Decimal;
-        otbValue: Prisma.Decimal;
-        variancePct: Prisma.Decimal;
         userComment: string | null;
         planningVersionId: string;
-        collectionId: string | null;
-        subCategoryId: string | null;
+        otbValue: Prisma.Decimal;
+        variancePct: Prisma.Decimal;
     }>;
     submit(id: string, userId: string): Promise<{
         id: string;
@@ -328,26 +328,26 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     approveLevel1(id: string, dto: ApprovalDecisionDto, userId: string): Promise<{
         budgetDetail: {
             store: {
                 id: string;
-                code: string;
                 name: string;
-                region: string | null;
                 isActive: boolean;
+                code: string;
+                region: string | null;
             };
         } & {
             id: string;
+            storeId: string;
             budgetAmount: Prisma.Decimal;
             budgetId: string;
-            storeId: string;
         };
     } & {
         id: string;
@@ -356,26 +356,26 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     approveLevel2(id: string, dto: ApprovalDecisionDto, userId: string): Promise<{
         budgetDetail: {
             store: {
                 id: string;
-                code: string;
                 name: string;
-                region: string | null;
                 isActive: boolean;
+                code: string;
+                region: string | null;
             };
         } & {
             id: string;
+            storeId: string;
             budgetAmount: Prisma.Decimal;
             budgetId: string;
-            storeId: string;
         };
     } & {
         id: string;
@@ -384,26 +384,26 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     markAsFinal(id: string, userId: string): Promise<{
         budgetDetail: {
             store: {
                 id: string;
-                code: string;
                 name: string;
-                region: string | null;
                 isActive: boolean;
+                code: string;
+                region: string | null;
             };
         } & {
             id: string;
+            storeId: string;
             budgetAmount: Prisma.Decimal;
             budgetId: string;
-            storeId: string;
         };
     } & {
         id: string;
@@ -412,43 +412,43 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     createFromVersion(sourceId: string, userId: string): Promise<{
+        budgetDetail: {
+            store: {
+                id: string;
+                name: string;
+                isActive: boolean;
+                code: string;
+                region: string | null;
+            };
+        } & {
+            id: string;
+            storeId: string;
+            budgetAmount: Prisma.Decimal;
+            budgetId: string;
+        };
         details: {
             id: string;
             genderId: string | null;
             categoryId: string | null;
             dimensionType: string;
+            collectionId: string | null;
+            subCategoryId: string | null;
             lastSeasonSales: Prisma.Decimal;
             lastSeasonPct: Prisma.Decimal;
             systemBuyPct: Prisma.Decimal;
             userBuyPct: Prisma.Decimal;
-            otbValue: Prisma.Decimal;
-            variancePct: Prisma.Decimal;
             userComment: string | null;
             planningVersionId: string;
-            collectionId: string | null;
-            subCategoryId: string | null;
+            otbValue: Prisma.Decimal;
+            variancePct: Prisma.Decimal;
         }[];
-        budgetDetail: {
-            store: {
-                id: string;
-                code: string;
-                name: string;
-                region: string | null;
-                isActive: boolean;
-            };
-        } & {
-            id: string;
-            budgetAmount: Prisma.Decimal;
-            budgetId: string;
-            storeId: string;
-        };
     } & {
         id: string;
         createdAt: Date;
@@ -456,11 +456,11 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -469,11 +469,11 @@ export declare class PlanningService {
         status: import("../../generated/prisma").$Enums.PlanningStatus;
         createdById: string;
         planningCode: string;
+        budgetDetailId: string;
         versionNumber: number;
         versionName: string | null;
         isFinal: boolean;
         snapshotData: Prisma.JsonValue | null;
-        budgetDetailId: string;
     }>;
 }
 export {};
