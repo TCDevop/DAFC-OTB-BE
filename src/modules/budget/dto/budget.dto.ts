@@ -1,80 +1,102 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNumber, IsArray, IsOptional, ValidateNested, Min, IsNotEmpty } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNumber, IsNotEmpty, IsArray, ValidateNested, IsOptional, IsEnum, Min } from 'class-validator';
 import { Type } from 'class-transformer';
+import { BudgetStatus, ApprovalAction } from '../../../common/enums';
 
-// ─── Store Detail DTO ─────────────────────────────────────────────────────────
+// ─── BUDGET ALLOCATE ─────────────────────────────────────────────────────────
 
-export class BudgetDetailDto {
-  @ApiProperty({ example: 'store_id_123' })
+export class BudgetAllocateDto {
+  @ApiProperty({ example: 'store-uuid' })
   @IsString()
   @IsNotEmpty()
   storeId: string;
 
-  @ApiProperty({ example: 5000000000, description: 'Budget amount in VND' })
+  @ApiProperty({ example: 'season-group-uuid' })
+  @IsString()
+  @IsNotEmpty()
+  seasonGroupId: string;
+
+  @ApiProperty({ example: 'season-uuid' })
+  @IsString()
+  @IsNotEmpty()
+  seasonId: string;
+
+  @ApiProperty({ example: 1000000000 })
   @IsNumber()
   @Min(0)
   budgetAmount: number;
 }
 
-// ─── Create Budget DTO ────────────────────────────────────────────────────────
+// ─── CREATE ──────────────────────────────────────────────────────────────────
 
 export class CreateBudgetDto {
-  @ApiProperty({ example: 'brand_id_fer', description: 'Group Brand ID' })
+  @ApiProperty({ example: 'Budget FER SS 2026' })
   @IsString()
   @IsNotEmpty()
-  groupBrandId: string;
+  budgetName: string;
 
-  @ApiProperty({ example: 'SS', enum: ['SS', 'FW'], description: 'Season Group' })
+  @ApiProperty({ example: 'brand-uuid' })
   @IsString()
   @IsNotEmpty()
-  seasonGroupId: string;
+  brandId: string;
 
-  @ApiProperty({ example: 'pre', enum: ['pre', 'main'], description: 'Season Type' })
-  @IsString()
-  @IsNotEmpty()
-  seasonType: string;
-
-  @ApiProperty({ example: 2025 })
+  @ApiProperty({ example: 2026 })
   @IsNumber()
+  @Min(2020)
   fiscalYear: number;
 
-  @ApiPropertyOptional({ example: 'Q1 budget for Ferragamo' })
+  @ApiProperty({ example: 5000000000 })
+  @IsNumber()
+  @Min(0)
+  budgetAmount: number;
+
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   comment?: string;
 
-  @ApiProperty({ type: [BudgetDetailDto], description: 'Store allocations' })
+  @ApiProperty({ type: [BudgetAllocateDto] })
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => BudgetDetailDto)
-  details: BudgetDetailDto[];
+  @Type(() => BudgetAllocateDto)
+  allocations: BudgetAllocateDto[];
 }
 
-// ─── Update Budget DTO ────────────────────────────────────────────────────────
+// ─── UPDATE ──────────────────────────────────────────────────────────────────
 
 export class UpdateBudgetDto {
-  @ApiPropertyOptional({ example: 'Updated comment' })
+  @ApiProperty({ required: false })
+  @IsString()
+  @IsOptional()
+  budgetName?: string;
+
+  @ApiProperty({ required: false })
+  @IsNumber()
+  @IsOptional()
+  budgetAmount?: number;
+
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   comment?: string;
 
-  @ApiPropertyOptional({ type: [BudgetDetailDto] })
+  @ApiProperty({ type: [BudgetAllocateDto], required: false })
   @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => BudgetDetailDto)
   @IsOptional()
-  details?: BudgetDetailDto[];
+  @ValidateNested({ each: true })
+  @Type(() => BudgetAllocateDto)
+  allocations?: BudgetAllocateDto[];
 }
 
-// ─── Approval DTO ─────────────────────────────────────────────────────────────
+// ─── APPROVE ─────────────────────────────────────────────────────────────────
 
 export class ApprovalDecisionDto {
-  @ApiProperty({ enum: ['APPROVED', 'REJECTED'] })
-  @IsString()
+  @ApiProperty({ enum: ApprovalAction, example: 'APPROVED' })
+  @IsEnum(ApprovalAction)
   @IsNotEmpty()
-  action: 'APPROVED' | 'REJECTED';
+  action: string; // 'APPROVED' | 'REJECTED'
 
-  @ApiPropertyOptional({ example: 'Approved with minor adjustments' })
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   comment?: string;

@@ -8,11 +8,11 @@ export class AuthService {
   constructor(
     private prisma: PrismaService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async login(email: string, password: string) {
     const user = await this.prisma.user.findUnique({
-      where: { email },
+      where: { userEmail: email },
       include: { role: true },
     });
 
@@ -26,9 +26,9 @@ export class AuthService {
     }
 
     const payload = {
-      sub: user.id,
-      email: user.email,
-      role: user.role.name,
+      sub: user.userId,
+      email: user.userEmail,
+      role: user.role.roleName,
       permissions: user.role.permissions,
     };
 
@@ -36,10 +36,10 @@ export class AuthService {
       accessToken: this.jwtService.sign(payload),
       refreshToken: this.jwtService.sign(payload, { expiresIn: '7d' }),
       user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        role: user.role.name,
+        id: user.userId,
+        email: user.userEmail,
+        name: user.userName,
+        role: user.role.roleName,
         permissions: user.role.permissions,
         storeAccess: user.storeAccess,
         brandAccess: user.brandAccess,
@@ -51,7 +51,7 @@ export class AuthService {
     try {
       const decoded = this.jwtService.verify(refreshToken);
       const user = await this.prisma.user.findUnique({
-        where: { id: decoded.sub },
+        where: { userId: decoded.sub },
         include: { role: true },
       });
 
@@ -60,9 +60,9 @@ export class AuthService {
       }
 
       const payload = {
-        sub: user.id,
-        email: user.email,
-        role: user.role.name,
+        sub: user.userId,
+        email: user.userEmail,
+        role: user.role.roleName,
         permissions: user.role.permissions,
       };
 
@@ -76,17 +76,17 @@ export class AuthService {
 
   async getProfile(userId: string) {
     const user = await this.prisma.user.findUnique({
-      where: { id: userId },
+      where: { userId },
       include: { role: true },
     });
 
     if (!user) throw new UnauthorizedException('User not found');
 
     return {
-      id: user.id,
-      email: user.email,
-      name: user.name,
-      role: user.role.name,
+      id: user.userId,
+      email: user.userEmail,
+      name: user.userName,
+      role: user.role.roleName,
       permissions: user.role.permissions,
       storeAccess: user.storeAccess,
       brandAccess: user.brandAccess,

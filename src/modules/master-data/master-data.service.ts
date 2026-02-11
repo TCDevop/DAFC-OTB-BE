@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '../../generated/prisma';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../../prisma/prisma.service';
 
 @Injectable()
 export class MasterDataService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
+
+  async getGroupBrands() {
+    return this.prisma.groupBrand.findMany({
+      where: { isActive: true },
+    });
+  }
 
   async getBrands() {
     return this.prisma.groupBrand.findMany({
       where: { isActive: true },
-      orderBy: { sortOrder: 'asc' },
+      // orderBy: { sortOrder: 'asc' }, // sortOrder removed in new schema or not present? Checked seed-rich, it didn't set sortOrder.
     });
   }
 
@@ -57,8 +63,14 @@ export class MasterDataService {
     const page = filters?.page || 1;
     const pageSize = filters?.pageSize || 50;
 
-    const where: Prisma.SkuCatalogWhereInput = { isActive: true };
-    if (filters?.productType) where.productType = filters.productType;
+    const where: Prisma.ProductWhereInput = { isActive: true };
+    // if (filters?.productType) where.productType = filters.productType; // Product type logic changed to subCategory.
+    // We might need to join/filter by subCategory name if 'productType' is passed as string
+    if (filters?.productType) {
+      where.subCategory = {
+        subCategoryName: { contains: filters.productType }
+      };
+    }
     if (filters?.brandId) where.brandId = filters.brandId;
     if (filters?.search) {
       where.OR = [
@@ -68,13 +80,19 @@ export class MasterDataService {
     }
 
     const [data, total] = await Promise.all([
-      this.prisma.skuCatalog.findMany({
+      this.prisma.product.findMany({
         where,
         skip: (Number(page) - 1) * Number(pageSize),
         take: Number(pageSize),
         orderBy: { skuCode: 'asc' },
+        include: {
+          brand: true,
+          subCategory: {
+            include: { category: { include: { gender: true } } }
+          }
+        }
       }),
-      this.prisma.skuCatalog.count({ where }),
+      this.prisma.product.count({ where }),
     ]);
 
     return {

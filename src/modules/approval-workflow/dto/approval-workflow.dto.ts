@@ -1,67 +1,62 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNumber, IsOptional, IsNotEmpty, IsArray } from 'class-validator';
+import { IsString, IsNumber, IsOptional, IsNotEmpty, IsArray, IsBoolean } from 'class-validator';
+import { Type } from 'class-transformer';
+import { ValidateNested } from 'class-validator';
 
-export class CreateWorkflowStepDto {
+// ─── WORKFLOW LEVEL ──────────────────────────────────────────────────────────
+
+export class WorkflowLevelDto {
+  @ApiProperty()
+  @IsNumber()
+  levelOrder: number;
+
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  brandId: string;
-
-  @ApiProperty()
-  @IsNumber()
-  stepNumber: number;
+  levelName: string;
 
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  roleName: string;
+  approverUserId: string;
 
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  roleCode?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  userId?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  description?: string;
+  @ApiProperty()
+  @IsBoolean()
+  isRequired: boolean;
 }
 
-export class UpdateWorkflowStepDto {
-  @ApiPropertyOptional()
-  @IsNumber()
-  @IsOptional()
-  stepNumber?: number;
+// ─── CREATE WORKFLOW ─────────────────────────────────────────────────────────
 
-  @ApiPropertyOptional()
+export class CreateApprovalWorkflowDto {
+  @ApiProperty()
   @IsString()
-  @IsOptional()
-  roleName?: string;
+  @IsNotEmpty()
+  groupBrandId: string;
 
-  @ApiPropertyOptional()
+  @ApiProperty()
   @IsString()
-  @IsOptional()
-  roleCode?: string;
+  @IsNotEmpty()
+  workflowName: string;
 
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  userId?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  description?: string;
-}
-
-export class ReorderStepsDto {
-  @ApiProperty({ type: [String] })
+  @ApiProperty({ type: [WorkflowLevelDto] })
   @IsArray()
-  @IsString({ each: true })
-  stepIds: string[];
+  @ValidateNested({ each: true })
+  @Type(() => WorkflowLevelDto)
+  levels: WorkflowLevelDto[];
+}
+
+// ─── UPDATE WORKFLOW ─────────────────────────────────────────────────────────
+
+export class UpdateApprovalWorkflowDto {
+  @ApiPropertyOptional()
+  @IsString()
+  @IsOptional()
+  workflowName?: string;
+
+  @ApiPropertyOptional({ type: [WorkflowLevelDto] })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => WorkflowLevelDto)
+  levels?: WorkflowLevelDto[];
 }

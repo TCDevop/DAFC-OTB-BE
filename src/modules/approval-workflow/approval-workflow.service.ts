@@ -1,121 +1,116 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
+import { CreateApprovalWorkflowDto, UpdateApprovalWorkflowDto } from './dto/approval-workflow.dto';
 
 @Injectable()
 export class ApprovalWorkflowService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
-  async findAll(brandId?: string) {
-    const where: any = { isActive: true };
-    if (brandId) where.brandId = brandId;
+  // ─── LIST ────────────────────────────────────────────────────────────────
 
-    return this.prisma.approvalWorkflowStep.findMany({
+  async findAll(groupBrandId?: string) {
+    const where: any = {};
+    if (groupBrandId) where.groupBrandId = groupBrandId;
+
+    return this.prisma.approvalWorkflow.findMany({
       where,
       include: {
-        brand: { select: { id: true, name: true, code: true } },
-        user: { select: { id: true, name: true, email: true } },
+        groupBrand: { select: { groupBrandId: true, groupBrandName: true, groupBrandCode: true } },
+        approvalWorkflowLevels: {
+          include: {
+            approverUser: { select: { userId: true, userName: true, userEmail: true } }
+          },
+          orderBy: { levelOrder: 'asc' }
+        },
       },
-      orderBy: [{ brandId: 'asc' }, { stepNumber: 'asc' }],
+      orderBy: { groupBrandId: 'asc' },
     });
   }
 
-  async findByBrand(brandId: string) {
-    return this.prisma.approvalWorkflowStep.findMany({
-      where: { brandId, isActive: true },
+  // ─── GET ONE ─────────────────────────────────────────────────────────────
+
+  async findOne(id: string) {
+    const workflow = await this.prisma.approvalWorkflow.findUnique({
+      where: { approvalWorkflowId: id },
       include: {
-        brand: { select: { id: true, name: true } },
-        user: { select: { id: true, name: true, email: true } },
+        groupBrand: true,
+        approvalWorkflowLevels: {
+          include: {
+            approverUser: { select: { userId: true, userName: true, userEmail: true } }
+          },
+          orderBy: { levelOrder: 'asc' }
+        },
       },
-      orderBy: { stepNumber: 'asc' },
+    });
+
+    if (!workflow) throw new NotFoundException('Proprsal Workflow not found');
+    return workflow;
+  }
+
+  // ─── CREATE ──────────────────────────────────────────────────────────────
+
+  async create(dto: CreateApprovalWorkflowDto) {
+    // Check if workflow exists for group brand? Maybe multiple allowed? 
+    // Assuming one per group brand for simplicity or allow multiple.
+
+    return this.prisma.approvalWorkflow.create({
+      data: {
+        groupBrandId: dto.groupBrandId,
+        workflowName: dto.workflowName,
+        approvalWorkflowLevels: {
+          create: dto.levels.map(l => ({
+            levelOrder: l.levelOrder,
+            levelName: l.levelName,
+            approverUserId: l.approverUserId,
+            isRequired: l.isRequired
+          }))
+        }
+      },
+      include: { approvalWorkflowLevels: true }
     });
   }
 
-  async create(data: {
-    brandId: string;
-    stepNumber: number;
-    roleName: string;
-    roleCode?: string;
-    userId?: string;
-    description?: string;
-  }) {
-    const brand = await this.prisma.groupBrand.findUnique({
-      where: { id: data.brandId },
-    });
-    if (!brand) throw new NotFoundException('Brand not found');
+  // ─── UPDATE ──────────────────────────────────────────────────────────────
 
-    const existing = await this.prisma.approvalWorkflowStep.findUnique({
-      where: { brandId_stepNumber: { brandId: data.brandId, stepNumber: data.stepNumber } },
-    });
-    if (existing) {
-      throw new BadRequestException(`Step ${data.stepNumber} already exists for this brand`);
-    }
+  async update(id: string, dto: UpdateApprovalWorkflowDto) {
+    const workflow = await this.prisma.approvalWorkflow.findUnique({ where: { approvalWorkflowId: id } });
+    if (!workflow) throw new NotFoundException('Workflow not found');
 
-    return this.prisma.approvalWorkflowStep.create({
-      data,
-      include: {
-        brand: { select: { id: true, name: true } },
-        user: { select: { id: true, name: true } },
-      },
-    });
-  }
-
-  async update(id: string, data: {
-    stepNumber?: number;
-    roleName?: string;
-    roleCode?: string;
-    userId?: string;
-    description?: string;
-  }) {
-    const step = await this.prisma.approvalWorkflowStep.findUnique({ where: { id } });
-    if (!step) throw new NotFoundException('Workflow step not found');
-
-    if (data.stepNumber && data.stepNumber !== step.stepNumber) {
-      const existing = await this.prisma.approvalWorkflowStep.findUnique({
-        where: { brandId_stepNumber: { brandId: step.brandId, stepNumber: data.stepNumber } },
-      });
-      if (existing) {
-        throw new BadRequestException(`Step ${data.stepNumber} already exists for this brand`);
+    return this.prisma.$transaction(async (tx) => {
+      if (dto.workflowName) {
+        await tx.approvalWorkflow.update({
+          where: { approvalWorkflowId: id },
+          data: { workflowName: dto.workflowName }
+        });
       }
-    }
 
-    return this.prisma.approvalWorkflowStep.update({
-      where: { id },
-      data,
-      include: {
-        brand: { select: { id: true, name: true } },
-        user: { select: { id: true, name: true } },
-      },
+      if (dto.levels) {
+        // Replace levels
+        await tx.approvalWorkflowLevel.deleteMany({ where: { approvalWorkflowId: id } });
+        await tx.approvalWorkflowLevel.createMany({
+          data: dto.levels.map(l => ({
+            approvalWorkflowId: id,
+            levelOrder: l.levelOrder,
+            levelName: l.levelName,
+            approverUserId: l.approverUserId,
+            isRequired: l.isRequired
+          }))
+        });
+      }
+
+      return this.findOne(id);
     });
   }
 
-  async delete(id: string) {
-    const step = await this.prisma.approvalWorkflowStep.findUnique({ where: { id } });
-    if (!step) throw new NotFoundException('Workflow step not found');
+  // ─── DELETE ──────────────────────────────────────────────────────────────
 
-    return this.prisma.approvalWorkflowStep.update({
-      where: { id },
-      data: { isActive: false },
-    });
-  }
+  async remove(id: string) {
+    const workflow = await this.prisma.approvalWorkflow.findUnique({ where: { approvalWorkflowId: id } });
+    if (!workflow) throw new NotFoundException('Workflow not found');
 
-  async reorderSteps(brandId: string, stepIds: string[]) {
-    const updates = stepIds.map((id, index) =>
-      this.prisma.approvalWorkflowStep.update({
-        where: { id },
-        data: { stepNumber: index + 1 },
-      })
-    );
-    await this.prisma.$transaction(updates);
-    return this.findByBrand(brandId);
-  }
+    // Cascade delete handled by schema usually, but levels need delete
+    await this.prisma.approvalWorkflowLevel.deleteMany({ where: { approvalWorkflowId: id } });
 
-  getAvailableRoles() {
-    return [
-      { code: 'BRAND_MANAGER', name: 'Brand Manager' },
-      { code: 'GROUP_HEAD', name: 'Group Head' },
-      { code: 'FINANCE', name: 'Finance Lead' },
-      { code: 'CEO', name: 'CEO' },
-      { code: 'ADMIN', name: 'Admin' },
-    ];
+    return this.prisma.approvalWorkflow.delete({ where: { approvalWorkflowId: id } });
   }
 }

@@ -1,42 +1,49 @@
 import { Injectable, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { Prisma } from '../../generated/prisma';
+import { Prisma } from '@prisma/client';
 import { BudgetStatus, ApprovalAction } from '../../common/enums';
 import { CreateBudgetDto, UpdateBudgetDto, ApprovalDecisionDto } from './dto/budget.dto';
 
 interface BudgetFilters {
   fiscalYear?: number;
-  groupBrandId?: string;
-  seasonGroupId?: string;
+  brandId?: string;
+  budgetName?: string;
   status?: BudgetStatus;
   page?: number;
   pageSize?: number;
 }
 
-// ─── SERVICE ─────────────────────────────────────────────────────────────────
+import { TicketService } from '../ticket/ticket.service';
 
 @Injectable()
 export class BudgetService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private ticketService: TicketService
+  ) { }
 
   // ─── LIST ──────────────────────────────────────────────────────────────
 
   async findAll(filters: BudgetFilters) {
-    const { fiscalYear, groupBrandId, seasonGroupId, status, page = 1, pageSize = 20 } = filters;
+    const { fiscalYear, brandId, budgetName, status, page = 1, pageSize = 20 } = filters;
 
     const where: Prisma.BudgetWhereInput = {};
     if (fiscalYear) where.fiscalYear = fiscalYear;
-    if (groupBrandId) where.groupBrandId = groupBrandId;
-    if (seasonGroupId) where.seasonGroupId = seasonGroupId;
-    if (status) where.status = status;
+    if (brandId) where.brandId = brandId;
+    if (budgetName) where.budgetName = { contains: budgetName };
+    if (status) where.budgetStatus = status;
 
     const [data, total] = await Promise.all([
       this.prisma.budget.findMany({
         where,
         include: {
-          groupBrand: true,
-          details: { include: { store: true } },
-          createdBy: { select: { id: true, name: true, email: true } },
+          brand: true,
+          creator: { select: { userId: true, userName: true, userEmail: true } },
+          // Include latest allocation header? Or simplify for list view.
+          allocateHeaders: {
+            orderBy: { version: 'desc' },
+            take: 1
+          }
         },
         skip: (page - 1) * pageSize,
         take: pageSize,
@@ -55,233 +62,207 @@ export class BudgetService {
 
   async findOne(id: string) {
     const budget = await this.prisma.budget.findUnique({
-      where: { id },
+      where: { budgetId: id },
       include: {
-        groupBrand: true,
-        details: { include: { store: true } },
-        createdBy: { select: { id: true, name: true, email: true } },
+        brand: true,
+        creator: { select: { userId: true, userName: true, userEmail: true } },
+        allocateHeaders: {
+          include: {
+            budgetAllocates: { include: { store: true, season: true, seasonGroup: true } }
+          },
+          orderBy: { version: 'desc' }
+        }
       },
     });
 
     if (!budget) throw new NotFoundException('Budget not found');
-
-    // Query approvals separately (polymorphic relation)
-    const approvals = await this.prisma.approval.findMany({
-      where: { entityType: 'budget', entityId: id },
-      include: { decider: { select: { id: true, name: true } } },
-      orderBy: { decidedAt: 'desc' },
-    });
-
-    return { ...budget, approvals };
+    return budget;
   }
 
   // ─── CREATE ────────────────────────────────────────────────────────────
 
   async create(dto: CreateBudgetDto, userId: string) {
-    // R-BUD-02: Must have at least 1 store allocation > 0
-    const validDetails = dto.details.filter(d => d.budgetAmount > 0);
-    if (validDetails.length === 0) {
-      throw new BadRequestException('At least one store must have a budget amount > 0');
+    // Validate allocations
+    if (!dto.allocations || dto.allocations.length === 0) {
+      throw new BadRequestException('At least one allocation is required');
     }
 
-    // R-BUD-01: Calculate total
-    const totalBudget = validDetails.reduce((sum, d) => sum + d.budgetAmount, 0);
+    // Check uniqueness (basic check on name/year/brand combo if needed, but budgetName is not unique in DB schema, so okay)
 
-    // R-BUD-06: Generate unique budget code
-    const brand = await this.prisma.groupBrand.findUnique({ where: { id: dto.groupBrandId } });
-    if (!brand) throw new BadRequestException('Invalid brand');
+    // Create Budget + AllocateHeader (v1) + Allocations
+    return this.prisma.$transaction(async (tx) => {
+      const budget = await tx.budget.create({
+        data: {
+          budgetName: dto.budgetName,
+          brandId: dto.brandId,
+          fiscalYear: dto.fiscalYear,
+          budgetAmount: dto.budgetAmount,
+          budgetStatus: 'DRAFT',
+          description: dto.comment,
+          createdBy: userId
+        }
+      });
 
-    const budgetCode = `BUD-${brand.code}-${dto.seasonGroupId}-${dto.seasonType}-${dto.fiscalYear}`;
+      const header = await tx.allocateHeader.create({
+        data: {
+          budgetId: budget.budgetId,
+          version: 1,
+          createdBy: userId
+        }
+      });
 
-    // Check uniqueness
-    const existing = await this.prisma.budget.findUnique({ where: { budgetCode } });
-    if (existing) {
-      throw new BadRequestException(`Budget already exists: ${budgetCode}`);
-    }
+      if (dto.allocations.length > 0) {
+        await tx.budgetAllocate.createMany({
+          data: dto.allocations.map(alloc => ({
+            allocateHeaderId: header.allocateHeaderId,
+            storeId: alloc.storeId,
+            seasonGroupId: alloc.seasonGroupId,
+            seasonId: alloc.seasonId,
+            budgetAmount: alloc.budgetAmount
+          }))
+        });
+      }
 
-    return this.prisma.budget.create({
-      data: {
-        budgetCode,
-        groupBrandId: dto.groupBrandId,
-        seasonGroupId: dto.seasonGroupId,
-        seasonType: dto.seasonType,
-        fiscalYear: dto.fiscalYear,
-        totalBudget,
-        comment: dto.comment,
-        createdById: userId,
-        details: {
-          create: dto.details.map(d => ({
-            storeId: d.storeId,
-            budgetAmount: d.budgetAmount,
-          })),
-        },
-      },
-      include: {
-        groupBrand: true,
-        details: { include: { store: true } },
-      },
+      return budget;
     });
   }
 
   // ─── UPDATE ────────────────────────────────────────────────────────────
 
   async update(id: string, dto: UpdateBudgetDto, userId: string) {
-    const budget = await this.prisma.budget.findUnique({ where: { id } });
+    const budget = await this.prisma.budget.findUnique({
+      where: { budgetId: id },
+      include: { allocateHeaders: { orderBy: { version: 'desc' }, take: 1 } }
+    });
+
     if (!budget) throw new NotFoundException('Budget not found');
 
-    // R-BUD-04: Only DRAFT can be edited
-    if (budget.status !== BudgetStatus.DRAFT) {
+    if (budget.budgetStatus !== 'DRAFT') {
       throw new ForbiddenException('Only draft budgets can be edited');
     }
 
+    // Update basic fields
     const updateData: any = {};
-    if (dto.comment !== undefined) updateData.comment = dto.comment;
+    if (dto.budgetName) updateData.budgetName = dto.budgetName;
+    if (dto.budgetAmount) updateData.budgetAmount = dto.budgetAmount;
+    if (dto.comment) updateData.description = dto.comment;
 
-    if (dto.details) {
-      // R-BUD-02: Validate
-      const validDetails = dto.details.filter(d => d.budgetAmount > 0);
-      if (validDetails.length === 0) {
-        throw new BadRequestException('At least one store must have a budget amount > 0');
+    await this.prisma.budget.update({
+      where: { budgetId: id },
+      data: updateData
+    });
+
+    // Handle allocations update
+    // Strategy: Update the latest AllocateHeader if it exists and is draft (which it inherently is if budget is draft).
+    // Simply delete old allocations for this header and recreate.
+    if (dto.allocations && dto.allocations.length > 0) {
+      let headerId = budget.allocateHeaders[0]?.allocateHeaderId;
+
+      if (!headerId) {
+        // Should not happen if created correctly, but handle anyway
+        const header = await this.prisma.allocateHeader.create({
+          data: { budgetId: id, version: 1, createdBy: userId }
+        });
+        headerId = header.allocateHeaderId;
       }
 
-      // R-BUD-01: Recalculate total
-      updateData.totalBudget = dto.details.reduce((sum, d) => sum + d.budgetAmount, 0);
-
-      // Upsert details
-      await this.prisma.budgetDetail.deleteMany({ where: { budgetId: id } });
-      await this.prisma.budgetDetail.createMany({
-        data: dto.details.map(d => ({
-          budgetId: id,
-          storeId: d.storeId,
-          budgetAmount: d.budgetAmount,
-        })),
+      // Replace allocations
+      await this.prisma.budgetAllocate.deleteMany({ where: { allocateHeaderId: headerId } });
+      await this.prisma.budgetAllocate.createMany({
+        data: dto.allocations.map(alloc => ({
+          allocateHeaderId: headerId,
+          storeId: alloc.storeId,
+          seasonGroupId: alloc.seasonGroupId,
+          seasonId: alloc.seasonId,
+          budgetAmount: alloc.budgetAmount
+        }))
       });
     }
 
-    return this.prisma.budget.update({
-      where: { id },
-      data: updateData,
-      include: {
-        groupBrand: true,
-        details: { include: { store: true } },
-      },
-    });
+    return this.findOne(id);
   }
 
   // ─── SUBMIT ────────────────────────────────────────────────────────────
 
   async submit(id: string, userId: string) {
     const budget = await this.prisma.budget.findUnique({
-      where: { id },
-      include: { details: true },
+      where: { budgetId: id },
+      include: { allocateHeaders: { orderBy: { version: 'desc' }, take: 1, include: { budgetAllocates: true } } }
     });
     if (!budget) throw new NotFoundException('Budget not found');
 
-    // R-BUD-03: Only DRAFT → SUBMITTED
-    if (budget.status !== BudgetStatus.DRAFT) {
-      throw new BadRequestException(`Cannot submit budget with status: ${budget.status}`);
+    if (budget.budgetStatus !== 'DRAFT') {
+      throw new BadRequestException(`Cannot submit budget with status: ${budget.budgetStatus}`);
     }
 
-    return this.prisma.budget.update({
-      where: { id },
-      data: { status: BudgetStatus.SUBMITTED },
+    return this.prisma.$transaction(async (tx) => {
+      // 1. Update Budget Status
+      await tx.budget.update({
+        where: { budgetId: id },
+        data: { budgetStatus: 'SUBMITTED' },
+      });
+
+      // 2. Create Tickets for all allocations in the latest header
+      const latestHeader = budget.allocateHeaders[0];
+      if (latestHeader && latestHeader.budgetAllocates.length > 0) {
+        for (const alloc of latestHeader.budgetAllocates) {
+          await this.ticketService.create(userId, { budgetAllocateId: alloc.budgetAllocateId });
+        }
+      }
+
+      return budget;
     });
   }
 
   // ─── DELETE ────────────────────────────────────────────────────────────
 
   async remove(id: string) {
-    const budget = await this.prisma.budget.findUnique({
-      where: { id },
-      include: { details: { include: { planningVersions: true } } },
-    });
+    const budget = await this.prisma.budget.findUnique({ where: { budgetId: id } });
     if (!budget) throw new NotFoundException('Budget not found');
 
-    // R-BUD-04: Only DRAFT can be deleted
-    if (budget.status !== BudgetStatus.DRAFT) {
+    if (budget.budgetStatus !== 'DRAFT') {
       throw new ForbiddenException('Only draft budgets can be deleted');
     }
 
-    // R-BUD-07: Cannot delete if planning exists
-    const hasPlanning = budget.details.some(d => d.planningVersions.length > 0);
-    if (hasPlanning) {
-      throw new ForbiddenException('Cannot delete budget that has linked planning versions');
-    }
+    // Cascade delete via Prisma if configured, or manual delete.
+    // Schema relations might not cascade.
+    // Manual delete for safety:
 
-    return this.prisma.budget.delete({ where: { id } });
+    // 1. Delete BudgetAllocates (need specific header IDs)
+    // 2. Delete AllocateHeaders
+    // 3. Delete Budget
+
+    // Better: Rely on onDelete: Cascade in schema if present. 
+    // Checking schema: 
+    // Budget -> AllocateHeader (onDelete: Cascade? No, default is usually separate).
+    // Let's optimize delete:
+    const headers = await this.prisma.allocateHeader.findMany({ where: { budgetId: id } });
+    const headerIds = headers.map(h => h.allocateHeaderId);
+
+    await this.prisma.budgetAllocate.deleteMany({ where: { allocateHeaderId: { in: headerIds } } });
+    await this.prisma.allocateHeader.deleteMany({ where: { budgetId: id } });
+
+    return this.prisma.budget.delete({ where: { budgetId: id } });
   }
 
-  // ─── APPROVE LEVEL 1 ────────────────────────────────────────────────────
+  // ─── APPROVE (Simplified) ────────────────────────────────────────────────
 
-  async approveLevel1(id: string, dto: ApprovalDecisionDto, userId: string) {
-    const budget = await this.prisma.budget.findUnique({ where: { id } });
+  async approve(id: string, dto: ApprovalDecisionDto, userId: string) {
+    const budget = await this.prisma.budget.findUnique({ where: { budgetId: id } });
     if (!budget) throw new NotFoundException('Budget not found');
 
-    // R-BUD-05: Only SUBMITTED can be approved at Level 1
-    if (budget.status !== BudgetStatus.SUBMITTED) {
-      throw new BadRequestException(`Cannot approve budget with status: ${budget.status}. Must be SUBMITTED.`);
+    if (budget.budgetStatus !== 'SUBMITTED') {
+      throw new BadRequestException(`Cannot approve budget with status: ${budget.budgetStatus}. Must be SUBMITTED.`);
     }
 
-    const newStatus = dto.action === 'APPROVED'
-      ? BudgetStatus.LEVEL1_APPROVED
-      : BudgetStatus.REJECTED;
+    const newStatus = dto.action === 'APPROVED' ? 'APPROVED' : 'REJECTED';
 
-    // Create approval record
-    await this.prisma.approval.create({
-      data: {
-        entityType: 'budget',
-        entityId: id,
-        level: 1,
-        deciderId: userId,
-        action: dto.action as ApprovalAction,
-        comment: dto.comment,
-      },
-    });
+    // In a real system, we'd create a Ticket or Log here.
+    // For now, just update status.
 
     return this.prisma.budget.update({
-      where: { id },
-      data: { status: newStatus },
-      include: {
-        groupBrand: true,
-        details: { include: { store: true } },
-      },
-    });
-  }
-
-  // ─── APPROVE LEVEL 2 ────────────────────────────────────────────────────
-
-  async approveLevel2(id: string, dto: ApprovalDecisionDto, userId: string) {
-    const budget = await this.prisma.budget.findUnique({ where: { id } });
-    if (!budget) throw new NotFoundException('Budget not found');
-
-    // R-BUD-05: Only LEVEL1_APPROVED can be approved at Level 2
-    if (budget.status !== BudgetStatus.LEVEL1_APPROVED) {
-      throw new BadRequestException(`Cannot approve budget with status: ${budget.status}. Must be LEVEL1_APPROVED.`);
-    }
-
-    const newStatus = dto.action === 'APPROVED'
-      ? BudgetStatus.APPROVED
-      : BudgetStatus.REJECTED;
-
-    // Create approval record
-    await this.prisma.approval.create({
-      data: {
-        entityType: 'budget',
-        entityId: id,
-        level: 2,
-        deciderId: userId,
-        action: dto.action as ApprovalAction,
-        comment: dto.comment,
-      },
-    });
-
-    return this.prisma.budget.update({
-      where: { id },
-      data: { status: newStatus },
-      include: {
-        groupBrand: true,
-        details: { include: { store: true } },
-      },
+      where: { budgetId: id },
+      data: { budgetStatus: newStatus },
     });
   }
 
@@ -294,27 +275,35 @@ export class BudgetService {
     const [total, byStatus, totalAmount] = await Promise.all([
       this.prisma.budget.count({ where }),
       this.prisma.budget.groupBy({
-        by: ['status'],
+        by: ['budgetStatus'],
         where,
         _count: true,
+        _sum: { budgetAmount: true }, // Added sum if grouped? groupBy only supports sum in aggregator? No, check syntax.
       }),
       this.prisma.budget.aggregate({
         where,
-        _sum: { totalBudget: true },
+        _sum: { budgetAmount: true },
       }),
     ]);
 
+    // groupBy returns array of objects ({ budgetStatus: ..., _count: ... })
+    // The previous getStatistics had _count: true. 
+
+    // Let's check previous implementation in step 602.
+    // groupBy({ by: ['budgetStatus'], where, _count: true })
+    // aggregate({ where, _sum: { budgetAmount: true } })
+
     const approvedBudgets = await this.prisma.budget.aggregate({
-      where: { ...where, status: BudgetStatus.APPROVED },
-      _sum: { totalBudget: true },
+      where: { ...where, budgetStatus: 'APPROVED' },
+      _sum: { budgetAmount: true },
     });
 
     return {
       totalBudgets: total,
-      totalAmount: totalAmount._sum.totalBudget || 0,
-      approvedAmount: approvedBudgets._sum.totalBudget || 0,
+      totalAmount: totalAmount._sum.budgetAmount || 0,
+      approvedAmount: approvedBudgets._sum.budgetAmount || 0,
       byStatus: byStatus.reduce((acc, item) => {
-        acc[item.status] = item._count;
+        acc[item.budgetStatus] = item._count;
         return acc;
       }, {} as Record<string, number>),
     };

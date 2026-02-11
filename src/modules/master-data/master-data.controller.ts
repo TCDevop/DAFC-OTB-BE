@@ -8,7 +8,13 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 @UseGuards(JwtAuthGuard)
 @Controller('master')
 export class MasterDataController {
-  constructor(private masterDataService: MasterDataService) {}
+  constructor(private masterDataService: MasterDataService) { }
+
+  @Get('group-brands')
+  @ApiOperation({ summary: 'Get all active group brands' })
+  async getGroupBrands() {
+    return { success: true, data: await this.masterDataService.getGroupBrands() };
+  }
 
   @Get('brands')
   @ApiOperation({ summary: 'Get all active brands (replaces GROUP_BRANDS constant)' })

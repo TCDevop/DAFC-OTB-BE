@@ -7,8 +7,8 @@ import { MasterDataModule } from './modules/master-data/master-data.module';
 import { BudgetModule } from './modules/budget/budget.module';
 import { PlanningModule } from './modules/planning/planning.module';
 import { ProposalModule } from './modules/proposal/proposal.module';
-import { AiModule } from './modules/ai/ai.module';
 import { ApprovalWorkflowModule } from './modules/approval-workflow/approval-workflow.module';
+import { TicketModule } from './modules/ticket/ticket.module';
 
 @Module({
   imports: [
@@ -22,8 +22,8 @@ import { ApprovalWorkflowModule } from './modules/approval-workflow/approval-wor
     BudgetModule,
     PlanningModule,
     ProposalModule,
-    AiModule,
     ApprovalWorkflowModule,
+    TicketModule,
   ],
 })
 export class AppModule { }

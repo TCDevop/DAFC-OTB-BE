@@ -1,97 +1,118 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsArray, ValidateNested, IsNumber, Min, IsEnum } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNumber, IsNotEmpty, IsArray, ValidateNested, IsOptional, Min, IsEnum } from 'class-validator';
 import { Type } from 'class-transformer';
+import { ApprovalAction } from '../../../common/enums';
 
-// ─── Create Proposal ─────────────────────────────────────────────────────────
+// ─── SKU ALLOCATE ────────────────────────────────────────────────────────────
 
-export class CreateProposalDto {
-  @ApiProperty({ example: 'FER-SS25-REX-Ticket-001' })
+export class SKUAllocateDto {
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  ticketName: string;
+  storeId: string;
 
-  @ApiProperty({ description: 'Budget ID to link this proposal' })
-  @IsString()
-  @IsNotEmpty()
-  budgetId: string;
-
-  @ApiPropertyOptional({ description: 'Optional planning version to link' })
-  @IsString()
-  @IsOptional()
-  planningVersionId?: string;
-}
-
-// ─── Update Proposal ─────────────────────────────────────────────────────────
-
-export class UpdateProposalDto {
-  @ApiPropertyOptional({ example: 'FER-SS25-REX-Ticket-001-Updated' })
-  @IsString()
-  @IsOptional()
-  ticketName?: string;
-
-  @ApiPropertyOptional({ description: 'Link to a different planning version' })
-  @IsString()
-  @IsOptional()
-  planningVersionId?: string;
-}
-
-// ─── Add Product to Proposal ─────────────────────────────────────────────────
-
-export class AddProductDto {
-  @ApiProperty({ description: 'SKU Catalog ID' })
-  @IsString()
-  @IsNotEmpty()
-  skuId: string;
-
-  @ApiProperty({ example: 10, description: 'Order quantity' })
-  @IsNumber()
-  @Min(1)
-  orderQty: number;
-
-  @ApiPropertyOptional({ enum: ['New', 'Existing', 'VIP'], description: 'Customer target segment' })
-  @IsString()
-  @IsOptional()
-  customerTarget?: string;
-}
-
-// ─── Bulk Add Products ───────────────────────────────────────────────────────
-
-export class BulkAddProductsDto {
-  @ApiProperty({ type: [AddProductDto] })
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => AddProductDto)
-  products: AddProductDto[];
-}
-
-// ─── Update Product Quantity ─────────────────────────────────────────────────
-
-export class UpdateProductDto {
-  @ApiPropertyOptional({ example: 15, description: 'New order quantity' })
+  @ApiProperty()
   @IsNumber()
   @Min(0)
-  @IsOptional()
-  orderQty?: number;
-
-  @ApiPropertyOptional({ enum: ['New', 'Existing', 'VIP'] })
-  @IsString()
-  @IsOptional()
-  customerTarget?: string;
-
-  @ApiPropertyOptional({ description: 'Sort order for display' })
-  @IsNumber()
-  @IsOptional()
-  sortOrder?: number;
+  quantity: number;
 }
 
-// ─── Approval Decision ───────────────────────────────────────────────────────
+// ─── PROPOSAL SIZING ─────────────────────────────────────────────────────────
+
+export class ProposalSizingDto {
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  subcategorySizeId: string;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  @ApiProperty({ required: false })
+  @IsNumber()
+  @IsOptional()
+  @Min(1)
+  sizingChoice?: number; // 1, 2, 3
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  proposalQuantity: number;
+}
+
+// ─── SKU PROPOSAL ────────────────────────────────────────────────────────────
+
+export class SKUProposalDto {
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  productId: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  customerTarget: string;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  unitCost: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  srp: number;
+
+  @ApiProperty({ required: false })
+  @IsNumber()
+  @IsOptional()
+  @Min(1)
+  selectedSizingChoice?: number; // 1, 2, 3
+
+  @ApiProperty({ type: [SKUAllocateDto] })
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => SKUAllocateDto)
+  allocates: SKUAllocateDto[];
+
+  @ApiProperty({ type: [ProposalSizingDto], required: false })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => ProposalSizingDto)
+  sizings?: ProposalSizingDto[];
+}
+
+// ─── CREATE HEADER ───────────────────────────────────────────────────────────
+
+export class CreateSKUProposalHeaderDto {
+  @ApiProperty({ type: [SKUProposalDto] })
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => SKUProposalDto)
+  proposals: SKUProposalDto[];
+}
+
+// ─── UPDATE ──────────────────────────────────────────────────────────────────
+
+export class UpdateProposalDto {
+  @ApiProperty({ type: [SKUProposalDto], required: false })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => SKUProposalDto)
+  proposals?: SKUProposalDto[];
+}
+
+// ─── APPROVE ─────────────────────────────────────────────────────────────────
 
 export class ApprovalDecisionDto {
-  @ApiProperty({ enum: ['APPROVED', 'REJECTED'] })
-  @IsEnum(['APPROVED', 'REJECTED'])
-  action: 'APPROVED' | 'REJECTED';
+  @ApiProperty({ enum: ApprovalAction, example: 'APPROVED' })
+  @IsEnum(ApprovalAction)
+  @IsNotEmpty()
+  action: string;
 
-  @ApiPropertyOptional({ example: 'Looks good, approved for ordering' })
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   comment?: string;

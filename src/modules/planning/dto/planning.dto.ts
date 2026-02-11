@@ -1,124 +1,97 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNumber, IsArray, IsOptional, ValidateNested, IsNotEmpty, Min, Max } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNumber, IsNotEmpty, IsArray, ValidateNested, IsOptional, Min } from 'class-validator';
 import { Type } from 'class-transformer';
 
-// ─── Planning Detail DTO ──────────────────────────────────────────────────────
+// ─── PLANNING COLLECTION ─────────────────────────────────────────────────────
 
-export class PlanningDetailDto {
-  @ApiProperty({ enum: ['collection', 'gender', 'category', 'subCategory'] })
-  @IsString()
-  dimensionType: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  collectionId?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  genderId?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  categoryId?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  subCategoryId?: string;
-
-  @ApiProperty({ example: 1500000000, description: 'Last season sales value' })
-  @IsNumber()
-  @Min(0)
-  lastSeasonSales: number;
-
-  @ApiProperty({ example: 0.25, description: 'Last season percentage (0-1)' })
-  @IsNumber()
-  @Min(0)
-  @Max(1)
-  lastSeasonPct: number;
-
-  @ApiProperty({ example: 0.30, description: 'System suggested buy percentage' })
-  @IsNumber()
-  @Min(0)
-  @Max(1)
-  systemBuyPct: number;
-
-  @ApiProperty({ example: 0.28, description: 'User adjusted buy percentage' })
-  @IsNumber()
-  @Min(0)
-  @Max(1)
-  userBuyPct: number;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  userComment?: string;
-}
-
-// ─── Create Planning Version DTO ──────────────────────────────────────────────
-
-export class CreatePlanningDto {
-  @ApiProperty({ description: 'Budget Detail ID (budget per store)' })
+export class PlanningCollectionDto {
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  budgetDetailId: string;
+  storeId: string;
 
-  @ApiPropertyOptional({ example: 'Initial Planning' })
+  @ApiProperty()
   @IsString()
-  @IsOptional()
-  versionName?: string;
+  @IsNotEmpty()
+  collectionId: string;
 
-  @ApiProperty({ type: [PlanningDetailDto] })
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => PlanningDetailDto)
-  details: PlanningDetailDto[];
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  actualBuyPct: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  proposedBuyPct: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  otbProposedAmount: number;
 }
 
-// ─── Update Planning DTO ──────────────────────────────────────────────────────
+// ─── PLANNING GENDER ─────────────────────────────────────────────────────────
+
+export class PlanningGenderDto {
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  storeId: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  genderId: string;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  actualBuyPct: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  proposedBuyPct: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @Min(0)
+  otbProposedAmount: number;
+}
+
+// ─── CREATE HEADER ───────────────────────────────────────────────────────────
+
+export class CreatePlanningHeaderDto {
+  @ApiProperty({ type: [PlanningCollectionDto], required: false })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => PlanningCollectionDto)
+  collections?: PlanningCollectionDto[];
+
+  @ApiProperty({ type: [PlanningGenderDto], required: false })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => PlanningGenderDto)
+  genders?: PlanningGenderDto[];
+}
+
+// ─── UPDATE ──────────────────────────────────────────────────────────────────
 
 export class UpdatePlanningDto {
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  versionName?: string;
-
-  @ApiPropertyOptional({ type: [PlanningDetailDto] })
+  @ApiProperty({ type: [PlanningCollectionDto], required: false })
   @IsArray()
+  @IsOptional()
   @ValidateNested({ each: true })
-  @Type(() => PlanningDetailDto)
+  @Type(() => PlanningCollectionDto)
+  collections?: PlanningCollectionDto[];
+
+  @ApiProperty({ type: [PlanningGenderDto], required: false })
+  @IsArray()
   @IsOptional()
-  details?: PlanningDetailDto[];
-}
-
-// ─── Update Single Detail DTO ─────────────────────────────────────────────────
-
-export class UpdateDetailDto {
-  @ApiProperty({ example: 0.28, description: 'User adjusted buy percentage' })
-  @IsNumber()
-  @Min(0)
-  @Max(1)
-  userBuyPct: number;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  userComment?: string;
-}
-
-// ─── Approval DTO ─────────────────────────────────────────────────────────────
-
-export class ApprovalDecisionDto {
-  @ApiProperty({ enum: ['APPROVED', 'REJECTED'] })
-  @IsString()
-  @IsNotEmpty()
-  action: 'APPROVED' | 'REJECTED';
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  comment?: string;
+  @ValidateNested({ each: true })
+  @Type(() => PlanningGenderDto)
+  genders?: PlanningGenderDto[];
 }

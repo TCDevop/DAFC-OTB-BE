@@ -3,7 +3,7 @@
 // Run: npx prisma db seed   or   npm run prisma:seed
 // ============================================================================
 
-import { PrismaClient } from '../src/generated/prisma';
+import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
@@ -14,19 +14,19 @@ async function main() {
   // ─── ROLES ────────────────────────────────────────────────────────────
   const roles = await Promise.all([
     prisma.role.upsert({
-      where: { name: 'admin' },
+      where: { roleName: 'admin' },
       update: {},
       create: {
-        name: 'admin',
+        roleName: 'admin',
         description: 'System Administrator',
         permissions: JSON.stringify(['*']),
       },
     }),
     prisma.role.upsert({
-      where: { name: 'buyer' },
+      where: { roleName: 'buyer' },
       update: {},
       create: {
-        name: 'buyer',
+        roleName: 'buyer',
         description: 'Buyer — creates proposals, manages SKU selection',
         permissions: JSON.stringify([
           'budget:read',
@@ -37,10 +37,10 @@ async function main() {
       },
     }),
     prisma.role.upsert({
-      where: { name: 'merchandiser' },
+      where: { roleName: 'merchandiser' },
       update: {},
       create: {
-        name: 'merchandiser',
+        roleName: 'merchandiser',
         description: 'Merchandiser — creates budgets and planning',
         permissions: JSON.stringify([
           'budget:read', 'budget:write', 'budget:submit',
@@ -51,10 +51,10 @@ async function main() {
       },
     }),
     prisma.role.upsert({
-      where: { name: 'merch_manager' },
+      where: { roleName: 'merch_manager' },
       update: {},
       create: {
-        name: 'merch_manager',
+        roleName: 'merch_manager',
         description: 'Merchandising Manager — Level 1 Approver',
         permissions: JSON.stringify([
           'budget:read', 'budget:write', 'budget:submit', 'budget:approve_l1',
@@ -65,10 +65,10 @@ async function main() {
       },
     }),
     prisma.role.upsert({
-      where: { name: 'finance_director' },
+      where: { roleName: 'finance_director' },
       update: {},
       create: {
-        name: 'finance_director',
+        roleName: 'finance_director',
         description: 'Finance Director — Level 2 Approver',
         permissions: JSON.stringify([
           'budget:read', 'budget:approve_l2',
@@ -91,14 +91,14 @@ async function main() {
   // ─── STORES ───────────────────────────────────────────────────────────
   const stores = await Promise.all([
     prisma.store.upsert({
-      where: { code: 'REX' },
+      where: { storeCode: 'REX' },
       update: {},
-      create: { code: 'REX', name: 'REX', region: 'HCMC' },
+      create: { storeCode: 'REX', storeName: 'REX', region: 'HCMC' },
     }),
     prisma.store.upsert({
-      where: { code: 'TTP' },
+      where: { storeCode: 'TTP' },
       update: {},
-      create: { code: 'TTP', name: 'TTP', region: 'HCMC' },
+      create: { storeCode: 'TTP', storeName: 'TTP', region: 'HCMC' },
     }),
   ]);
   console.log(`  ✅ ${stores.length} stores created`);
@@ -106,115 +106,165 @@ async function main() {
   // ─── GROUP BRANDS ─────────────────────────────────────────────────────
   const brands = await Promise.all([
     prisma.groupBrand.upsert({
-      where: { code: 'FER' },
+      where: { groupBrandCode: 'FER' },
       update: {},
       create: {
-        code: 'FER', name: 'Ferragamo', groupId: 'A',
-        colorConfig: JSON.stringify({ gradient: 'from-rose-400 to-rose-600' }),
-        sortOrder: 1,
+        groupBrandCode: 'FER', groupBrandName: 'Ferragamo',
       },
     }),
     prisma.groupBrand.upsert({
-      where: { code: 'BUR' },
+      where: { groupBrandCode: 'BUR' },
       update: {},
       create: {
-        code: 'BUR', name: 'Burberry', groupId: 'A',
-        colorConfig: JSON.stringify({ gradient: 'from-amber-400 to-amber-600' }),
-        sortOrder: 2,
+        groupBrandCode: 'BUR', groupBrandName: 'Burberry',
       },
     }),
     prisma.groupBrand.upsert({
-      where: { code: 'GUC' },
+      where: { groupBrandCode: 'GUC' },
       update: {},
       create: {
-        code: 'GUC', name: 'Gucci', groupId: 'A',
-        colorConfig: JSON.stringify({ gradient: 'from-emerald-400 to-emerald-600' }),
-        sortOrder: 3,
+        groupBrandCode: 'GUC', groupBrandName: 'Gucci',
       },
     }),
     prisma.groupBrand.upsert({
-      where: { code: 'PRA' },
+      where: { groupBrandCode: 'PRA' },
       update: {},
       create: {
-        code: 'PRA', name: 'Prada', groupId: 'B',
-        colorConfig: JSON.stringify({ gradient: 'from-purple-400 to-purple-600' }),
-        sortOrder: 4,
+        groupBrandCode: 'PRA', groupBrandName: 'Prada',
       },
     }),
   ]);
-  console.log(`  ✅ ${brands.length} brands created`);
+  
+  // Create Child Brands (1-to-1 mapping for simplicity in seed)
+  for (const gb of brands) {
+     await prisma.brand.upsert({
+        where: { brandCode: gb.groupBrandCode }, // Using same code for simplicity
+        update: {},
+        create: {
+            brandCode: gb.groupBrandCode,
+            brandName: gb.groupBrandName,
+            groupBrandId: gb.groupBrandId
+        }
+     })
+  }
+
+  const allBrands = await prisma.brand.findMany();
+  console.log(`  ✅ ${brands.length} group brands and ${allBrands.length} brands created`);
 
   // ─── COLLECTIONS ──────────────────────────────────────────────────────
   const collections = await Promise.all([
-    prisma.collection.upsert({ where: { name: 'Carry Over' }, update: {}, create: { name: 'Carry Over' } }),
-    prisma.collection.upsert({ where: { name: 'Seasonal' }, update: {}, create: { name: 'Seasonal' } }),
+    prisma.collection.upsert({ where: { collectionName: 'Carry Over' }, update: {}, create: { collectionName: 'Carry Over' } }),
+    prisma.collection.upsert({ where: { collectionName: 'Seasonal' }, update: {}, create: { collectionName: 'Seasonal' } }),
   ]);
   console.log(`  ✅ ${collections.length} collections created`);
 
+  // ─── SEASON GROUPS ────────────────────────────────────────────────────
+  const seasonGroups = await Promise.all([
+      prisma.seasonGroup.upsert({ where: { seasonGroupName: 'SS' }, update: {}, create: { seasonGroupName: 'SS' } }),
+      prisma.seasonGroup.upsert({ where: { seasonGroupName: 'FW' }, update: {}, create: { seasonGroupName: 'FW' } }),
+  ]);
+
+  // ─── SEASONS ──────────────────────────────────────────────────────────
+  // Linking seasons to season groups
+  const ssGroup = seasonGroups.find(sg => sg.seasonGroupName === 'SS');
+  const fwGroup = seasonGroups.find(sg => sg.seasonGroupName === 'FW');
+  
+  if (ssGroup && fwGroup) {
+      await prisma.season.upsert({ where: { seasonName: 'SS Pre' }, update: {}, create: { seasonName: 'SS Pre', seasonGroupId: ssGroup.seasonGroupId } });
+      await prisma.season.upsert({ where: { seasonName: 'SS Main' }, update: {}, create: { seasonName: 'SS Main', seasonGroupId: ssGroup.seasonGroupId } });
+      await prisma.season.upsert({ where: { seasonName: 'FW Pre' }, update: {}, create: { seasonName: 'FW Pre', seasonGroupId: fwGroup.seasonGroupId } });
+      await prisma.season.upsert({ where: { seasonName: 'FW Main' }, update: {}, create: { seasonName: 'FW Main', seasonGroupId: fwGroup.seasonGroupId } });
+      console.log(`  ✅ 4 seasons created`);
+  }
+
   // ─── GENDERS ──────────────────────────────────────────────────────────
   const genders = await Promise.all([
-    prisma.gender.upsert({ where: { name: 'Female' }, update: {}, create: { name: 'Female' } }),
-    prisma.gender.upsert({ where: { name: 'Male' }, update: {}, create: { name: 'Male' } }),
+    prisma.gender.upsert({ where: { genderName: 'Female' }, update: {}, create: { genderName: 'Female' } }),
+    prisma.gender.upsert({ where: { genderName: 'Male' }, update: {}, create: { genderName: 'Male' } }),
   ]);
   const [female, male] = genders;
   console.log(`  ✅ ${genders.length} genders created`);
 
   // ─── CATEGORIES + SUB-CATEGORIES ──────────────────────────────────────
   // Female categories
-  const womenRtw = await prisma.category.upsert({
-    where: { id: 'women_rtw' },
-    update: {},
-    create: { id: 'women_rtw', name: "WOMEN'S RTW", genderId: female.id },
-  });
-  const womenHardAcc = await prisma.category.upsert({
-    where: { id: 'women_hard_acc' },
-    update: {},
-    create: { id: 'women_hard_acc', name: 'WOMEN HARD ACCESSORIES', genderId: female.id },
-  });
-  const womenOthers = await prisma.category.upsert({
-    where: { id: 'women_others' },
-    update: {},
-    create: { id: 'women_others', name: 'OTHERS', genderId: female.id },
-  });
+  // Note: We don't have explicit IDs in new schema for categories automatically, but we can look them up by Name or just create them.
+  // Using upsert with name as unique key isn't possible because name isn't unique in schema (genderId composite?) 
+  // Actually schema says Category name is NOT unique globally, but `categoryName` is just String.
+  // Wait, schema says `categoryName String @map("name")` but no `@unique`.
+  // So upserting by name might be tricky unless I rely on valid ID or findFirst.
+  // For seeding, I'll use findFirst to check existence or just create if empty.
+  // To keep it idempotent, I will try to find first.
+
+  const ensureCategory = async (name: string, genderId: string) => {
+      const existing = await prisma.category.findFirst({ where: { categoryName: name, genderId } });
+      if (existing) return existing;
+      return prisma.category.create({ data: { categoryName: name, genderId } });
+  }
+
+  const womenRtw = await ensureCategory("WOMEN'S RTW", female.genderId);
+  const womenHardAcc = await ensureCategory('WOMEN HARD ACCESSORIES', female.genderId);
+  const womenOthers = await ensureCategory('OTHERS', female.genderId);
 
   // Male categories
-  const menRtw = await prisma.category.upsert({
-    where: { id: 'men_rtw' },
-    update: {},
-    create: { id: 'men_rtw', name: "MEN'S RTW", genderId: male.id },
-  });
-  const menAcc = await prisma.category.upsert({
-    where: { id: 'men_acc' },
-    update: {},
-    create: { id: 'men_acc', name: 'MEN ACCESSORIES', genderId: male.id },
-  });
+  const menRtw = await ensureCategory("MEN'S RTW", male.genderId);
+  const menAcc = await ensureCategory('MEN ACCESSORIES', male.genderId);
 
   // Sub-categories
+  const ensureSubCategory = async (name: string, categoryId: string) => {
+      const existing = await prisma.subCategory.findFirst({ where: { subCategoryName: name, categoryId } });
+      if (existing) return existing;
+      return prisma.subCategory.create({ data: { subCategoryName: name, categoryId } });
+  }
+
   const subCategories = await Promise.all([
     // Women RTW
-    prisma.subCategory.upsert({ where: { id: 'w_outerwear' }, update: {}, create: { id: 'w_outerwear', name: 'W Outerwear', categoryId: womenRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'w_tailoring' }, update: {}, create: { id: 'w_tailoring', name: 'W Tailoring', categoryId: womenRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'w_dresses' }, update: {}, create: { id: 'w_dresses', name: 'W Dresses', categoryId: womenRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'w_tops' }, update: {}, create: { id: 'w_tops', name: 'W Tops', categoryId: womenRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'w_body' }, update: {}, create: { id: 'w_body', name: 'W Body', categoryId: womenRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'w_bottoms' }, update: {}, create: { id: 'w_bottoms', name: 'W Bottoms', categoryId: womenRtw.id } }),
+    ensureSubCategory('W Outerwear', womenRtw.categoryId),
+    ensureSubCategory('W Tailoring', womenRtw.categoryId),
+    ensureSubCategory('W Dresses', womenRtw.categoryId),
+    ensureSubCategory('W Tops', womenRtw.categoryId),
+    ensureSubCategory('W Body', womenRtw.categoryId),
+    ensureSubCategory('W Bottoms', womenRtw.categoryId),
     // Women Hard Accessories
-    prisma.subCategory.upsert({ where: { id: 'w_bags' }, update: {}, create: { id: 'w_bags', name: 'W Bags', categoryId: womenHardAcc.id } }),
-    prisma.subCategory.upsert({ where: { id: 'w_slg' }, update: {}, create: { id: 'w_slg', name: 'W SLG', categoryId: womenHardAcc.id } }),
+    ensureSubCategory('W Bags', womenHardAcc.categoryId),
+    ensureSubCategory('W SLG', womenHardAcc.categoryId),
     // Women Others
-    prisma.subCategory.upsert({ where: { id: 'w_shoes' }, update: {}, create: { id: 'w_shoes', name: "Women's Shoes", categoryId: womenOthers.id } }),
+    ensureSubCategory("Women's Shoes", womenOthers.categoryId),
     // Men RTW
-    prisma.subCategory.upsert({ where: { id: 'm_outerwear' }, update: {}, create: { id: 'm_outerwear', name: 'M Outerwear', categoryId: menRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'm_tops' }, update: {}, create: { id: 'm_tops', name: 'M Tops', categoryId: menRtw.id } }),
-    prisma.subCategory.upsert({ where: { id: 'm_bottoms' }, update: {}, create: { id: 'm_bottoms', name: 'M Bottoms', categoryId: menRtw.id } }),
+    ensureSubCategory('M Outerwear', menRtw.categoryId),
+    ensureSubCategory('M Tops', menRtw.categoryId),
+    ensureSubCategory('M Bottoms', menRtw.categoryId),
     // Men Accessories
-    prisma.subCategory.upsert({ where: { id: 'm_bags' }, update: {}, create: { id: 'm_bags', name: 'M Bags', categoryId: menAcc.id } }),
-    prisma.subCategory.upsert({ where: { id: 'm_slg' }, update: {}, create: { id: 'm_slg', name: 'M SLG', categoryId: menAcc.id } }),
+    ensureSubCategory('M Bags', menAcc.categoryId),
+    ensureSubCategory('M SLG', menAcc.categoryId),
   ]);
   console.log(`  ✅ 5 categories + ${subCategories.length} sub-categories created`);
 
-  // ─── SKU CATALOG ──────────────────────────────────────────────────────
-  // Matching SKU_CATALOG from the current frontend SKUProposalScreen.jsx
+  // ─── PRODUCTS ────────────────────────────────────────────────────────
+  // We need to map the old "productType" to subCategoryID.
+  // This is a bit manual.
+  
+  const subCatMap = new Map<string, string>(); // name -> id
+  (await prisma.subCategory.findMany()).forEach(sc => subCatMap.set(sc.subCategoryName, sc.subCategoryId));
+  
+  // Helper to find subCat ID from old "productType" string
+  const getSubCatId = (type: string): string => {
+       const map: Record<string, string> = {
+          'W OUTERWEAR': 'W Outerwear',
+          'W TOPS': 'W Tops',
+          'W DRESSES': 'W Dresses',
+          'W BAGS': 'W Bags',
+          'W SLG': 'W SLG',
+          'W SHOES': "Women's Shoes",
+          'M OUTERWEAR': 'M Outerwear',
+          'M TOPS': 'M Tops',
+          'M BAGS': 'M Bags',
+          'M SLG': 'M SLG'
+       };
+       const name = map[type];
+       if (!name) return '';
+       return subCatMap.get(name) || '';
+  }
+
   const skus = [
     { skuCode: '8116333', productName: 'FITZROVIA DK SHT', productType: 'W OUTERWEAR', theme: 'AUGUST (08)', color: 'WINE RED', composition: '100% COTTON', srp: 87900000 },
     { skuCode: '8113543', productName: 'FLORISTON S', productType: 'W OUTERWEAR', theme: 'AUGUST (08)', color: 'MAHOGANY', composition: '100% POLYAMIDE (NYLON)', srp: 65900000 },
@@ -233,63 +283,80 @@ async function main() {
     { skuCode: '9101002', productName: 'TB BAG SMALL', productType: 'W BAGS', theme: 'SEPTEMBER (09)', color: 'BLACK', composition: '100% LEATHER', srp: 95000000 },
   ];
 
+  let productsCreated = 0;
   for (const sku of skus) {
-    await prisma.skuCatalog.upsert({
+    const subCatId = getSubCatId(sku.productType);
+    if (!subCatId) {
+        console.warn(`Skipping SKU ${sku.skuCode} - unknown subcat ${sku.productType}`);
+        continue;
+    }
+    await prisma.product.upsert({
       where: { skuCode: sku.skuCode },
       update: {},
-      create: sku,
+      create: {
+          skuCode: sku.skuCode,
+          productName: sku.productName,
+          subCategoryId: subCatId,
+          theme: sku.theme,
+          color: sku.color,
+          composition: sku.composition,
+          srp: sku.srp,
+          // Assign random brand from our list for now since we didn't specify in array
+          brandId: allBrands.length > 0 ? allBrands[0].brandId : undefined 
+      },
     });
+    productsCreated++;
   }
-  console.log(`  ✅ ${skus.length} SKUs created`);
+  console.log(`  ✅ ${productsCreated} Products created`);
 
   // ─── DEFAULT USERS ────────────────────────────────────────────────────
   const password = await bcrypt.hash('dafc@2026', 12);
-  const storeIds = JSON.stringify(stores.map(s => s.id));
-  const brandIds = JSON.stringify(brands.map(b => b.id));
+  const storeIds = JSON.stringify(stores.map(s => s.storeId));
+  const brandIds = JSON.stringify(allBrands.map(b => b.brandId));
 
   const users = await Promise.all([
     prisma.user.upsert({
-      where: { email: 'admin@dafc.com' },
+      where: { userEmail: 'admin@dafc.com' },
       update: {},
       create: {
-        email: 'admin@dafc.com', name: 'System Admin',
-        passwordHash: password, roleId: adminRole.id,
+        userEmail: 'admin@dafc.com', userName: 'System Admin',
+        passwordHash: password, roleId: adminRole.roleId,
         storeAccess: storeIds, brandAccess: brandIds,
       },
     }),
     prisma.user.upsert({
-      where: { email: 'buyer@dafc.com' },
+      where: { userEmail: 'buyer@dafc.com' },
       update: {},
       create: {
-        email: 'buyer@dafc.com', name: 'Nguyen Van Buyer',
-        passwordHash: password, roleId: buyerRole.id,
+        userEmail: 'buyer@dafc.com', userName: 'Nguyen Van Buyer',
+        passwordHash: password, roleId: buyerRole.roleId,
         storeAccess: storeIds, brandAccess: brandIds,
       },
     }),
     prisma.user.upsert({
-      where: { email: 'merch@dafc.com' },
+      where: { userEmail: 'merch@dafc.com' },
       update: {},
       create: {
-        email: 'merch@dafc.com', name: 'Tran Thi Merch',
-        passwordHash: password, roleId: merchRole.id,
+        userEmail: 'merch@dafc.com', userName: 'Tran Thi Merch',
+        passwordHash: password, roleId: merchRole.roleId,
         storeAccess: storeIds, brandAccess: brandIds,
       },
     }),
     prisma.user.upsert({
-      where: { email: 'manager@dafc.com' },
+      where: { userEmail: 'manager@dafc.com' },
       update: {},
       create: {
-        email: 'manager@dafc.com', name: 'Le Van Manager',
-        passwordHash: password, roleId: merchMgrRole.id,
+        userEmail: 'manager@dafc.com', userName: 'Le Van Manager',
+        passwordHash: password, roleId: merchMgrRole.roleId,
         storeAccess: storeIds, brandAccess: brandIds,
       },
     }),
     prisma.user.upsert({
-      where: { email: 'finance@dafc.com' },
+      where: { userEmail: 'finance@dafc.com' },
       update: {},
       create: {
-        email: 'finance@dafc.com', name: 'Pham Director',
-        passwordHash: password, roleId: finDirRole.id,
+        userEmail: 'finance@dafc.com', userName: 'Pham Director',
+        passwordHash: password, roleId: finDirRole.roleId,
         storeAccess: storeIds, brandAccess: brandIds,
       },
     }),
