@@ -9,7 +9,7 @@ export declare class MasterDataService {
         isActive: boolean;
         code: string;
         groupId: string;
-        colorConfig: Prisma.JsonValue | null;
+        colorConfig: string | null;
         sortOrder: number;
     }[]>;
     getStores(): Promise<{

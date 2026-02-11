@@ -395,7 +395,7 @@ export class OtbAllocationService {
         confidence: r.confidence,
         reasoning: r.reasoning,
         basedOnSeasons: Math.round(r.confidence * 3),
-        factors: r.factors,
+        factors: r.factors ? JSON.stringify(r.factors) : null,
       })),
     });
   }

@@ -1,5 +1,6 @@
 import { PrismaService } from '../../prisma/prisma.service';
-import { ProposalStatus, Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma';
+import { ProposalStatus } from '../../common/enums';
 import { CreateProposalDto, UpdateProposalDto, AddProductDto, BulkAddProductsDto, UpdateProductDto, ApprovalDecisionDto } from './dto/proposal.dto';
 interface ProposalFilters {
     budgetId?: string;
@@ -20,7 +21,7 @@ export declare class ProposalService {
                     isActive: boolean;
                     code: string;
                     groupId: string;
-                    colorConfig: Prisma.JsonValue | null;
+                    colorConfig: string | null;
                     sortOrder: number;
                 };
             } & {
@@ -32,7 +33,7 @@ export declare class ProposalService {
                 seasonType: string;
                 fiscalYear: number;
                 comment: string | null;
-                status: import("../../generated/prisma").$Enums.BudgetStatus;
+                status: string;
                 budgetCode: string;
                 totalBudget: Prisma.Decimal;
                 createdById: string;
@@ -54,7 +55,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("../../generated/prisma").$Enums.ProposalStatus;
+            status: string;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
@@ -79,7 +80,7 @@ export declare class ProposalService {
         } & {
             id: string;
             comment: string | null;
-            action: import("../../generated/prisma").$Enums.ApprovalAction;
+            action: string;
             entityType: string;
             entityId: string;
             level: number;
@@ -105,7 +106,7 @@ export declare class ProposalService {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: Prisma.JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
         } & {
@@ -117,7 +118,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("../../generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: Prisma.Decimal;
             createdById: string;
@@ -141,14 +142,14 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("../../generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: Prisma.JsonValue | null;
+            snapshotData: string | null;
         }) | null;
         products: {
             collection: string | null;
@@ -179,7 +180,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -196,7 +197,7 @@ export declare class ProposalService {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: Prisma.JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
         } & {
@@ -208,7 +209,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("../../generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: Prisma.Decimal;
             createdById: string;
@@ -217,20 +218,20 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("../../generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: Prisma.JsonValue | null;
+            snapshotData: string | null;
         } | null;
     } & {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -247,7 +248,7 @@ export declare class ProposalService {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: Prisma.JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
         } & {
@@ -259,7 +260,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("../../generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: Prisma.Decimal;
             createdById: string;
@@ -268,20 +269,20 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("../../generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: Prisma.JsonValue | null;
+            snapshotData: string | null;
         } | null;
     } & {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -327,7 +328,7 @@ export declare class ProposalService {
             } & {
                 id: string;
                 comment: string | null;
-                action: import("../../generated/prisma").$Enums.ApprovalAction;
+                action: string;
                 entityType: string;
                 entityId: string;
                 level: number;
@@ -353,7 +354,7 @@ export declare class ProposalService {
                     isActive: boolean;
                     code: string;
                     groupId: string;
-                    colorConfig: Prisma.JsonValue | null;
+                    colorConfig: string | null;
                     sortOrder: number;
                 };
             } & {
@@ -365,7 +366,7 @@ export declare class ProposalService {
                 seasonType: string;
                 fiscalYear: number;
                 comment: string | null;
-                status: import("../../generated/prisma").$Enums.BudgetStatus;
+                status: string;
                 budgetCode: string;
                 totalBudget: Prisma.Decimal;
                 createdById: string;
@@ -389,14 +390,14 @@ export declare class ProposalService {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                status: import("../../generated/prisma").$Enums.PlanningStatus;
+                status: string;
                 createdById: string;
                 planningCode: string;
                 budgetDetailId: string;
                 versionNumber: number;
                 versionName: string | null;
                 isFinal: boolean;
-                snapshotData: Prisma.JsonValue | null;
+                snapshotData: string | null;
             }) | null;
             products: {
                 collection: string | null;
@@ -427,7 +428,7 @@ export declare class ProposalService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("../../generated/prisma").$Enums.ProposalStatus;
+            status: string;
             createdById: string;
             budgetId: string;
             planningVersionId: string | null;
@@ -469,7 +470,7 @@ export declare class ProposalService {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: Prisma.JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
         } & {
@@ -481,7 +482,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("../../generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: Prisma.Decimal;
             createdById: string;
@@ -493,7 +494,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -510,7 +511,7 @@ export declare class ProposalService {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: Prisma.JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
         } & {
@@ -522,7 +523,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("../../generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: Prisma.Decimal;
             createdById: string;
@@ -534,7 +535,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -551,7 +552,7 @@ export declare class ProposalService {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: Prisma.JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
         } & {
@@ -563,7 +564,7 @@ export declare class ProposalService {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("../../generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: Prisma.Decimal;
             createdById: string;
@@ -575,7 +576,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;
@@ -588,7 +589,7 @@ export declare class ProposalService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        status: import("../../generated/prisma").$Enums.ProposalStatus;
+        status: string;
         createdById: string;
         budgetId: string;
         planningVersionId: string | null;

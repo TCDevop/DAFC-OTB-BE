@@ -11,7 +11,7 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.use((0, helmet_1.default)());
-    const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:3006'];
+    const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:3006', 'https://vibeappfe-d5d9chceafavd6bf.southeastasia-01.azurewebsites.net'];
     app.enableCors({
         origin: (origin, callback) => {
             if (!origin)

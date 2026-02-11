@@ -1,33 +1,27 @@
 # DAFC OTB Backend API
 
-> NestJS + PostgreSQL + Prisma backend for the OTB Planning Management System
+> NestJS + SQL Server (Azure) + Prisma backend for the OTB Planning Management System
 
 ## Quick Start
 
-### 1. Start PostgreSQL
-
-```bash
-docker compose up -d
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Setup Environment
+### 2. Setup Environment
 
 ```bash
 cp .env.example .env
-# Edit .env if needed
+# Edit .env with your SQL Server connection string
 ```
 
-### 4. Run Migrations & Seed
+### 3. Push Schema & Seed
 
 ```bash
 npx prisma generate
-npx prisma migrate dev --name init
+npx prisma db push
 npm run prisma:seed
 ```
 

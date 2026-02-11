@@ -19,7 +19,7 @@ async function main() {
       create: {
         name: 'admin',
         description: 'System Administrator',
-        permissions: ['*'],
+        permissions: JSON.stringify(['*']),
       },
     }),
     prisma.role.upsert({
@@ -28,12 +28,12 @@ async function main() {
       create: {
         name: 'buyer',
         description: 'Buyer — creates proposals, manages SKU selection',
-        permissions: [
+        permissions: JSON.stringify([
           'budget:read',
           'planning:read',
           'proposal:read', 'proposal:write', 'proposal:submit',
           'master:read',
-        ],
+        ]),
       },
     }),
     prisma.role.upsert({
@@ -42,12 +42,12 @@ async function main() {
       create: {
         name: 'merchandiser',
         description: 'Merchandiser — creates budgets and planning',
-        permissions: [
+        permissions: JSON.stringify([
           'budget:read', 'budget:write', 'budget:submit',
           'planning:read', 'planning:write', 'planning:submit',
           'proposal:read',
           'master:read',
-        ],
+        ]),
       },
     }),
     prisma.role.upsert({
@@ -56,12 +56,12 @@ async function main() {
       create: {
         name: 'merch_manager',
         description: 'Merchandising Manager — Level 1 Approver',
-        permissions: [
+        permissions: JSON.stringify([
           'budget:read', 'budget:write', 'budget:submit', 'budget:approve_l1',
           'planning:read', 'planning:write', 'planning:approve_l1',
           'proposal:read', 'proposal:approve_l1',
           'master:read',
-        ],
+        ]),
       },
     }),
     prisma.role.upsert({
@@ -70,12 +70,12 @@ async function main() {
       create: {
         name: 'finance_director',
         description: 'Finance Director — Level 2 Approver',
-        permissions: [
+        permissions: JSON.stringify([
           'budget:read', 'budget:approve_l2',
           'planning:read', 'planning:approve_l2',
           'proposal:read', 'proposal:approve_l2',
           'master:read',
-        ],
+        ]),
       },
     }),
   ]);
@@ -110,7 +110,7 @@ async function main() {
       update: {},
       create: {
         code: 'FER', name: 'Ferragamo', groupId: 'A',
-        colorConfig: { gradient: 'from-rose-400 to-rose-600' },
+        colorConfig: JSON.stringify({ gradient: 'from-rose-400 to-rose-600' }),
         sortOrder: 1,
       },
     }),
@@ -119,7 +119,7 @@ async function main() {
       update: {},
       create: {
         code: 'BUR', name: 'Burberry', groupId: 'A',
-        colorConfig: { gradient: 'from-amber-400 to-amber-600' },
+        colorConfig: JSON.stringify({ gradient: 'from-amber-400 to-amber-600' }),
         sortOrder: 2,
       },
     }),
@@ -128,7 +128,7 @@ async function main() {
       update: {},
       create: {
         code: 'GUC', name: 'Gucci', groupId: 'A',
-        colorConfig: { gradient: 'from-emerald-400 to-emerald-600' },
+        colorConfig: JSON.stringify({ gradient: 'from-emerald-400 to-emerald-600' }),
         sortOrder: 3,
       },
     }),
@@ -137,7 +137,7 @@ async function main() {
       update: {},
       create: {
         code: 'PRA', name: 'Prada', groupId: 'B',
-        colorConfig: { gradient: 'from-purple-400 to-purple-600' },
+        colorConfig: JSON.stringify({ gradient: 'from-purple-400 to-purple-600' }),
         sortOrder: 4,
       },
     }),
@@ -244,8 +244,8 @@ async function main() {
 
   // ─── DEFAULT USERS ────────────────────────────────────────────────────
   const password = await bcrypt.hash('dafc@2026', 12);
-  const storeIds = stores.map(s => s.id);
-  const brandIds = brands.map(b => b.id);
+  const storeIds = JSON.stringify(stores.map(s => s.id));
+  const brandIds = JSON.stringify(brands.map(b => b.id));
 
   const users = await Promise.all([
     prisma.user.upsert({

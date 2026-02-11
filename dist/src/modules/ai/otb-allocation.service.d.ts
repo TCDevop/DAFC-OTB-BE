@@ -48,7 +48,7 @@ export declare class OtbAllocationService {
         confidence: import("src/generated/prisma/runtime/library").Decimal;
         reasoning: string | null;
         basedOnSeasons: number;
-        factors: import("src/generated/prisma/runtime/library").JsonValue | null;
+        factors: string | null;
         isApplied: boolean;
     }[]>;
     applyRecommendations(budgetDetailId: string, dimensionType?: string): Promise<{
@@ -62,7 +62,7 @@ export declare class OtbAllocationService {
         confidence: import("src/generated/prisma/runtime/library").Decimal;
         reasoning: string | null;
         basedOnSeasons: number;
-        factors: import("src/generated/prisma/runtime/library").JsonValue | null;
+        factors: string | null;
         isApplied: boolean;
     }[]>;
     compareAllocation(budgetDetailId: string, userAllocation: Array<{

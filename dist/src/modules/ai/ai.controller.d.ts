@@ -100,7 +100,7 @@ export declare class AiController {
             confidence: import("src/generated/prisma/runtime/library").Decimal;
             reasoning: string | null;
             basedOnSeasons: number;
-            factors: import("src/generated/prisma/runtime/library").JsonValue | null;
+            factors: string | null;
             isApplied: boolean;
         }[];
     }>;
@@ -116,7 +116,7 @@ export declare class AiController {
             confidence: import("src/generated/prisma/runtime/library").Decimal;
             reasoning: string | null;
             basedOnSeasons: number;
-            factors: import("src/generated/prisma/runtime/library").JsonValue | null;
+            factors: string | null;
             isApplied: boolean;
         }[];
         message: string;
@@ -157,8 +157,8 @@ export declare class AiController {
             id: string;
             entityType: string;
             entityId: string;
-            warnings: import("src/generated/prisma/runtime/library").JsonValue | null;
-            factors: import("src/generated/prisma/runtime/library").JsonValue | null;
+            warnings: string | null;
+            factors: string | null;
             overallScore: import("src/generated/prisma/runtime/library").Decimal;
             riskLevel: string;
             budgetAlignmentScore: import("src/generated/prisma/runtime/library").Decimal;

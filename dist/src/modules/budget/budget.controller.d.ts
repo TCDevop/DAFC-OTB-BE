@@ -11,7 +11,7 @@ export declare class BudgetController {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
             details: ({
@@ -42,7 +42,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;
@@ -75,7 +75,7 @@ export declare class BudgetController {
             } & {
                 id: string;
                 comment: string | null;
-                action: import("src/generated/prisma").$Enums.ApprovalAction;
+                action: string;
                 entityType: string;
                 entityId: string;
                 level: number;
@@ -88,7 +88,7 @@ export declare class BudgetController {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
             details: ({
@@ -118,7 +118,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;
@@ -133,7 +133,7 @@ export declare class BudgetController {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
             details: ({
@@ -159,7 +159,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;
@@ -174,7 +174,7 @@ export declare class BudgetController {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
             details: ({
@@ -200,7 +200,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;
@@ -217,7 +217,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;
@@ -232,7 +232,7 @@ export declare class BudgetController {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
             details: ({
@@ -258,7 +258,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;
@@ -273,7 +273,7 @@ export declare class BudgetController {
                 isActive: boolean;
                 code: string;
                 groupId: string;
-                colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                colorConfig: string | null;
                 sortOrder: number;
             };
             details: ({
@@ -299,7 +299,7 @@ export declare class BudgetController {
             seasonType: string;
             fiscalYear: number;
             comment: string | null;
-            status: import("src/generated/prisma").$Enums.BudgetStatus;
+            status: string;
             budgetCode: string;
             totalBudget: import("src/generated/prisma/runtime/library").Decimal;
             createdById: string;

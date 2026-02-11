@@ -62,8 +62,8 @@ export class MasterDataService {
     if (filters?.brandId) where.brandId = filters.brandId;
     if (filters?.search) {
       where.OR = [
-        { skuCode: { contains: filters.search, mode: 'insensitive' } },
-        { productName: { contains: filters.search, mode: 'insensitive' } },
+        { skuCode: { contains: filters.search } },
+        { productName: { contains: filters.search } },
       ];
     }
 

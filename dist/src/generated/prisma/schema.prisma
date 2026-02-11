@@ -1,7 +1,7 @@
 // ============================================================================
 // DAFC OTB Planning System - Database Schema
-// Tech: PostgreSQL 16 + Prisma ORM
-// Updated: 2026-02-05 — Removed ProposalRails (flat product structure)
+// Tech: SQL Server (Azure) + Prisma ORM
+// Updated: 2026-02-11 — Migrated from PostgreSQL to SQL Server
 // ============================================================================
 
 generator client {
@@ -11,7 +11,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
@@ -25,14 +25,14 @@ model User {
   name         String
   passwordHash String   @map("password_hash")
   roleId       String   @map("role_id")
-  storeAccess  String[] @map("store_access") // store IDs user can access
-  brandAccess  String[] @map("brand_access") // brand IDs user can access
+  storeAccess  String   @default("[]") @map("store_access") @db.NVarChar(Max) // JSON array of store IDs
+  brandAccess  String   @default("[]") @map("brand_access") @db.NVarChar(Max) // JSON array of brand IDs
   isActive     Boolean  @default(true) @map("is_active")
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 
   // Relations
-  role              Role                   @relation(fields: [roleId], references: [id])
+  role              Role                   @relation(fields: [roleId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   createdBudgets    Budget[]               @relation("BudgetCreator")
   createdPlannings  PlanningVersion[]      @relation("PlanningCreator")
   createdProposals  Proposal[]             @relation("ProposalCreator")
@@ -47,7 +47,7 @@ model Role {
   id          String  @id @default(cuid())
   name        String  @unique // buyer, merchandiser, merch_manager, finance_director, admin
   description String?
-  permissions Json    @default("[]") // ["budget:read", "budget:write", "planning:approve", ...]
+  permissions String  @default("[]") @db.NVarChar(Max) // JSON: ["budget:read", "budget:write", ...]
 
   users User[]
 
@@ -63,7 +63,7 @@ model GroupBrand {
   code        String  @unique // FER, BUR, GUC, PRA
   name        String // Ferragamo, Burberry, Gucci, Prada
   groupId     String  @map("group_id") // A, B, C
-  colorConfig Json?   @map("color_config") // { gradient: "from-rose-400 to-rose-600" }
+  colorConfig String? @map("color_config") @db.NVarChar(Max) // JSON: { gradient: "from-rose-400 to-rose-600" }
   isActive    Boolean @default(true) @map("is_active")
   sortOrder   Int     @default(0) @map("sort_order")
 
@@ -117,7 +117,7 @@ model Category {
   genderId String  @map("gender_id")
   isActive Boolean @default(true) @map("is_active")
 
-  gender          Gender           @relation(fields: [genderId], references: [id])
+  gender          Gender           @relation(fields: [genderId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   subCategories   SubCategory[]
   planningDetails PlanningDetail[]
 
@@ -130,7 +130,7 @@ model SubCategory {
   categoryId String  @map("category_id")
   isActive   Boolean @default(true) @map("is_active")
 
-  category        Category         @relation(fields: [categoryId], references: [id])
+  category        Category         @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   planningDetails PlanningDetail[]
 
   @@map("sub_categories")
@@ -150,7 +150,7 @@ model SkuCatalog {
   imageUrl      String? @map("image_url")
   isActive      Boolean @default(true) @map("is_active")
 
-  brand                    GroupBrand?               @relation(fields: [brandId], references: [id])
+  brand                    GroupBrand?               @relation(fields: [brandId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   products                 ProposalProduct[]
   sizeCurveRecommendations SizeCurveRecommendation[]
   skuPerformance           SkuPerformance[]
@@ -163,31 +163,26 @@ model SkuCatalog {
 // BUDGET MODULE
 // ============================================================================
 
-enum BudgetStatus {
-  DRAFT
-  SUBMITTED
-  LEVEL1_APPROVED
-  APPROVED
-  REJECTED
-}
+// Note: SQL Server does not support Prisma enums. Status stored as String.
+// Valid values: DRAFT, SUBMITTED, LEVEL1_APPROVED, APPROVED, REJECTED
 
 model Budget {
-  id            String       @id @default(cuid())
-  budgetCode    String       @unique @map("budget_code") // BUD-FER-SS-Pre-2025
-  groupBrandId  String       @map("group_brand_id")
-  seasonGroupId String       @map("season_group_id") // SS | FW
-  seasonType    String       @map("season_type") // pre | main
-  fiscalYear    Int          @map("fiscal_year")
-  totalBudget   Decimal      @default(0) @map("total_budget") @db.Decimal(18, 2)
-  status        BudgetStatus @default(DRAFT)
+  id            String   @id @default(cuid())
+  budgetCode    String   @unique @map("budget_code") // BUD-FER-SS-Pre-2025
+  groupBrandId  String   @map("group_brand_id")
+  seasonGroupId String   @map("season_group_id") // SS | FW
+  seasonType    String   @map("season_type") // pre | main
+  fiscalYear    Int      @map("fiscal_year")
+  totalBudget   Decimal  @default(0) @map("total_budget") @db.Decimal(18, 2)
+  status        String   @default("DRAFT")
   comment       String?
-  createdById   String       @map("created_by_id")
-  createdAt     DateTime     @default(now()) @map("created_at")
-  updatedAt     DateTime     @updatedAt @map("updated_at")
+  createdById   String   @map("created_by_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
 
   // Relations
-  groupBrand      GroupBrand       @relation(fields: [groupBrandId], references: [id])
-  createdBy       User             @relation("BudgetCreator", fields: [createdById], references: [id])
+  groupBrand      GroupBrand       @relation(fields: [groupBrandId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdBy       User             @relation("BudgetCreator", fields: [createdById], references: [id], onDelete: NoAction, onUpdate: NoAction)
   details         BudgetDetail[]
   proposals       Proposal[]
   budgetAlerts    BudgetAlert[]
@@ -208,7 +203,7 @@ model BudgetDetail {
 
   // Relations
   budget                    Budget                     @relation(fields: [budgetId], references: [id], onDelete: Cascade)
-  store                     Store                      @relation(fields: [storeId], references: [id])
+  store                     Store                      @relation(fields: [storeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   planningVersions          PlanningVersion[]
   allocationRecommendations AllocationRecommendation[]
   skuRecommendations        SkuRecommendation[]
@@ -221,30 +216,24 @@ model BudgetDetail {
 // PLANNING MODULE
 // ============================================================================
 
-enum PlanningStatus {
-  DRAFT
-  SUBMITTED
-  LEVEL1_APPROVED
-  APPROVED
-  REJECTED
-}
+// Valid status values: DRAFT, SUBMITTED, LEVEL1_APPROVED, APPROVED, REJECTED
 
 model PlanningVersion {
-  id             String         @id @default(cuid())
-  planningCode   String         @unique @map("planning_code") // PLN-BUD-FER-SS-Pre-2025-REX-V1
-  budgetDetailId String         @map("budget_detail_id")
-  versionNumber  Int            @map("version_number")
-  versionName    String?        @map("version_name")
-  status         PlanningStatus @default(DRAFT)
-  isFinal        Boolean        @default(false) @map("is_final")
-  snapshotData   Json?          @map("snapshot_data") // frozen data on submit
-  createdById    String         @map("created_by_id")
-  createdAt      DateTime       @default(now()) @map("created_at")
-  updatedAt      DateTime       @updatedAt @map("updated_at")
+  id             String   @id @default(cuid())
+  planningCode   String   @unique @map("planning_code") // PLN-BUD-FER-SS-Pre-2025-REX-V1
+  budgetDetailId String   @map("budget_detail_id")
+  versionNumber  Int      @map("version_number")
+  versionName    String?  @map("version_name")
+  status         String   @default("DRAFT")
+  isFinal        Boolean  @default(false) @map("is_final")
+  snapshotData   String?  @map("snapshot_data") @db.NVarChar(Max) // JSON: frozen data on submit
+  createdById    String   @map("created_by_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
 
   // Relations
-  budgetDetail BudgetDetail     @relation(fields: [budgetDetailId], references: [id])
-  createdBy    User             @relation("PlanningCreator", fields: [createdById], references: [id])
+  budgetDetail BudgetDetail     @relation(fields: [budgetDetailId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdBy    User             @relation("PlanningCreator", fields: [createdById], references: [id], onDelete: NoAction, onUpdate: NoAction)
   details      PlanningDetail[]
   proposals    Proposal[]
 
@@ -272,10 +261,10 @@ model PlanningDetail {
 
   // Relations
   planningVersion PlanningVersion @relation(fields: [planningVersionId], references: [id], onDelete: Cascade)
-  collection      Collection?     @relation(fields: [collectionId], references: [id])
-  gender          Gender?         @relation(fields: [genderId], references: [id])
-  category        Category?       @relation(fields: [categoryId], references: [id])
-  subCategory     SubCategory?    @relation(fields: [subCategoryId], references: [id])
+  collection      Collection?     @relation(fields: [collectionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  gender          Gender?         @relation(fields: [genderId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  category        Category?       @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  subCategory     SubCategory?    @relation(fields: [subCategoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("planning_details")
 }
@@ -284,31 +273,25 @@ model PlanningDetail {
 // PROPOSAL MODULE (flat — no rails)
 // ============================================================================
 
-enum ProposalStatus {
-  DRAFT
-  SUBMITTED
-  LEVEL1_APPROVED
-  APPROVED
-  REJECTED
-}
+// Valid status values: DRAFT, SUBMITTED, LEVEL1_APPROVED, APPROVED, REJECTED
 
 model Proposal {
-  id                String         @id @default(cuid())
-  ticketName        String         @map("ticket_name")
-  budgetId          String         @map("budget_id")
-  planningVersionId String?        @map("planning_version_id")
-  status            ProposalStatus @default(DRAFT)
-  totalSkuCount     Int            @default(0) @map("total_sku_count")
-  totalOrderQty     Int            @default(0) @map("total_order_qty")
-  totalValue        Decimal        @default(0) @map("total_value") @db.Decimal(18, 2)
-  createdById       String         @map("created_by_id")
-  createdAt         DateTime       @default(now()) @map("created_at")
-  updatedAt         DateTime       @updatedAt @map("updated_at")
+  id                String   @id @default(cuid())
+  ticketName        String   @map("ticket_name")
+  budgetId          String   @map("budget_id")
+  planningVersionId String?  @map("planning_version_id")
+  status            String   @default("DRAFT")
+  totalSkuCount     Int      @default(0) @map("total_sku_count")
+  totalOrderQty     Int      @default(0) @map("total_order_qty")
+  totalValue        Decimal  @default(0) @map("total_value") @db.Decimal(18, 2)
+  createdById       String   @map("created_by_id")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
 
   // Relations
-  budget          Budget            @relation(fields: [budgetId], references: [id])
-  planningVersion PlanningVersion?  @relation(fields: [planningVersionId], references: [id])
-  createdBy       User              @relation("ProposalCreator", fields: [createdById], references: [id])
+  budget          Budget            @relation(fields: [budgetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  planningVersion PlanningVersion?  @relation(fields: [planningVersionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdBy       User              @relation("ProposalCreator", fields: [createdById], references: [id], onDelete: NoAction, onUpdate: NoAction)
   products        ProposalProduct[]
 
   @@map("proposals")
@@ -337,7 +320,7 @@ model ProposalProduct {
 
   // Relations
   proposal    Proposal            @relation(fields: [proposalId], references: [id], onDelete: Cascade)
-  sku         SkuCatalog          @relation(fields: [skuId], references: [id])
+  sku         SkuCatalog          @relation(fields: [skuId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   allocations ProductAllocation[]
 
   @@map("proposal_products")
@@ -351,7 +334,7 @@ model ProductAllocation {
 
   // Relations
   proposalProduct ProposalProduct @relation(fields: [proposalProductId], references: [id], onDelete: Cascade)
-  store           Store           @relation(fields: [storeId], references: [id])
+  store           Store           @relation(fields: [storeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([proposalProductId, storeId])
   @@map("product_allocations")
@@ -361,23 +344,20 @@ model ProductAllocation {
 // APPROVAL WORKFLOW
 // ============================================================================
 
-enum ApprovalAction {
-  APPROVED
-  REJECTED
-}
+// Valid action values: APPROVED, REJECTED
 
 model Approval {
-  id         String         @id @default(cuid())
-  entityType String         @map("entity_type") // budget | planning | proposal
-  entityId   String         @map("entity_id")
+  id         String   @id @default(cuid())
+  entityType String   @map("entity_type") // budget | planning | proposal
+  entityId   String   @map("entity_id")
   level      Int // 1 = Merch Manager, 2 = Finance Director
-  deciderId  String         @map("decider_id")
-  action     ApprovalAction
+  deciderId  String   @map("decider_id")
+  action     String // APPROVED | REJECTED
   comment    String?
-  decidedAt  DateTime       @default(now()) @map("decided_at")
+  decidedAt  DateTime @default(now()) @map("decided_at")
 
   // Relations (only decider has FK - entityId is polymorphic)
-  decider User @relation("ApprovalDecider", fields: [deciderId], references: [id])
+  decider User @relation("ApprovalDecider", fields: [deciderId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([entityType, entityId])
   @@map("approvals")
@@ -393,11 +373,11 @@ model AuditLog {
   entityType String   @map("entity_type") // budget | planning | proposal
   entityId   String   @map("entity_id")
   action     String // create | update | delete | submit | approve | reject
-  changes    Json? // { field: { old: x, new: y } }
+  changes    String?  @db.NVarChar(Max) // JSON: { field: { old: x, new: y } }
   ipAddress  String?  @map("ip_address")
   createdAt  DateTime @default(now()) @map("created_at")
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([entityType, entityId])
   @@index([userId])
@@ -420,7 +400,7 @@ model SalesHistory {
   sellThroughPct Decimal  @default(0) @map("sell_through_pct") @db.Decimal(5, 2)
   createdAt      DateTime @default(now()) @map("created_at")
 
-  store Store @relation(fields: [storeId], references: [id])
+  store Store @relation(fields: [storeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([skuCode, storeId, season])
   @@map("sales_history")
@@ -438,8 +418,8 @@ model SizeCurveRecommendation {
   reasoning      String?
   createdAt      DateTime @default(now()) @map("created_at")
 
-  sku   SkuCatalog @relation(fields: [skuId], references: [id])
-  store Store      @relation(fields: [storeId], references: [id])
+  sku   SkuCatalog @relation(fields: [skuId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  store Store      @relation(fields: [storeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([skuId, storeId, sizeCode])
   @@index([category, storeId])
@@ -464,9 +444,9 @@ model BudgetAlert {
   isDismissed Boolean  @default(false) @map("is_dismissed")
   createdAt   DateTime @default(now()) @map("created_at")
 
-  budget Budget @relation(fields: [budgetId], references: [id])
+  budget Budget @relation(fields: [budgetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-  @@index([budgetId, isRead, createdAt(sort: Desc)])
+  @@index([budgetId, isRead])
   @@map("budget_alerts")
 }
 
@@ -478,10 +458,10 @@ model BudgetSnapshot {
   totalPlanned   Decimal  @default(0) @map("total_planned") @db.Decimal(18, 2)
   utilizationPct Decimal  @default(0) @map("utilization_pct") @db.Decimal(5, 2)
 
-  budget Budget @relation(fields: [budgetId], references: [id])
+  budget Budget @relation(fields: [budgetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([budgetId, snapshotDate])
-  @@index([budgetId, snapshotDate(sort: Desc)])
+  @@index([budgetId])
   @@map("budget_snapshots")
 }
 
@@ -516,13 +496,13 @@ model AllocationRecommendation {
   recommendedPct Decimal  @map("recommended_pct") @db.Decimal(5, 2)
   recommendedAmt Decimal  @map("recommended_amt") @db.Decimal(18, 2)
   confidence     Decimal  @db.Decimal(3, 2) // 0.00 - 1.00
-  reasoning      String?  @db.Text
+  reasoning      String?  @db.NVarChar(Max)
   basedOnSeasons Int      @map("based_on_seasons")
-  factors        Json?
+  factors        String?  @db.NVarChar(Max) // JSON
   isApplied      Boolean  @default(false) @map("is_applied")
   createdAt      DateTime @default(now()) @map("created_at")
 
-  budgetDetail BudgetDetail @relation(fields: [budgetDetailId], references: [id])
+  budgetDetail BudgetDetail @relation(fields: [budgetDetailId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([budgetDetailId, dimensionType, dimensionValue])
   @@map("allocation_recommendations")
@@ -546,9 +526,9 @@ model RiskAssessment {
   categoryBalanceScore     Decimal @map("category_balance_score") @db.Decimal(3, 1)
   marginImpactScore        Decimal @map("margin_impact_score") @db.Decimal(3, 1)
 
-  factors        Json?
-  warnings       Json?
-  recommendation String? @db.Text
+  factors        String? @db.NVarChar(Max) // JSON
+  warnings       String? @db.NVarChar(Max) // JSON
+  recommendation String? @db.NVarChar(Max)
 
   calculatedAt DateTime @default(now()) @map("calculated_at")
   calculatedBy String?  @map("calculated_by")
@@ -599,8 +579,8 @@ model SkuPerformance {
 
   createdAt DateTime @default(now()) @map("created_at")
 
-  sku   SkuCatalog @relation(fields: [skuId], references: [id])
-  store Store?     @relation("StoreSkuPerformance", fields: [storeId], references: [id])
+  sku   SkuCatalog @relation(fields: [skuId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  store Store?     @relation("StoreSkuPerformance", fields: [storeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([skuId, seasonGroup, fiscalYear, storeId])
   @@index([skuCode])
@@ -650,15 +630,15 @@ model SkuRecommendation {
   overallScore     Int @map("overall_score")
 
   riskLevel String  @map("risk_level")
-  reasoning String? @db.Text
+  reasoning String? @db.NVarChar(Max)
 
   isSelected Boolean @default(false) @map("is_selected")
   isRejected Boolean @default(false) @map("is_rejected")
 
   createdAt DateTime @default(now()) @map("created_at")
 
-  budgetDetail BudgetDetail @relation(fields: [budgetDetailId], references: [id])
-  sku          SkuCatalog   @relation(fields: [skuId], references: [id])
+  budgetDetail BudgetDetail @relation(fields: [budgetDetailId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sku          SkuCatalog   @relation(fields: [skuId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([budgetDetailId, category])
   @@index([overallScore])
@@ -681,8 +661,8 @@ model ApprovalWorkflowStep {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  brand GroupBrand @relation(fields: [brandId], references: [id])
-  user  User?      @relation("WorkflowStepUser", fields: [userId], references: [id])
+  brand GroupBrand @relation(fields: [brandId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user  User?      @relation("WorkflowStepUser", fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([brandId, stepNumber])
   @@index([brandId])

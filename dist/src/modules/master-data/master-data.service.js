@@ -62,8 +62,8 @@ let MasterDataService = class MasterDataService {
             where.brandId = filters.brandId;
         if (filters?.search) {
             where.OR = [
-                { skuCode: { contains: filters.search, mode: 'insensitive' } },
-                { productName: { contains: filters.search, mode: 'insensitive' } },
+                { skuCode: { contains: filters.search } },
+                { productName: { contains: filters.search } },
             ];
         }
         const [data, total] = await Promise.all([

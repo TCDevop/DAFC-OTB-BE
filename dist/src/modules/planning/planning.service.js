@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlanningService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../prisma/prisma.service");
-const prisma_1 = require("../../generated/prisma");
+const enums_1 = require("../../common/enums");
 let PlanningService = class PlanningService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -153,7 +153,7 @@ let PlanningService = class PlanningService {
         });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.DRAFT) {
+        if (planning.status !== enums_1.PlanningStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft planning versions can be edited');
         }
         const updateData = {};
@@ -200,7 +200,7 @@ let PlanningService = class PlanningService {
         });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.DRAFT) {
+        if (planning.status !== enums_1.PlanningStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft planning versions can be edited');
         }
         const detail = planning.details.find(d => d.id === detailId);
@@ -230,20 +230,20 @@ let PlanningService = class PlanningService {
         });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.DRAFT) {
+        if (planning.status !== enums_1.PlanningStatus.DRAFT) {
             throw new common_1.BadRequestException(`Cannot submit planning with status: ${planning.status}`);
         }
         if (planning.details.length === 0) {
             throw new common_1.BadRequestException('Planning must have at least one allocation detail');
         }
-        const snapshotData = {
+        const snapshotData = JSON.stringify({
             submittedAt: new Date().toISOString(),
             details: planning.details,
-        };
+        });
         return this.prisma.planningVersion.update({
             where: { id },
             data: {
-                status: prisma_1.PlanningStatus.SUBMITTED,
+                status: enums_1.PlanningStatus.SUBMITTED,
                 snapshotData,
             },
         });
@@ -252,12 +252,12 @@ let PlanningService = class PlanningService {
         const planning = await this.prisma.planningVersion.findUnique({ where: { id } });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.SUBMITTED) {
+        if (planning.status !== enums_1.PlanningStatus.SUBMITTED) {
             throw new common_1.BadRequestException(`Cannot approve planning with status: ${planning.status}`);
         }
         const newStatus = dto.action === 'APPROVED'
-            ? prisma_1.PlanningStatus.LEVEL1_APPROVED
-            : prisma_1.PlanningStatus.REJECTED;
+            ? enums_1.PlanningStatus.LEVEL1_APPROVED
+            : enums_1.PlanningStatus.REJECTED;
         await this.prisma.approval.create({
             data: {
                 entityType: 'planning',
@@ -278,12 +278,12 @@ let PlanningService = class PlanningService {
         const planning = await this.prisma.planningVersion.findUnique({ where: { id } });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.LEVEL1_APPROVED) {
+        if (planning.status !== enums_1.PlanningStatus.LEVEL1_APPROVED) {
             throw new common_1.BadRequestException(`Cannot approve planning with status: ${planning.status}`);
         }
         const newStatus = dto.action === 'APPROVED'
-            ? prisma_1.PlanningStatus.APPROVED
-            : prisma_1.PlanningStatus.REJECTED;
+            ? enums_1.PlanningStatus.APPROVED
+            : enums_1.PlanningStatus.REJECTED;
         await this.prisma.approval.create({
             data: {
                 entityType: 'planning',
@@ -307,7 +307,7 @@ let PlanningService = class PlanningService {
         });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.APPROVED) {
+        if (planning.status !== enums_1.PlanningStatus.APPROVED) {
             throw new common_1.BadRequestException('Only approved planning versions can be marked as final');
         }
         await this.prisma.planningVersion.updateMany({
@@ -373,7 +373,7 @@ let PlanningService = class PlanningService {
         });
         if (!planning)
             throw new common_1.NotFoundException('Planning version not found');
-        if (planning.status !== prisma_1.PlanningStatus.DRAFT) {
+        if (planning.status !== enums_1.PlanningStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft planning versions can be deleted');
         }
         if (planning.proposals.length > 0) {

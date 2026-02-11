@@ -10,7 +10,7 @@ export declare class MasterDataController {
             isActive: boolean;
             code: string;
             groupId: string;
-            colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+            colorConfig: string | null;
             sortOrder: number;
         }[];
     }>;

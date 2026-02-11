@@ -119,7 +119,8 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   ReadUncommitted: 'ReadUncommitted',
   ReadCommitted: 'ReadCommitted',
   RepeatableRead: 'RepeatableRead',
-  Serializable: 'Serializable'
+  Serializable: 'Serializable',
+  Snapshot: 'Snapshot'
 });
 
 exports.Prisma.UserScalarFieldEnum = {
@@ -505,58 +506,11 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.JsonNullValueInput = {
-  JsonNull: Prisma.JsonNull
-};
-
-exports.Prisma.NullableJsonNullValueInput = {
-  DbNull: Prisma.DbNull,
-  JsonNull: Prisma.JsonNull
-};
-
-exports.Prisma.QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive'
-};
-
-exports.Prisma.JsonNullValueFilter = {
-  DbNull: Prisma.DbNull,
-  JsonNull: Prisma.JsonNull,
-  AnyNull: Prisma.AnyNull
-};
-
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.BudgetStatus = exports.$Enums.BudgetStatus = {
-  DRAFT: 'DRAFT',
-  SUBMITTED: 'SUBMITTED',
-  LEVEL1_APPROVED: 'LEVEL1_APPROVED',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
 
-exports.PlanningStatus = exports.$Enums.PlanningStatus = {
-  DRAFT: 'DRAFT',
-  SUBMITTED: 'SUBMITTED',
-  LEVEL1_APPROVED: 'LEVEL1_APPROVED',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
-exports.ProposalStatus = exports.$Enums.ProposalStatus = {
-  DRAFT: 'DRAFT',
-  SUBMITTED: 'SUBMITTED',
-  LEVEL1_APPROVED: 'LEVEL1_APPROVED',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
-exports.ApprovalAction = exports.$Enums.ApprovalAction = {
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
 
 exports.Prisma.ModelName = {
   User: 'User',

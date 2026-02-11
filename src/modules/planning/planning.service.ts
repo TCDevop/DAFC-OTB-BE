@@ -1,6 +1,7 @@
 import { Injectable, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { PlanningStatus, ApprovalAction, Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma';
+import { PlanningStatus, ApprovalAction } from '../../common/enums';
 import { CreatePlanningDto, UpdatePlanningDto, UpdateDetailDto, ApprovalDecisionDto } from './dto/planning.dto';
 
 interface PlanningFilters {
@@ -291,10 +292,10 @@ export class PlanningService {
     }
 
     // Snapshot the data on submit
-    const snapshotData = {
+    const snapshotData = JSON.stringify({
       submittedAt: new Date().toISOString(),
       details: planning.details,
-    };
+    });
 
     return this.prisma.planningVersion.update({
       where: { id },

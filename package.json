@@ -7,8 +7,7 @@
     "node": ">=22.20.0"
   },
   "scripts": {
-    "build": "prisma generate && nest build && npm run copy:prisma",
-    "copy:prisma": "node -e \"const fs=require('fs');const path=require('path');function copyDir(src,dest){fs.mkdirSync(dest,{recursive:true});fs.readdirSync(src).forEach(f=>{const srcPath=path.join(src,f);const destPath=path.join(dest,f);fs.statSync(srcPath).isDirectory()?copyDir(srcPath,destPath):fs.copyFileSync(srcPath,destPath);});};copyDir('src/generated/prisma','dist/src/generated/prisma');\"",
+    "build": "prisma generate && nest build",
     "postinstall": "prisma generate",
     "start": "node dist/src/main",
     "start:local": "nest start",
@@ -22,6 +21,7 @@
   "dependencies": {
     "@nestjs/cli": "^10.3.0",
     "@nestjs/common": "^10.3.0",
+    "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^10.3.0",
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/passport": "^10.0.3",
@@ -29,13 +29,13 @@
     "@nestjs/schedule": "^6.1.1",
     "@nestjs/swagger": "^7.2.0",
     "@prisma/client": "^5.8.0",
-    "prisma": "^5.8.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "helmet": "^7.1.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
+    "prisma": "^5.8.0",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1"
   },

@@ -12,9 +12,9 @@ export declare class AuthService {
             email: string;
             name: string;
             role: string;
-            permissions: import("src/generated/prisma/runtime/library").JsonValue;
-            storeAccess: string[];
-            brandAccess: string[];
+            permissions: string;
+            storeAccess: string;
+            brandAccess: string;
         };
     }>;
     refresh(refreshToken: string): Promise<{
@@ -25,8 +25,8 @@ export declare class AuthService {
         email: string;
         name: string;
         role: string;
-        permissions: import("src/generated/prisma/runtime/library").JsonValue;
-        storeAccess: string[];
-        brandAccess: string[];
+        permissions: string;
+        storeAccess: string;
+        brandAccess: string;
     }>;
 }

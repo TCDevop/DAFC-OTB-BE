@@ -165,68 +165,6 @@ export type SkuRecommendation = $Result.DefaultSelection<Prisma.$SkuRecommendati
 export type ApprovalWorkflowStep = $Result.DefaultSelection<Prisma.$ApprovalWorkflowStepPayload>
 
 /**
- * Enums
- */
-export namespace $Enums {
-  export const BudgetStatus: {
-  DRAFT: 'DRAFT',
-  SUBMITTED: 'SUBMITTED',
-  LEVEL1_APPROVED: 'LEVEL1_APPROVED',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
-export type BudgetStatus = (typeof BudgetStatus)[keyof typeof BudgetStatus]
-
-
-export const PlanningStatus: {
-  DRAFT: 'DRAFT',
-  SUBMITTED: 'SUBMITTED',
-  LEVEL1_APPROVED: 'LEVEL1_APPROVED',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
-export type PlanningStatus = (typeof PlanningStatus)[keyof typeof PlanningStatus]
-
-
-export const ProposalStatus: {
-  DRAFT: 'DRAFT',
-  SUBMITTED: 'SUBMITTED',
-  LEVEL1_APPROVED: 'LEVEL1_APPROVED',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
-export type ProposalStatus = (typeof ProposalStatus)[keyof typeof ProposalStatus]
-
-
-export const ApprovalAction: {
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
-export type ApprovalAction = (typeof ApprovalAction)[keyof typeof ApprovalAction]
-
-}
-
-export type BudgetStatus = $Enums.BudgetStatus
-
-export const BudgetStatus: typeof $Enums.BudgetStatus
-
-export type PlanningStatus = $Enums.PlanningStatus
-
-export const PlanningStatus: typeof $Enums.PlanningStatus
-
-export type ProposalStatus = $Enums.ProposalStatus
-
-export const ProposalStatus: typeof $Enums.ProposalStatus
-
-export type ApprovalAction = $Enums.ApprovalAction
-
-export const ApprovalAction: typeof $Enums.ApprovalAction
-
-/**
  * ##  Prisma Client ʲˢ
  * 
  * Type-safe database client for TypeScript & Node.js
@@ -1170,10 +1108,6 @@ export namespace Prisma {
             args: Prisma.UserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
-          }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$UserPayload>
@@ -1239,10 +1173,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.RoleCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.RoleCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RolePayload>[]
           }
           delete: {
             args: Prisma.RoleDeleteArgs<ExtArgs>
@@ -1310,10 +1240,6 @@ export namespace Prisma {
             args: Prisma.GroupBrandCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.GroupBrandCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GroupBrandPayload>[]
-          }
           delete: {
             args: Prisma.GroupBrandDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$GroupBrandPayload>
@@ -1379,10 +1305,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.StoreCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.StoreCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$StorePayload>[]
           }
           delete: {
             args: Prisma.StoreDeleteArgs<ExtArgs>
@@ -1450,10 +1372,6 @@ export namespace Prisma {
             args: Prisma.CollectionCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.CollectionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>[]
-          }
           delete: {
             args: Prisma.CollectionDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
@@ -1519,10 +1437,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.GenderCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.GenderCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GenderPayload>[]
           }
           delete: {
             args: Prisma.GenderDeleteArgs<ExtArgs>
@@ -1590,10 +1504,6 @@ export namespace Prisma {
             args: Prisma.CategoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.CategoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
-          }
           delete: {
             args: Prisma.CategoryDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$CategoryPayload>
@@ -1659,10 +1569,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.SubCategoryCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.SubCategoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SubCategoryPayload>[]
           }
           delete: {
             args: Prisma.SubCategoryDeleteArgs<ExtArgs>
@@ -1730,10 +1636,6 @@ export namespace Prisma {
             args: Prisma.SkuCatalogCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.SkuCatalogCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SkuCatalogPayload>[]
-          }
           delete: {
             args: Prisma.SkuCatalogDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SkuCatalogPayload>
@@ -1799,10 +1701,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.BudgetCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.BudgetCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BudgetPayload>[]
           }
           delete: {
             args: Prisma.BudgetDeleteArgs<ExtArgs>
@@ -1870,10 +1768,6 @@ export namespace Prisma {
             args: Prisma.BudgetDetailCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.BudgetDetailCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BudgetDetailPayload>[]
-          }
           delete: {
             args: Prisma.BudgetDetailDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$BudgetDetailPayload>
@@ -1939,10 +1833,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.PlanningVersionCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.PlanningVersionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlanningVersionPayload>[]
           }
           delete: {
             args: Prisma.PlanningVersionDeleteArgs<ExtArgs>
@@ -2010,10 +1900,6 @@ export namespace Prisma {
             args: Prisma.PlanningDetailCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.PlanningDetailCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlanningDetailPayload>[]
-          }
           delete: {
             args: Prisma.PlanningDetailDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$PlanningDetailPayload>
@@ -2079,10 +1965,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.ProposalCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ProposalCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProposalPayload>[]
           }
           delete: {
             args: Prisma.ProposalDeleteArgs<ExtArgs>
@@ -2150,10 +2032,6 @@ export namespace Prisma {
             args: Prisma.ProposalProductCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.ProposalProductCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProposalProductPayload>[]
-          }
           delete: {
             args: Prisma.ProposalProductDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ProposalProductPayload>
@@ -2219,10 +2097,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.ProductAllocationCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ProductAllocationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProductAllocationPayload>[]
           }
           delete: {
             args: Prisma.ProductAllocationDeleteArgs<ExtArgs>
@@ -2290,10 +2164,6 @@ export namespace Prisma {
             args: Prisma.ApprovalCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.ApprovalCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ApprovalPayload>[]
-          }
           delete: {
             args: Prisma.ApprovalDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ApprovalPayload>
@@ -2359,10 +2229,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.AuditLogCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.AuditLogCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AuditLogPayload>[]
           }
           delete: {
             args: Prisma.AuditLogDeleteArgs<ExtArgs>
@@ -2430,10 +2296,6 @@ export namespace Prisma {
             args: Prisma.SalesHistoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.SalesHistoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SalesHistoryPayload>[]
-          }
           delete: {
             args: Prisma.SalesHistoryDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SalesHistoryPayload>
@@ -2499,10 +2361,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.SizeCurveRecommendationCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.SizeCurveRecommendationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SizeCurveRecommendationPayload>[]
           }
           delete: {
             args: Prisma.SizeCurveRecommendationDeleteArgs<ExtArgs>
@@ -2570,10 +2428,6 @@ export namespace Prisma {
             args: Prisma.BudgetAlertCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.BudgetAlertCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BudgetAlertPayload>[]
-          }
           delete: {
             args: Prisma.BudgetAlertDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$BudgetAlertPayload>
@@ -2639,10 +2493,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.BudgetSnapshotCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.BudgetSnapshotCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BudgetSnapshotPayload>[]
           }
           delete: {
             args: Prisma.BudgetSnapshotDeleteArgs<ExtArgs>
@@ -2710,10 +2560,6 @@ export namespace Prisma {
             args: Prisma.AllocationHistoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.AllocationHistoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AllocationHistoryPayload>[]
-          }
           delete: {
             args: Prisma.AllocationHistoryDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$AllocationHistoryPayload>
@@ -2779,10 +2625,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.AllocationRecommendationCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.AllocationRecommendationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AllocationRecommendationPayload>[]
           }
           delete: {
             args: Prisma.AllocationRecommendationDeleteArgs<ExtArgs>
@@ -2850,10 +2692,6 @@ export namespace Prisma {
             args: Prisma.RiskAssessmentCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.RiskAssessmentCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RiskAssessmentPayload>[]
-          }
           delete: {
             args: Prisma.RiskAssessmentDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$RiskAssessmentPayload>
@@ -2919,10 +2757,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.RiskThresholdCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.RiskThresholdCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RiskThresholdPayload>[]
           }
           delete: {
             args: Prisma.RiskThresholdDeleteArgs<ExtArgs>
@@ -2990,10 +2824,6 @@ export namespace Prisma {
             args: Prisma.SkuPerformanceCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.SkuPerformanceCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SkuPerformancePayload>[]
-          }
           delete: {
             args: Prisma.SkuPerformanceDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SkuPerformancePayload>
@@ -3059,10 +2889,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.AttributeTrendCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.AttributeTrendCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AttributeTrendPayload>[]
           }
           delete: {
             args: Prisma.AttributeTrendDeleteArgs<ExtArgs>
@@ -3130,10 +2956,6 @@ export namespace Prisma {
             args: Prisma.SkuRecommendationCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.SkuRecommendationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SkuRecommendationPayload>[]
-          }
           delete: {
             args: Prisma.SkuRecommendationDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SkuRecommendationPayload>
@@ -3199,10 +3021,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.ApprovalWorkflowStepCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ApprovalWorkflowStepCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ApprovalWorkflowStepPayload>[]
           }
           delete: {
             args: Prisma.ApprovalWorkflowStepDeleteArgs<ExtArgs>
@@ -4046,6 +3864,8 @@ export namespace Prisma {
     name: string | null
     passwordHash: string | null
     roleId: string | null
+    storeAccess: string | null
+    brandAccess: string | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4057,6 +3877,8 @@ export namespace Prisma {
     name: string | null
     passwordHash: string | null
     roleId: string | null
+    storeAccess: string | null
+    brandAccess: string | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4083,6 +3905,8 @@ export namespace Prisma {
     name?: true
     passwordHash?: true
     roleId?: true
+    storeAccess?: true
+    brandAccess?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -4094,6 +3918,8 @@ export namespace Prisma {
     name?: true
     passwordHash?: true
     roleId?: true
+    storeAccess?: true
+    brandAccess?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -4191,8 +4017,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess: string[]
-    brandAccess: string[]
+    storeAccess: string
+    brandAccess: string
     isActive: boolean
     createdAt: Date
     updatedAt: Date
@@ -4236,19 +4062,6 @@ export namespace Prisma {
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
-  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    email?: boolean
-    name?: boolean
-    passwordHash?: boolean
-    roleId?: boolean
-    storeAccess?: boolean
-    brandAccess?: boolean
-    isActive?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    role?: boolean | RoleDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
@@ -4273,9 +4086,6 @@ export namespace Prisma {
     workflowSteps?: boolean | User$workflowStepsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    role?: boolean | RoleDefaultArgs<ExtArgs>
-  }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -4294,8 +4104,8 @@ export namespace Prisma {
       name: string
       passwordHash: string
       roleId: string
-      storeAccess: string[]
-      brandAccess: string[]
+      storeAccess: string
+      brandAccess: string
       isActive: boolean
       createdAt: Date
       updatedAt: Date
@@ -4415,30 +4225,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Users and returns the data saved in the database.
-     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
-     * @example
-     * // Create many Users
-     * const user = await prisma.user.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a User.
@@ -4704,8 +4490,8 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly passwordHash: FieldRef<"User", 'String'>
     readonly roleId: FieldRef<"User", 'String'>
-    readonly storeAccess: FieldRef<"User", 'String[]'>
-    readonly brandAccess: FieldRef<"User", 'String[]'>
+    readonly storeAccess: FieldRef<"User", 'String'>
+    readonly brandAccess: FieldRef<"User", 'String'>
     readonly isActive: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -4914,26 +4700,6 @@ export namespace Prisma {
      * The data used to create many Users.
      */
     data: UserCreateManyInput | UserCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * User createManyAndReturn
-   */
-  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Users.
-     */
-    data: UserCreateManyInput | UserCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5175,12 +4941,14 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    permissions: string | null
   }
 
   export type RoleMaxAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
+    permissions: string | null
   }
 
   export type RoleCountAggregateOutputType = {
@@ -5196,12 +4964,14 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    permissions?: true
   }
 
   export type RoleMaxAggregateInputType = {
     id?: true
     name?: true
     description?: true
+    permissions?: true
   }
 
   export type RoleCountAggregateInputType = {
@@ -5288,7 +5058,7 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
-    permissions: JsonValue
+    permissions: string
     _count: RoleCountAggregateOutputType | null
     _min: RoleMinAggregateOutputType | null
     _max: RoleMaxAggregateOutputType | null
@@ -5317,12 +5087,6 @@ export namespace Prisma {
     _count?: boolean | RoleCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["role"]>
 
-  export type RoleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    description?: boolean
-    permissions?: boolean
-  }, ExtArgs["result"]["role"]>
 
   export type RoleSelectScalar = {
     id?: boolean
@@ -5335,7 +5099,6 @@ export namespace Prisma {
     users?: boolean | Role$usersArgs<ExtArgs>
     _count?: boolean | RoleCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type RoleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $RolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Role"
@@ -5346,7 +5109,7 @@ export namespace Prisma {
       id: string
       name: string
       description: string | null
-      permissions: Prisma.JsonValue
+      permissions: string
     }, ExtArgs["result"]["role"]>
     composites: {}
   }
@@ -5463,30 +5226,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends RoleCreateManyArgs>(args?: SelectSubset<T, RoleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Roles and returns the data saved in the database.
-     * @param {RoleCreateManyAndReturnArgs} args - Arguments to create many Roles.
-     * @example
-     * // Create many Roles
-     * const role = await prisma.role.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Roles and only return the `id`
-     * const roleWithIdOnly = await prisma.role.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends RoleCreateManyAndReturnArgs>(args?: SelectSubset<T, RoleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Role.
@@ -5744,7 +5483,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Role", 'String'>
     readonly name: FieldRef<"Role", 'String'>
     readonly description: FieldRef<"Role", 'String'>
-    readonly permissions: FieldRef<"Role", 'Json'>
+    readonly permissions: FieldRef<"Role", 'String'>
   }
     
 
@@ -5950,22 +5689,6 @@ export namespace Prisma {
      * The data used to create many Roles.
      */
     data: RoleCreateManyInput | RoleCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Role createManyAndReturn
-   */
-  export type RoleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Role
-     */
-    select?: RoleSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Roles.
-     */
-    data: RoleCreateManyInput | RoleCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -6118,6 +5841,7 @@ export namespace Prisma {
     code: string | null
     name: string | null
     groupId: string | null
+    colorConfig: string | null
     isActive: boolean | null
     sortOrder: number | null
   }
@@ -6127,6 +5851,7 @@ export namespace Prisma {
     code: string | null
     name: string | null
     groupId: string | null
+    colorConfig: string | null
     isActive: boolean | null
     sortOrder: number | null
   }
@@ -6156,6 +5881,7 @@ export namespace Prisma {
     code?: true
     name?: true
     groupId?: true
+    colorConfig?: true
     isActive?: true
     sortOrder?: true
   }
@@ -6165,6 +5891,7 @@ export namespace Prisma {
     code?: true
     name?: true
     groupId?: true
+    colorConfig?: true
     isActive?: true
     sortOrder?: true
   }
@@ -6271,7 +5998,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig: JsonValue | null
+    colorConfig: string | null
     isActive: boolean
     sortOrder: number
     _count: GroupBrandCountAggregateOutputType | null
@@ -6309,15 +6036,6 @@ export namespace Prisma {
     _count?: boolean | GroupBrandCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["groupBrand"]>
 
-  export type GroupBrandSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    code?: boolean
-    name?: boolean
-    groupId?: boolean
-    colorConfig?: boolean
-    isActive?: boolean
-    sortOrder?: boolean
-  }, ExtArgs["result"]["groupBrand"]>
 
   export type GroupBrandSelectScalar = {
     id?: boolean
@@ -6335,7 +6053,6 @@ export namespace Prisma {
     workflowSteps?: boolean | GroupBrand$workflowStepsArgs<ExtArgs>
     _count?: boolean | GroupBrandCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type GroupBrandIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $GroupBrandPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "GroupBrand"
@@ -6349,7 +6066,7 @@ export namespace Prisma {
       code: string
       name: string
       groupId: string
-      colorConfig: Prisma.JsonValue | null
+      colorConfig: string | null
       isActive: boolean
       sortOrder: number
     }, ExtArgs["result"]["groupBrand"]>
@@ -6468,30 +6185,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends GroupBrandCreateManyArgs>(args?: SelectSubset<T, GroupBrandCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many GroupBrands and returns the data saved in the database.
-     * @param {GroupBrandCreateManyAndReturnArgs} args - Arguments to create many GroupBrands.
-     * @example
-     * // Create many GroupBrands
-     * const groupBrand = await prisma.groupBrand.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many GroupBrands and only return the `id`
-     * const groupBrandWithIdOnly = await prisma.groupBrand.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends GroupBrandCreateManyAndReturnArgs>(args?: SelectSubset<T, GroupBrandCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupBrandPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a GroupBrand.
@@ -6752,7 +6445,7 @@ export namespace Prisma {
     readonly code: FieldRef<"GroupBrand", 'String'>
     readonly name: FieldRef<"GroupBrand", 'String'>
     readonly groupId: FieldRef<"GroupBrand", 'String'>
-    readonly colorConfig: FieldRef<"GroupBrand", 'Json'>
+    readonly colorConfig: FieldRef<"GroupBrand", 'String'>
     readonly isActive: FieldRef<"GroupBrand", 'Boolean'>
     readonly sortOrder: FieldRef<"GroupBrand", 'Int'>
   }
@@ -6960,22 +6653,6 @@ export namespace Prisma {
      * The data used to create many GroupBrands.
      */
     data: GroupBrandCreateManyInput | GroupBrandCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * GroupBrand createManyAndReturn
-   */
-  export type GroupBrandCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GroupBrand
-     */
-    select?: GroupBrandSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many GroupBrands.
-     */
-    data: GroupBrandCreateManyInput | GroupBrandCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -7315,13 +6992,6 @@ export namespace Prisma {
     _count?: boolean | StoreCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["store"]>
 
-  export type StoreSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    code?: boolean
-    name?: boolean
-    region?: boolean
-    isActive?: boolean
-  }, ExtArgs["result"]["store"]>
 
   export type StoreSelectScalar = {
     id?: boolean
@@ -7339,7 +7009,6 @@ export namespace Prisma {
     skuPerformance?: boolean | Store$skuPerformanceArgs<ExtArgs>
     _count?: boolean | StoreCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type StoreIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $StorePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Store"
@@ -7472,30 +7141,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends StoreCreateManyArgs>(args?: SelectSubset<T, StoreCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Stores and returns the data saved in the database.
-     * @param {StoreCreateManyAndReturnArgs} args - Arguments to create many Stores.
-     * @example
-     * // Create many Stores
-     * const store = await prisma.store.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Stores and only return the `id`
-     * const storeWithIdOnly = await prisma.store.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends StoreCreateManyAndReturnArgs>(args?: SelectSubset<T, StoreCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Store.
@@ -7964,22 +7609,6 @@ export namespace Prisma {
      * The data used to create many Stores.
      */
     data: StoreCreateManyInput | StoreCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Store createManyAndReturn
-   */
-  export type StoreCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Store
-     */
-    select?: StoreSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Stores.
-     */
-    data: StoreCreateManyInput | StoreCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -8339,11 +7968,6 @@ export namespace Prisma {
     _count?: boolean | CollectionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["collection"]>
 
-  export type CollectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    isActive?: boolean
-  }, ExtArgs["result"]["collection"]>
 
   export type CollectionSelectScalar = {
     id?: boolean
@@ -8355,7 +7979,6 @@ export namespace Prisma {
     planningDetails?: boolean | Collection$planningDetailsArgs<ExtArgs>
     _count?: boolean | CollectionCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CollectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $CollectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Collection"
@@ -8482,30 +8105,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends CollectionCreateManyArgs>(args?: SelectSubset<T, CollectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Collections and returns the data saved in the database.
-     * @param {CollectionCreateManyAndReturnArgs} args - Arguments to create many Collections.
-     * @example
-     * // Create many Collections
-     * const collection = await prisma.collection.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Collections and only return the `id`
-     * const collectionWithIdOnly = await prisma.collection.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends CollectionCreateManyAndReturnArgs>(args?: SelectSubset<T, CollectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Collection.
@@ -8968,22 +8567,6 @@ export namespace Prisma {
      * The data used to create many Collections.
      */
     data: CollectionCreateManyInput | CollectionCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Collection createManyAndReturn
-   */
-  export type CollectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Collection
-     */
-    select?: CollectionSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Collections.
-     */
-    data: CollectionCreateManyInput | CollectionCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -9264,11 +8847,6 @@ export namespace Prisma {
     _count?: boolean | GenderCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["gender"]>
 
-  export type GenderSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    isActive?: boolean
-  }, ExtArgs["result"]["gender"]>
 
   export type GenderSelectScalar = {
     id?: boolean
@@ -9281,7 +8859,6 @@ export namespace Prisma {
     planningDetails?: boolean | Gender$planningDetailsArgs<ExtArgs>
     _count?: boolean | GenderCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type GenderIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $GenderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Gender"
@@ -9409,30 +8986,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends GenderCreateManyArgs>(args?: SelectSubset<T, GenderCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Genders and returns the data saved in the database.
-     * @param {GenderCreateManyAndReturnArgs} args - Arguments to create many Genders.
-     * @example
-     * // Create many Genders
-     * const gender = await prisma.gender.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Genders and only return the `id`
-     * const genderWithIdOnly = await prisma.gender.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends GenderCreateManyAndReturnArgs>(args?: SelectSubset<T, GenderCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GenderPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Gender.
@@ -9896,22 +9449,6 @@ export namespace Prisma {
      * The data used to create many Genders.
      */
     data: GenderCreateManyInput | GenderCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Gender createManyAndReturn
-   */
-  export type GenderCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Gender
-     */
-    select?: GenderSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Genders.
-     */
-    data: GenderCreateManyInput | GenderCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -10221,13 +9758,6 @@ export namespace Prisma {
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
 
-  export type CategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    genderId?: boolean
-    isActive?: boolean
-    gender?: boolean | GenderDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["category"]>
 
   export type CategorySelectScalar = {
     id?: boolean
@@ -10241,9 +9771,6 @@ export namespace Prisma {
     subCategories?: boolean | Category$subCategoriesArgs<ExtArgs>
     planningDetails?: boolean | Category$planningDetailsArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type CategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    gender?: boolean | GenderDefaultArgs<ExtArgs>
   }
 
   export type $CategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10374,30 +9901,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends CategoryCreateManyArgs>(args?: SelectSubset<T, CategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Categories and returns the data saved in the database.
-     * @param {CategoryCreateManyAndReturnArgs} args - Arguments to create many Categories.
-     * @example
-     * // Create many Categories
-     * const category = await prisma.category.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Categories and only return the `id`
-     * const categoryWithIdOnly = await prisma.category.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends CategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, CategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Category.
@@ -10863,26 +10366,6 @@ export namespace Prisma {
      * The data used to create many Categories.
      */
     data: CategoryCreateManyInput | CategoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Category createManyAndReturn
-   */
-  export type CategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Category
-     */
-    select?: CategorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Categories.
-     */
-    data: CategoryCreateManyInput | CategoryCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoryIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -11191,13 +10674,6 @@ export namespace Prisma {
     _count?: boolean | SubCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subCategory"]>
 
-  export type SubCategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    categoryId?: boolean
-    isActive?: boolean
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["subCategory"]>
 
   export type SubCategorySelectScalar = {
     id?: boolean
@@ -11210,9 +10686,6 @@ export namespace Prisma {
     category?: boolean | CategoryDefaultArgs<ExtArgs>
     planningDetails?: boolean | SubCategory$planningDetailsArgs<ExtArgs>
     _count?: boolean | SubCategoryCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type SubCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
   }
 
   export type $SubCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11342,30 +10815,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SubCategoryCreateManyArgs>(args?: SelectSubset<T, SubCategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SubCategories and returns the data saved in the database.
-     * @param {SubCategoryCreateManyAndReturnArgs} args - Arguments to create many SubCategories.
-     * @example
-     * // Create many SubCategories
-     * const subCategory = await prisma.subCategory.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SubCategories and only return the `id`
-     * const subCategoryWithIdOnly = await prisma.subCategory.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SubCategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, SubCategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubCategoryPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SubCategory.
@@ -11830,26 +11279,6 @@ export namespace Prisma {
      * The data used to create many SubCategories.
      */
     data: SubCategoryCreateManyInput | SubCategoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SubCategory createManyAndReturn
-   */
-  export type SubCategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SubCategory
-     */
-    select?: SubCategorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SubCategories.
-     */
-    data: SubCategoryCreateManyInput | SubCategoryCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SubCategoryIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -12239,21 +11668,6 @@ export namespace Prisma {
     _count?: boolean | SkuCatalogCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["skuCatalog"]>
 
-  export type SkuCatalogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    skuCode?: boolean
-    productName?: boolean
-    productType?: boolean
-    theme?: boolean
-    color?: boolean
-    composition?: boolean
-    srp?: boolean
-    brandId?: boolean
-    seasonGroupId?: boolean
-    imageUrl?: boolean
-    isActive?: boolean
-    brand?: boolean | SkuCatalog$brandArgs<ExtArgs>
-  }, ExtArgs["result"]["skuCatalog"]>
 
   export type SkuCatalogSelectScalar = {
     id?: boolean
@@ -12277,9 +11691,6 @@ export namespace Prisma {
     skuPerformance?: boolean | SkuCatalog$skuPerformanceArgs<ExtArgs>
     skuRecommendations?: boolean | SkuCatalog$skuRecommendationsArgs<ExtArgs>
     _count?: boolean | SkuCatalogCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type SkuCatalogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    brand?: boolean | SkuCatalog$brandArgs<ExtArgs>
   }
 
   export type $SkuCatalogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12420,30 +11831,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SkuCatalogCreateManyArgs>(args?: SelectSubset<T, SkuCatalogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SkuCatalogs and returns the data saved in the database.
-     * @param {SkuCatalogCreateManyAndReturnArgs} args - Arguments to create many SkuCatalogs.
-     * @example
-     * // Create many SkuCatalogs
-     * const skuCatalog = await prisma.skuCatalog.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SkuCatalogs and only return the `id`
-     * const skuCatalogWithIdOnly = await prisma.skuCatalog.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SkuCatalogCreateManyAndReturnArgs>(args?: SelectSubset<T, SkuCatalogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuCatalogPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SkuCatalog.
@@ -12919,26 +12306,6 @@ export namespace Prisma {
      * The data used to create many SkuCatalogs.
      */
     data: SkuCatalogCreateManyInput | SkuCatalogCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SkuCatalog createManyAndReturn
-   */
-  export type SkuCatalogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SkuCatalog
-     */
-    select?: SkuCatalogSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SkuCatalogs.
-     */
-    data: SkuCatalogCreateManyInput | SkuCatalogCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SkuCatalogIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -13171,7 +12538,7 @@ export namespace Prisma {
     seasonType: string | null
     fiscalYear: number | null
     totalBudget: Decimal | null
-    status: $Enums.BudgetStatus | null
+    status: string | null
     comment: string | null
     createdById: string | null
     createdAt: Date | null
@@ -13186,7 +12553,7 @@ export namespace Prisma {
     seasonType: string | null
     fiscalYear: number | null
     totalBudget: Decimal | null
-    status: $Enums.BudgetStatus | null
+    status: string | null
     comment: string | null
     createdById: string | null
     createdAt: Date | null
@@ -13360,7 +12727,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget: Decimal
-    status: $Enums.BudgetStatus
+    status: string
     comment: string | null
     createdById: string
     createdAt: Date
@@ -13408,22 +12775,6 @@ export namespace Prisma {
     _count?: boolean | BudgetCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["budget"]>
 
-  export type BudgetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetCode?: boolean
-    groupBrandId?: boolean
-    seasonGroupId?: boolean
-    seasonType?: boolean
-    fiscalYear?: boolean
-    totalBudget?: boolean
-    status?: boolean
-    comment?: boolean
-    createdById?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    groupBrand?: boolean | GroupBrandDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["budget"]>
 
   export type BudgetSelectScalar = {
     id?: boolean
@@ -13449,10 +12800,6 @@ export namespace Prisma {
     budgetSnapshots?: boolean | Budget$budgetSnapshotsArgs<ExtArgs>
     _count?: boolean | BudgetCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type BudgetIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    groupBrand?: boolean | GroupBrandDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
 
   export type $BudgetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Budget"
@@ -13472,7 +12819,7 @@ export namespace Prisma {
       seasonType: string
       fiscalYear: number
       totalBudget: Prisma.Decimal
-      status: $Enums.BudgetStatus
+      status: string
       comment: string | null
       createdById: string
       createdAt: Date
@@ -13593,30 +12940,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends BudgetCreateManyArgs>(args?: SelectSubset<T, BudgetCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Budgets and returns the data saved in the database.
-     * @param {BudgetCreateManyAndReturnArgs} args - Arguments to create many Budgets.
-     * @example
-     * // Create many Budgets
-     * const budget = await prisma.budget.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Budgets and only return the `id`
-     * const budgetWithIdOnly = await prisma.budget.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends BudgetCreateManyAndReturnArgs>(args?: SelectSubset<T, BudgetCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Budget.
@@ -13883,7 +13206,7 @@ export namespace Prisma {
     readonly seasonType: FieldRef<"Budget", 'String'>
     readonly fiscalYear: FieldRef<"Budget", 'Int'>
     readonly totalBudget: FieldRef<"Budget", 'Decimal'>
-    readonly status: FieldRef<"Budget", 'BudgetStatus'>
+    readonly status: FieldRef<"Budget", 'String'>
     readonly comment: FieldRef<"Budget", 'String'>
     readonly createdById: FieldRef<"Budget", 'String'>
     readonly createdAt: FieldRef<"Budget", 'DateTime'>
@@ -14093,26 +13416,6 @@ export namespace Prisma {
      * The data used to create many Budgets.
      */
     data: BudgetCreateManyInput | BudgetCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Budget createManyAndReturn
-   */
-  export type BudgetCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Budget
-     */
-    select?: BudgetSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Budgets.
-     */
-    data: BudgetCreateManyInput | BudgetCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BudgetIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -14498,14 +13801,6 @@ export namespace Prisma {
     _count?: boolean | BudgetDetailCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["budgetDetail"]>
 
-  export type BudgetDetailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetId?: boolean
-    storeId?: boolean
-    budgetAmount?: boolean
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["budgetDetail"]>
 
   export type BudgetDetailSelectScalar = {
     id?: boolean
@@ -14521,10 +13816,6 @@ export namespace Prisma {
     allocationRecommendations?: boolean | BudgetDetail$allocationRecommendationsArgs<ExtArgs>
     skuRecommendations?: boolean | BudgetDetail$skuRecommendationsArgs<ExtArgs>
     _count?: boolean | BudgetDetailCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type BudgetDetailIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-    store?: boolean | StoreDefaultArgs<ExtArgs>
   }
 
   export type $BudgetDetailPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14657,30 +13948,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends BudgetDetailCreateManyArgs>(args?: SelectSubset<T, BudgetDetailCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many BudgetDetails and returns the data saved in the database.
-     * @param {BudgetDetailCreateManyAndReturnArgs} args - Arguments to create many BudgetDetails.
-     * @example
-     * // Create many BudgetDetails
-     * const budgetDetail = await prisma.budgetDetail.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many BudgetDetails and only return the `id`
-     * const budgetDetailWithIdOnly = await prisma.budgetDetail.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends BudgetDetailCreateManyAndReturnArgs>(args?: SelectSubset<T, BudgetDetailCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetDetailPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a BudgetDetail.
@@ -15148,26 +14415,6 @@ export namespace Prisma {
      * The data used to create many BudgetDetails.
      */
     data: BudgetDetailCreateManyInput | BudgetDetailCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * BudgetDetail createManyAndReturn
-   */
-  export type BudgetDetailCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BudgetDetail
-     */
-    select?: BudgetDetailSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many BudgetDetails.
-     */
-    data: BudgetDetailCreateManyInput | BudgetDetailCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BudgetDetailIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -15361,8 +14608,9 @@ export namespace Prisma {
     budgetDetailId: string | null
     versionNumber: number | null
     versionName: string | null
-    status: $Enums.PlanningStatus | null
+    status: string | null
     isFinal: boolean | null
+    snapshotData: string | null
     createdById: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -15374,8 +14622,9 @@ export namespace Prisma {
     budgetDetailId: string | null
     versionNumber: number | null
     versionName: string | null
-    status: $Enums.PlanningStatus | null
+    status: string | null
     isFinal: boolean | null
+    snapshotData: string | null
     createdById: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -15413,6 +14662,7 @@ export namespace Prisma {
     versionName?: true
     status?: true
     isFinal?: true
+    snapshotData?: true
     createdById?: true
     createdAt?: true
     updatedAt?: true
@@ -15426,6 +14676,7 @@ export namespace Prisma {
     versionName?: true
     status?: true
     isFinal?: true
+    snapshotData?: true
     createdById?: true
     createdAt?: true
     updatedAt?: true
@@ -15538,9 +14789,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName: string | null
-    status: $Enums.PlanningStatus
+    status: string
     isFinal: boolean
-    snapshotData: JsonValue | null
+    snapshotData: string | null
     createdById: string
     createdAt: Date
     updatedAt: Date
@@ -15584,21 +14835,6 @@ export namespace Prisma {
     _count?: boolean | PlanningVersionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["planningVersion"]>
 
-  export type PlanningVersionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    planningCode?: boolean
-    budgetDetailId?: boolean
-    versionNumber?: boolean
-    versionName?: boolean
-    status?: boolean
-    isFinal?: boolean
-    snapshotData?: boolean
-    createdById?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["planningVersion"]>
 
   export type PlanningVersionSelectScalar = {
     id?: boolean
@@ -15621,10 +14857,6 @@ export namespace Prisma {
     proposals?: boolean | PlanningVersion$proposalsArgs<ExtArgs>
     _count?: boolean | PlanningVersionCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type PlanningVersionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
 
   export type $PlanningVersionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PlanningVersion"
@@ -15640,9 +14872,9 @@ export namespace Prisma {
       budgetDetailId: string
       versionNumber: number
       versionName: string | null
-      status: $Enums.PlanningStatus
+      status: string
       isFinal: boolean
-      snapshotData: Prisma.JsonValue | null
+      snapshotData: string | null
       createdById: string
       createdAt: Date
       updatedAt: Date
@@ -15762,30 +14994,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends PlanningVersionCreateManyArgs>(args?: SelectSubset<T, PlanningVersionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many PlanningVersions and returns the data saved in the database.
-     * @param {PlanningVersionCreateManyAndReturnArgs} args - Arguments to create many PlanningVersions.
-     * @example
-     * // Create many PlanningVersions
-     * const planningVersion = await prisma.planningVersion.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many PlanningVersions and only return the `id`
-     * const planningVersionWithIdOnly = await prisma.planningVersion.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PlanningVersionCreateManyAndReturnArgs>(args?: SelectSubset<T, PlanningVersionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlanningVersionPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a PlanningVersion.
@@ -16048,9 +15256,9 @@ export namespace Prisma {
     readonly budgetDetailId: FieldRef<"PlanningVersion", 'String'>
     readonly versionNumber: FieldRef<"PlanningVersion", 'Int'>
     readonly versionName: FieldRef<"PlanningVersion", 'String'>
-    readonly status: FieldRef<"PlanningVersion", 'PlanningStatus'>
+    readonly status: FieldRef<"PlanningVersion", 'String'>
     readonly isFinal: FieldRef<"PlanningVersion", 'Boolean'>
-    readonly snapshotData: FieldRef<"PlanningVersion", 'Json'>
+    readonly snapshotData: FieldRef<"PlanningVersion", 'String'>
     readonly createdById: FieldRef<"PlanningVersion", 'String'>
     readonly createdAt: FieldRef<"PlanningVersion", 'DateTime'>
     readonly updatedAt: FieldRef<"PlanningVersion", 'DateTime'>
@@ -16259,26 +15467,6 @@ export namespace Prisma {
      * The data used to create many PlanningVersions.
      */
     data: PlanningVersionCreateManyInput | PlanningVersionCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * PlanningVersion createManyAndReturn
-   */
-  export type PlanningVersionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PlanningVersion
-     */
-    select?: PlanningVersionSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many PlanningVersions.
-     */
-    data: PlanningVersionCreateManyInput | PlanningVersionCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlanningVersionIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -16723,27 +15911,6 @@ export namespace Prisma {
     subCategory?: boolean | PlanningDetail$subCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["planningDetail"]>
 
-  export type PlanningDetailSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    planningVersionId?: boolean
-    dimensionType?: boolean
-    collectionId?: boolean
-    genderId?: boolean
-    categoryId?: boolean
-    subCategoryId?: boolean
-    lastSeasonSales?: boolean
-    lastSeasonPct?: boolean
-    systemBuyPct?: boolean
-    userBuyPct?: boolean
-    otbValue?: boolean
-    variancePct?: boolean
-    userComment?: boolean
-    planningVersion?: boolean | PlanningVersionDefaultArgs<ExtArgs>
-    collection?: boolean | PlanningDetail$collectionArgs<ExtArgs>
-    gender?: boolean | PlanningDetail$genderArgs<ExtArgs>
-    category?: boolean | PlanningDetail$categoryArgs<ExtArgs>
-    subCategory?: boolean | PlanningDetail$subCategoryArgs<ExtArgs>
-  }, ExtArgs["result"]["planningDetail"]>
 
   export type PlanningDetailSelectScalar = {
     id?: boolean
@@ -16763,13 +15930,6 @@ export namespace Prisma {
   }
 
   export type PlanningDetailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    planningVersion?: boolean | PlanningVersionDefaultArgs<ExtArgs>
-    collection?: boolean | PlanningDetail$collectionArgs<ExtArgs>
-    gender?: boolean | PlanningDetail$genderArgs<ExtArgs>
-    category?: boolean | PlanningDetail$categoryArgs<ExtArgs>
-    subCategory?: boolean | PlanningDetail$subCategoryArgs<ExtArgs>
-  }
-  export type PlanningDetailIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     planningVersion?: boolean | PlanningVersionDefaultArgs<ExtArgs>
     collection?: boolean | PlanningDetail$collectionArgs<ExtArgs>
     gender?: boolean | PlanningDetail$genderArgs<ExtArgs>
@@ -16917,30 +16077,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends PlanningDetailCreateManyArgs>(args?: SelectSubset<T, PlanningDetailCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many PlanningDetails and returns the data saved in the database.
-     * @param {PlanningDetailCreateManyAndReturnArgs} args - Arguments to create many PlanningDetails.
-     * @example
-     * // Create many PlanningDetails
-     * const planningDetail = await prisma.planningDetail.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many PlanningDetails and only return the `id`
-     * const planningDetailWithIdOnly = await prisma.planningDetail.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PlanningDetailCreateManyAndReturnArgs>(args?: SelectSubset<T, PlanningDetailCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlanningDetailPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a PlanningDetail.
@@ -17418,26 +16554,6 @@ export namespace Prisma {
      * The data used to create many PlanningDetails.
      */
     data: PlanningDetailCreateManyInput | PlanningDetailCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * PlanningDetail createManyAndReturn
-   */
-  export type PlanningDetailCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PlanningDetail
-     */
-    select?: PlanningDetailSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many PlanningDetails.
-     */
-    data: PlanningDetailCreateManyInput | PlanningDetailCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlanningDetailIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -17634,7 +16750,7 @@ export namespace Prisma {
     ticketName: string | null
     budgetId: string | null
     planningVersionId: string | null
-    status: $Enums.ProposalStatus | null
+    status: string | null
     totalSkuCount: number | null
     totalOrderQty: number | null
     totalValue: Decimal | null
@@ -17648,7 +16764,7 @@ export namespace Prisma {
     ticketName: string | null
     budgetId: string | null
     planningVersionId: string | null
-    status: $Enums.ProposalStatus | null
+    status: string | null
     totalSkuCount: number | null
     totalOrderQty: number | null
     totalValue: Decimal | null
@@ -17819,7 +16935,7 @@ export namespace Prisma {
     ticketName: string
     budgetId: string
     planningVersionId: string | null
-    status: $Enums.ProposalStatus
+    status: string
     totalSkuCount: number
     totalOrderQty: number
     totalValue: Decimal
@@ -17866,22 +16982,6 @@ export namespace Prisma {
     _count?: boolean | ProposalCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["proposal"]>
 
-  export type ProposalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    ticketName?: boolean
-    budgetId?: boolean
-    planningVersionId?: boolean
-    status?: boolean
-    totalSkuCount?: boolean
-    totalOrderQty?: boolean
-    totalValue?: boolean
-    createdById?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-    planningVersion?: boolean | Proposal$planningVersionArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["proposal"]>
 
   export type ProposalSelectScalar = {
     id?: boolean
@@ -17904,11 +17004,6 @@ export namespace Prisma {
     products?: boolean | Proposal$productsArgs<ExtArgs>
     _count?: boolean | ProposalCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type ProposalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-    planningVersion?: boolean | Proposal$planningVersionArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
 
   export type $ProposalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Proposal"
@@ -17923,7 +17018,7 @@ export namespace Prisma {
       ticketName: string
       budgetId: string
       planningVersionId: string | null
-      status: $Enums.ProposalStatus
+      status: string
       totalSkuCount: number
       totalOrderQty: number
       totalValue: Prisma.Decimal
@@ -18046,30 +17141,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends ProposalCreateManyArgs>(args?: SelectSubset<T, ProposalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Proposals and returns the data saved in the database.
-     * @param {ProposalCreateManyAndReturnArgs} args - Arguments to create many Proposals.
-     * @example
-     * // Create many Proposals
-     * const proposal = await prisma.proposal.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Proposals and only return the `id`
-     * const proposalWithIdOnly = await prisma.proposal.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ProposalCreateManyAndReturnArgs>(args?: SelectSubset<T, ProposalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProposalPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Proposal.
@@ -18331,7 +17402,7 @@ export namespace Prisma {
     readonly ticketName: FieldRef<"Proposal", 'String'>
     readonly budgetId: FieldRef<"Proposal", 'String'>
     readonly planningVersionId: FieldRef<"Proposal", 'String'>
-    readonly status: FieldRef<"Proposal", 'ProposalStatus'>
+    readonly status: FieldRef<"Proposal", 'String'>
     readonly totalSkuCount: FieldRef<"Proposal", 'Int'>
     readonly totalOrderQty: FieldRef<"Proposal", 'Int'>
     readonly totalValue: FieldRef<"Proposal", 'Decimal'>
@@ -18543,26 +17614,6 @@ export namespace Prisma {
      * The data used to create many Proposals.
      */
     data: ProposalCreateManyInput | ProposalCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Proposal createManyAndReturn
-   */
-  export type ProposalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Proposal
-     */
-    select?: ProposalSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Proposals.
-     */
-    data: ProposalCreateManyInput | ProposalCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProposalIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -19037,29 +18088,6 @@ export namespace Prisma {
     _count?: boolean | ProposalProductCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["proposalProduct"]>
 
-  export type ProposalProductSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    proposalId?: boolean
-    skuId?: boolean
-    skuCode?: boolean
-    productName?: boolean
-    collection?: boolean
-    gender?: boolean
-    category?: boolean
-    subCategory?: boolean
-    theme?: boolean
-    color?: boolean
-    composition?: boolean
-    unitCost?: boolean
-    srp?: boolean
-    orderQty?: boolean
-    totalValue?: boolean
-    customerTarget?: boolean
-    imageUrl?: boolean
-    sortOrder?: boolean
-    proposal?: boolean | ProposalDefaultArgs<ExtArgs>
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["proposalProduct"]>
 
   export type ProposalProductSelectScalar = {
     id?: boolean
@@ -19088,10 +18116,6 @@ export namespace Prisma {
     sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
     allocations?: boolean | ProposalProduct$allocationsArgs<ExtArgs>
     _count?: boolean | ProposalProductCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type ProposalProductIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    proposal?: boolean | ProposalDefaultArgs<ExtArgs>
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
   }
 
   export type $ProposalProductPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19237,30 +18261,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends ProposalProductCreateManyArgs>(args?: SelectSubset<T, ProposalProductCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ProposalProducts and returns the data saved in the database.
-     * @param {ProposalProductCreateManyAndReturnArgs} args - Arguments to create many ProposalProducts.
-     * @example
-     * // Create many ProposalProducts
-     * const proposalProduct = await prisma.proposalProduct.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ProposalProducts and only return the `id`
-     * const proposalProductWithIdOnly = await prisma.proposalProduct.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ProposalProductCreateManyAndReturnArgs>(args?: SelectSubset<T, ProposalProductCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProposalProductPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a ProposalProduct.
@@ -19741,26 +18741,6 @@ export namespace Prisma {
      * The data used to create many ProposalProducts.
      */
     data: ProposalProductCreateManyInput | ProposalProductCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * ProposalProduct createManyAndReturn
-   */
-  export type ProposalProductCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProposalProduct
-     */
-    select?: ProposalProductSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many ProposalProducts.
-     */
-    data: ProposalProductCreateManyInput | ProposalProductCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProposalProductIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -20082,14 +19062,6 @@ export namespace Prisma {
     store?: boolean | StoreDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["productAllocation"]>
 
-  export type ProductAllocationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    proposalProductId?: boolean
-    storeId?: boolean
-    quantity?: boolean
-    proposalProduct?: boolean | ProposalProductDefaultArgs<ExtArgs>
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["productAllocation"]>
 
   export type ProductAllocationSelectScalar = {
     id?: boolean
@@ -20099,10 +19071,6 @@ export namespace Prisma {
   }
 
   export type ProductAllocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    proposalProduct?: boolean | ProposalProductDefaultArgs<ExtArgs>
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }
-  export type ProductAllocationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     proposalProduct?: boolean | ProposalProductDefaultArgs<ExtArgs>
     store?: boolean | StoreDefaultArgs<ExtArgs>
   }
@@ -20234,30 +19202,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends ProductAllocationCreateManyArgs>(args?: SelectSubset<T, ProductAllocationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ProductAllocations and returns the data saved in the database.
-     * @param {ProductAllocationCreateManyAndReturnArgs} args - Arguments to create many ProductAllocations.
-     * @example
-     * // Create many ProductAllocations
-     * const productAllocation = await prisma.productAllocation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ProductAllocations and only return the `id`
-     * const productAllocationWithIdOnly = await prisma.productAllocation.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ProductAllocationCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductAllocationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductAllocationPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a ProductAllocation.
@@ -20722,26 +19666,6 @@ export namespace Prisma {
      * The data used to create many ProductAllocations.
      */
     data: ProductAllocationCreateManyInput | ProductAllocationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * ProductAllocation createManyAndReturn
-   */
-  export type ProductAllocationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProductAllocation
-     */
-    select?: ProductAllocationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many ProductAllocations.
-     */
-    data: ProductAllocationCreateManyInput | ProductAllocationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProductAllocationIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -20875,7 +19799,7 @@ export namespace Prisma {
     entityId: string | null
     level: number | null
     deciderId: string | null
-    action: $Enums.ApprovalAction | null
+    action: string | null
     comment: string | null
     decidedAt: Date | null
   }
@@ -20886,7 +19810,7 @@ export namespace Prisma {
     entityId: string | null
     level: number | null
     deciderId: string | null
-    action: $Enums.ApprovalAction | null
+    action: string | null
     comment: string | null
     decidedAt: Date | null
   }
@@ -21038,7 +19962,7 @@ export namespace Prisma {
     entityId: string
     level: number
     deciderId: string
-    action: $Enums.ApprovalAction
+    action: string
     comment: string | null
     decidedAt: Date
     _count: ApprovalCountAggregateOutputType | null
@@ -21074,17 +19998,6 @@ export namespace Prisma {
     decider?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["approval"]>
 
-  export type ApprovalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    entityType?: boolean
-    entityId?: boolean
-    level?: boolean
-    deciderId?: boolean
-    action?: boolean
-    comment?: boolean
-    decidedAt?: boolean
-    decider?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["approval"]>
 
   export type ApprovalSelectScalar = {
     id?: boolean
@@ -21100,9 +20013,6 @@ export namespace Prisma {
   export type ApprovalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     decider?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type ApprovalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    decider?: boolean | UserDefaultArgs<ExtArgs>
-  }
 
   export type $ApprovalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Approval"
@@ -21115,7 +20025,7 @@ export namespace Prisma {
       entityId: string
       level: number
       deciderId: string
-      action: $Enums.ApprovalAction
+      action: string
       comment: string | null
       decidedAt: Date
     }, ExtArgs["result"]["approval"]>
@@ -21234,30 +20144,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends ApprovalCreateManyArgs>(args?: SelectSubset<T, ApprovalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Approvals and returns the data saved in the database.
-     * @param {ApprovalCreateManyAndReturnArgs} args - Arguments to create many Approvals.
-     * @example
-     * // Create many Approvals
-     * const approval = await prisma.approval.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Approvals and only return the `id`
-     * const approvalWithIdOnly = await prisma.approval.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ApprovalCreateManyAndReturnArgs>(args?: SelectSubset<T, ApprovalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApprovalPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Approval.
@@ -21517,7 +20403,7 @@ export namespace Prisma {
     readonly entityId: FieldRef<"Approval", 'String'>
     readonly level: FieldRef<"Approval", 'Int'>
     readonly deciderId: FieldRef<"Approval", 'String'>
-    readonly action: FieldRef<"Approval", 'ApprovalAction'>
+    readonly action: FieldRef<"Approval", 'String'>
     readonly comment: FieldRef<"Approval", 'String'>
     readonly decidedAt: FieldRef<"Approval", 'DateTime'>
   }
@@ -21725,26 +20611,6 @@ export namespace Prisma {
      * The data used to create many Approvals.
      */
     data: ApprovalCreateManyInput | ApprovalCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Approval createManyAndReturn
-   */
-  export type ApprovalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Approval
-     */
-    select?: ApprovalSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Approvals.
-     */
-    data: ApprovalCreateManyInput | ApprovalCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ApprovalIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -21868,6 +20734,7 @@ export namespace Prisma {
     entityType: string | null
     entityId: string | null
     action: string | null
+    changes: string | null
     ipAddress: string | null
     createdAt: Date | null
   }
@@ -21878,6 +20745,7 @@ export namespace Prisma {
     entityType: string | null
     entityId: string | null
     action: string | null
+    changes: string | null
     ipAddress: string | null
     createdAt: Date | null
   }
@@ -21901,6 +20769,7 @@ export namespace Prisma {
     entityType?: true
     entityId?: true
     action?: true
+    changes?: true
     ipAddress?: true
     createdAt?: true
   }
@@ -21911,6 +20780,7 @@ export namespace Prisma {
     entityType?: true
     entityId?: true
     action?: true
+    changes?: true
     ipAddress?: true
     createdAt?: true
   }
@@ -22005,7 +20875,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes: JsonValue | null
+    changes: string | null
     ipAddress: string | null
     createdAt: Date
     _count: AuditLogCountAggregateOutputType | null
@@ -22039,17 +20909,6 @@ export namespace Prisma {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["auditLog"]>
 
-  export type AuditLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    entityType?: boolean
-    entityId?: boolean
-    action?: boolean
-    changes?: boolean
-    ipAddress?: boolean
-    createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["auditLog"]>
 
   export type AuditLogSelectScalar = {
     id?: boolean
@@ -22065,9 +20924,6 @@ export namespace Prisma {
   export type AuditLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type AuditLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
 
   export type $AuditLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AuditLog"
@@ -22080,7 +20936,7 @@ export namespace Prisma {
       entityType: string
       entityId: string
       action: string
-      changes: Prisma.JsonValue | null
+      changes: string | null
       ipAddress: string | null
       createdAt: Date
     }, ExtArgs["result"]["auditLog"]>
@@ -22199,30 +21055,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends AuditLogCreateManyArgs>(args?: SelectSubset<T, AuditLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many AuditLogs and returns the data saved in the database.
-     * @param {AuditLogCreateManyAndReturnArgs} args - Arguments to create many AuditLogs.
-     * @example
-     * // Create many AuditLogs
-     * const auditLog = await prisma.auditLog.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many AuditLogs and only return the `id`
-     * const auditLogWithIdOnly = await prisma.auditLog.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends AuditLogCreateManyAndReturnArgs>(args?: SelectSubset<T, AuditLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a AuditLog.
@@ -22482,7 +21314,7 @@ export namespace Prisma {
     readonly entityType: FieldRef<"AuditLog", 'String'>
     readonly entityId: FieldRef<"AuditLog", 'String'>
     readonly action: FieldRef<"AuditLog", 'String'>
-    readonly changes: FieldRef<"AuditLog", 'Json'>
+    readonly changes: FieldRef<"AuditLog", 'String'>
     readonly ipAddress: FieldRef<"AuditLog", 'String'>
     readonly createdAt: FieldRef<"AuditLog", 'DateTime'>
   }
@@ -22690,26 +21522,6 @@ export namespace Prisma {
      * The data used to create many AuditLogs.
      */
     data: AuditLogCreateManyInput | AuditLogCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * AuditLog createManyAndReturn
-   */
-  export type AuditLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AuditLog
-     */
-    select?: AuditLogSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many AuditLogs.
-     */
-    data: AuditLogCreateManyInput | AuditLogCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AuditLogIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -23058,18 +21870,6 @@ export namespace Prisma {
     store?: boolean | StoreDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["salesHistory"]>
 
-  export type SalesHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    skuCode?: boolean
-    storeId?: boolean
-    sizeCode?: boolean
-    season?: boolean
-    quantitySold?: boolean
-    quantityBought?: boolean
-    sellThroughPct?: boolean
-    createdAt?: boolean
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["salesHistory"]>
 
   export type SalesHistorySelectScalar = {
     id?: boolean
@@ -23084,9 +21884,6 @@ export namespace Prisma {
   }
 
   export type SalesHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }
-  export type SalesHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     store?: boolean | StoreDefaultArgs<ExtArgs>
   }
 
@@ -23221,30 +22018,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SalesHistoryCreateManyArgs>(args?: SelectSubset<T, SalesHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SalesHistories and returns the data saved in the database.
-     * @param {SalesHistoryCreateManyAndReturnArgs} args - Arguments to create many SalesHistories.
-     * @example
-     * // Create many SalesHistories
-     * const salesHistory = await prisma.salesHistory.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SalesHistories and only return the `id`
-     * const salesHistoryWithIdOnly = await prisma.salesHistory.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SalesHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, SalesHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalesHistoryPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SalesHistory.
@@ -23713,26 +22486,6 @@ export namespace Prisma {
      * The data used to create many SalesHistories.
      */
     data: SalesHistoryCreateManyInput | SalesHistoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SalesHistory createManyAndReturn
-   */
-  export type SalesHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SalesHistory
-     */
-    select?: SalesHistorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SalesHistories.
-     */
-    data: SalesHistoryCreateManyInput | SalesHistoryCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SalesHistoryIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -24090,20 +22843,6 @@ export namespace Prisma {
     store?: boolean | StoreDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sizeCurveRecommendation"]>
 
-  export type SizeCurveRecommendationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    skuId?: boolean
-    storeId?: boolean
-    category?: boolean
-    sizeCode?: boolean
-    recommendedPct?: boolean
-    confidence?: boolean
-    basedOnSeasons?: boolean
-    reasoning?: boolean
-    createdAt?: boolean
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["sizeCurveRecommendation"]>
 
   export type SizeCurveRecommendationSelectScalar = {
     id?: boolean
@@ -24119,10 +22858,6 @@ export namespace Prisma {
   }
 
   export type SizeCurveRecommendationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-    store?: boolean | StoreDefaultArgs<ExtArgs>
-  }
-  export type SizeCurveRecommendationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
     store?: boolean | StoreDefaultArgs<ExtArgs>
   }
@@ -24260,30 +22995,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SizeCurveRecommendationCreateManyArgs>(args?: SelectSubset<T, SizeCurveRecommendationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SizeCurveRecommendations and returns the data saved in the database.
-     * @param {SizeCurveRecommendationCreateManyAndReturnArgs} args - Arguments to create many SizeCurveRecommendations.
-     * @example
-     * // Create many SizeCurveRecommendations
-     * const sizeCurveRecommendation = await prisma.sizeCurveRecommendation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SizeCurveRecommendations and only return the `id`
-     * const sizeCurveRecommendationWithIdOnly = await prisma.sizeCurveRecommendation.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SizeCurveRecommendationCreateManyAndReturnArgs>(args?: SelectSubset<T, SizeCurveRecommendationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SizeCurveRecommendationPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SizeCurveRecommendation.
@@ -24754,26 +23465,6 @@ export namespace Prisma {
      * The data used to create many SizeCurveRecommendations.
      */
     data: SizeCurveRecommendationCreateManyInput | SizeCurveRecommendationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SizeCurveRecommendation createManyAndReturn
-   */
-  export type SizeCurveRecommendationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SizeCurveRecommendation
-     */
-    select?: SizeCurveRecommendationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SizeCurveRecommendations.
-     */
-    data: SizeCurveRecommendationCreateManyInput | SizeCurveRecommendationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SizeCurveRecommendationIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -25142,21 +23833,6 @@ export namespace Prisma {
     budget?: boolean | BudgetDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["budgetAlert"]>
 
-  export type BudgetAlertSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetId?: boolean
-    alertType?: boolean
-    severity?: boolean
-    title?: boolean
-    message?: boolean
-    metricValue?: boolean
-    threshold?: boolean
-    category?: boolean
-    isRead?: boolean
-    isDismissed?: boolean
-    createdAt?: boolean
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["budgetAlert"]>
 
   export type BudgetAlertSelectScalar = {
     id?: boolean
@@ -25174,9 +23850,6 @@ export namespace Prisma {
   }
 
   export type BudgetAlertInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-  }
-  export type BudgetAlertIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     budget?: boolean | BudgetDefaultArgs<ExtArgs>
   }
 
@@ -25314,30 +23987,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends BudgetAlertCreateManyArgs>(args?: SelectSubset<T, BudgetAlertCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many BudgetAlerts and returns the data saved in the database.
-     * @param {BudgetAlertCreateManyAndReturnArgs} args - Arguments to create many BudgetAlerts.
-     * @example
-     * // Create many BudgetAlerts
-     * const budgetAlert = await prisma.budgetAlert.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many BudgetAlerts and only return the `id`
-     * const budgetAlertWithIdOnly = await prisma.budgetAlert.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends BudgetAlertCreateManyAndReturnArgs>(args?: SelectSubset<T, BudgetAlertCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetAlertPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a BudgetAlert.
@@ -25809,26 +24458,6 @@ export namespace Prisma {
      * The data used to create many BudgetAlerts.
      */
     data: BudgetAlertCreateManyInput | BudgetAlertCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * BudgetAlert createManyAndReturn
-   */
-  export type BudgetAlertCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BudgetAlert
-     */
-    select?: BudgetAlertSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many BudgetAlerts.
-     */
-    data: BudgetAlertCreateManyInput | BudgetAlertCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BudgetAlertIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -26153,15 +24782,6 @@ export namespace Prisma {
     budget?: boolean | BudgetDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["budgetSnapshot"]>
 
-  export type BudgetSnapshotSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetId?: boolean
-    snapshotDate?: boolean
-    totalCommitted?: boolean
-    totalPlanned?: boolean
-    utilizationPct?: boolean
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["budgetSnapshot"]>
 
   export type BudgetSnapshotSelectScalar = {
     id?: boolean
@@ -26173,9 +24793,6 @@ export namespace Prisma {
   }
 
   export type BudgetSnapshotInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budget?: boolean | BudgetDefaultArgs<ExtArgs>
-  }
-  export type BudgetSnapshotIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     budget?: boolean | BudgetDefaultArgs<ExtArgs>
   }
 
@@ -26307,30 +24924,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends BudgetSnapshotCreateManyArgs>(args?: SelectSubset<T, BudgetSnapshotCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many BudgetSnapshots and returns the data saved in the database.
-     * @param {BudgetSnapshotCreateManyAndReturnArgs} args - Arguments to create many BudgetSnapshots.
-     * @example
-     * // Create many BudgetSnapshots
-     * const budgetSnapshot = await prisma.budgetSnapshot.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many BudgetSnapshots and only return the `id`
-     * const budgetSnapshotWithIdOnly = await prisma.budgetSnapshot.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends BudgetSnapshotCreateManyAndReturnArgs>(args?: SelectSubset<T, BudgetSnapshotCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BudgetSnapshotPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a BudgetSnapshot.
@@ -26796,26 +25389,6 @@ export namespace Prisma {
      * The data used to create many BudgetSnapshots.
      */
     data: BudgetSnapshotCreateManyInput | BudgetSnapshotCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * BudgetSnapshot createManyAndReturn
-   */
-  export type BudgetSnapshotCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BudgetSnapshot
-     */
-    select?: BudgetSnapshotSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many BudgetSnapshots.
-     */
-    data: BudgetSnapshotCreateManyInput | BudgetSnapshotCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BudgetSnapshotIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -27195,20 +25768,6 @@ export namespace Prisma {
     createdAt?: boolean
   }, ExtArgs["result"]["allocationHistory"]>
 
-  export type AllocationHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetId?: boolean
-    seasonGroup?: boolean
-    seasonType?: boolean
-    fiscalYear?: boolean
-    dimensionType?: boolean
-    dimensionValue?: boolean
-    allocatedPct?: boolean
-    allocatedAmount?: boolean
-    actualSales?: boolean
-    sellThroughPct?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["allocationHistory"]>
 
   export type AllocationHistorySelectScalar = {
     id?: boolean
@@ -27358,30 +25917,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends AllocationHistoryCreateManyArgs>(args?: SelectSubset<T, AllocationHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many AllocationHistories and returns the data saved in the database.
-     * @param {AllocationHistoryCreateManyAndReturnArgs} args - Arguments to create many AllocationHistories.
-     * @example
-     * // Create many AllocationHistories
-     * const allocationHistory = await prisma.allocationHistory.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many AllocationHistories and only return the `id`
-     * const allocationHistoryWithIdOnly = await prisma.allocationHistory.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends AllocationHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, AllocationHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AllocationHistoryPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a AllocationHistory.
@@ -27828,22 +26363,6 @@ export namespace Prisma {
      * The data used to create many AllocationHistories.
      */
     data: AllocationHistoryCreateManyInput | AllocationHistoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * AllocationHistory createManyAndReturn
-   */
-  export type AllocationHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AllocationHistory
-     */
-    select?: AllocationHistorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many AllocationHistories.
-     */
-    data: AllocationHistoryCreateManyInput | AllocationHistoryCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -27971,6 +26490,7 @@ export namespace Prisma {
     confidence: Decimal | null
     reasoning: string | null
     basedOnSeasons: number | null
+    factors: string | null
     isApplied: boolean | null
     createdAt: Date | null
   }
@@ -27985,6 +26505,7 @@ export namespace Prisma {
     confidence: Decimal | null
     reasoning: string | null
     basedOnSeasons: number | null
+    factors: string | null
     isApplied: boolean | null
     createdAt: Date | null
   }
@@ -28030,6 +26551,7 @@ export namespace Prisma {
     confidence?: true
     reasoning?: true
     basedOnSeasons?: true
+    factors?: true
     isApplied?: true
     createdAt?: true
   }
@@ -28044,6 +26566,7 @@ export namespace Prisma {
     confidence?: true
     reasoning?: true
     basedOnSeasons?: true
+    factors?: true
     isApplied?: true
     createdAt?: true
   }
@@ -28160,7 +26683,7 @@ export namespace Prisma {
     confidence: Decimal
     reasoning: string | null
     basedOnSeasons: number
-    factors: JsonValue | null
+    factors: string | null
     isApplied: boolean
     createdAt: Date
     _count: AllocationRecommendationCountAggregateOutputType | null
@@ -28200,21 +26723,6 @@ export namespace Prisma {
     budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["allocationRecommendation"]>
 
-  export type AllocationRecommendationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetDetailId?: boolean
-    dimensionType?: boolean
-    dimensionValue?: boolean
-    recommendedPct?: boolean
-    recommendedAmt?: boolean
-    confidence?: boolean
-    reasoning?: boolean
-    basedOnSeasons?: boolean
-    factors?: boolean
-    isApplied?: boolean
-    createdAt?: boolean
-    budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["allocationRecommendation"]>
 
   export type AllocationRecommendationSelectScalar = {
     id?: boolean
@@ -28234,9 +26742,6 @@ export namespace Prisma {
   export type AllocationRecommendationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
   }
-  export type AllocationRecommendationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
-  }
 
   export type $AllocationRecommendationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AllocationRecommendation"
@@ -28253,7 +26758,7 @@ export namespace Prisma {
       confidence: Prisma.Decimal
       reasoning: string | null
       basedOnSeasons: number
-      factors: Prisma.JsonValue | null
+      factors: string | null
       isApplied: boolean
       createdAt: Date
     }, ExtArgs["result"]["allocationRecommendation"]>
@@ -28372,30 +26877,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends AllocationRecommendationCreateManyArgs>(args?: SelectSubset<T, AllocationRecommendationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many AllocationRecommendations and returns the data saved in the database.
-     * @param {AllocationRecommendationCreateManyAndReturnArgs} args - Arguments to create many AllocationRecommendations.
-     * @example
-     * // Create many AllocationRecommendations
-     * const allocationRecommendation = await prisma.allocationRecommendation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many AllocationRecommendations and only return the `id`
-     * const allocationRecommendationWithIdOnly = await prisma.allocationRecommendation.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends AllocationRecommendationCreateManyAndReturnArgs>(args?: SelectSubset<T, AllocationRecommendationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AllocationRecommendationPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a AllocationRecommendation.
@@ -28659,7 +27140,7 @@ export namespace Prisma {
     readonly confidence: FieldRef<"AllocationRecommendation", 'Decimal'>
     readonly reasoning: FieldRef<"AllocationRecommendation", 'String'>
     readonly basedOnSeasons: FieldRef<"AllocationRecommendation", 'Int'>
-    readonly factors: FieldRef<"AllocationRecommendation", 'Json'>
+    readonly factors: FieldRef<"AllocationRecommendation", 'String'>
     readonly isApplied: FieldRef<"AllocationRecommendation", 'Boolean'>
     readonly createdAt: FieldRef<"AllocationRecommendation", 'DateTime'>
   }
@@ -28867,26 +27348,6 @@ export namespace Prisma {
      * The data used to create many AllocationRecommendations.
      */
     data: AllocationRecommendationCreateManyInput | AllocationRecommendationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * AllocationRecommendation createManyAndReturn
-   */
-  export type AllocationRecommendationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AllocationRecommendation
-     */
-    select?: AllocationRecommendationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many AllocationRecommendations.
-     */
-    data: AllocationRecommendationCreateManyInput | AllocationRecommendationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AllocationRecommendationIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -29038,6 +27499,8 @@ export namespace Prisma {
     vendorConcentrationScore: Decimal | null
     categoryBalanceScore: Decimal | null
     marginImpactScore: Decimal | null
+    factors: string | null
+    warnings: string | null
     recommendation: string | null
     calculatedAt: Date | null
     calculatedBy: string | null
@@ -29056,6 +27519,8 @@ export namespace Prisma {
     vendorConcentrationScore: Decimal | null
     categoryBalanceScore: Decimal | null
     marginImpactScore: Decimal | null
+    factors: string | null
+    warnings: string | null
     recommendation: string | null
     calculatedAt: Date | null
     calculatedBy: string | null
@@ -29116,6 +27581,8 @@ export namespace Prisma {
     vendorConcentrationScore?: true
     categoryBalanceScore?: true
     marginImpactScore?: true
+    factors?: true
+    warnings?: true
     recommendation?: true
     calculatedAt?: true
     calculatedBy?: true
@@ -29134,6 +27601,8 @@ export namespace Prisma {
     vendorConcentrationScore?: true
     categoryBalanceScore?: true
     marginImpactScore?: true
+    factors?: true
+    warnings?: true
     recommendation?: true
     calculatedAt?: true
     calculatedBy?: true
@@ -29259,8 +27728,8 @@ export namespace Prisma {
     vendorConcentrationScore: Decimal
     categoryBalanceScore: Decimal
     marginImpactScore: Decimal
-    factors: JsonValue | null
-    warnings: JsonValue | null
+    factors: string | null
+    warnings: string | null
     recommendation: string | null
     calculatedAt: Date
     calculatedBy: string | null
@@ -29306,25 +27775,6 @@ export namespace Prisma {
     isStale?: boolean
   }, ExtArgs["result"]["riskAssessment"]>
 
-  export type RiskAssessmentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    entityType?: boolean
-    entityId?: boolean
-    overallScore?: boolean
-    riskLevel?: boolean
-    budgetAlignmentScore?: boolean
-    skuDiversityScore?: boolean
-    sizeCurveScore?: boolean
-    vendorConcentrationScore?: boolean
-    categoryBalanceScore?: boolean
-    marginImpactScore?: boolean
-    factors?: boolean
-    warnings?: boolean
-    recommendation?: boolean
-    calculatedAt?: boolean
-    calculatedBy?: boolean
-    isStale?: boolean
-  }, ExtArgs["result"]["riskAssessment"]>
 
   export type RiskAssessmentSelectScalar = {
     id?: boolean
@@ -29362,8 +27812,8 @@ export namespace Prisma {
       vendorConcentrationScore: Prisma.Decimal
       categoryBalanceScore: Prisma.Decimal
       marginImpactScore: Prisma.Decimal
-      factors: Prisma.JsonValue | null
-      warnings: Prisma.JsonValue | null
+      factors: string | null
+      warnings: string | null
       recommendation: string | null
       calculatedAt: Date
       calculatedBy: string | null
@@ -29484,30 +27934,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends RiskAssessmentCreateManyArgs>(args?: SelectSubset<T, RiskAssessmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many RiskAssessments and returns the data saved in the database.
-     * @param {RiskAssessmentCreateManyAndReturnArgs} args - Arguments to create many RiskAssessments.
-     * @example
-     * // Create many RiskAssessments
-     * const riskAssessment = await prisma.riskAssessment.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many RiskAssessments and only return the `id`
-     * const riskAssessmentWithIdOnly = await prisma.riskAssessment.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends RiskAssessmentCreateManyAndReturnArgs>(args?: SelectSubset<T, RiskAssessmentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskAssessmentPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a RiskAssessment.
@@ -29772,8 +28198,8 @@ export namespace Prisma {
     readonly vendorConcentrationScore: FieldRef<"RiskAssessment", 'Decimal'>
     readonly categoryBalanceScore: FieldRef<"RiskAssessment", 'Decimal'>
     readonly marginImpactScore: FieldRef<"RiskAssessment", 'Decimal'>
-    readonly factors: FieldRef<"RiskAssessment", 'Json'>
-    readonly warnings: FieldRef<"RiskAssessment", 'Json'>
+    readonly factors: FieldRef<"RiskAssessment", 'String'>
+    readonly warnings: FieldRef<"RiskAssessment", 'String'>
     readonly recommendation: FieldRef<"RiskAssessment", 'String'>
     readonly calculatedAt: FieldRef<"RiskAssessment", 'DateTime'>
     readonly calculatedBy: FieldRef<"RiskAssessment", 'String'>
@@ -29959,22 +28385,6 @@ export namespace Prisma {
      * The data used to create many RiskAssessments.
      */
     data: RiskAssessmentCreateManyInput | RiskAssessmentCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * RiskAssessment createManyAndReturn
-   */
-  export type RiskAssessmentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the RiskAssessment
-     */
-    select?: RiskAssessmentSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many RiskAssessments.
-     */
-    data: RiskAssessmentCreateManyInput | RiskAssessmentCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -30290,15 +28700,6 @@ export namespace Prisma {
     isActive?: boolean
   }, ExtArgs["result"]["riskThreshold"]>
 
-  export type RiskThresholdSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    factorName?: boolean
-    weight?: boolean
-    lowThreshold?: boolean
-    highThreshold?: boolean
-    description?: boolean
-    isActive?: boolean
-  }, ExtArgs["result"]["riskThreshold"]>
 
   export type RiskThresholdSelectScalar = {
     id?: boolean
@@ -30438,30 +28839,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends RiskThresholdCreateManyArgs>(args?: SelectSubset<T, RiskThresholdCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many RiskThresholds and returns the data saved in the database.
-     * @param {RiskThresholdCreateManyAndReturnArgs} args - Arguments to create many RiskThresholds.
-     * @example
-     * // Create many RiskThresholds
-     * const riskThreshold = await prisma.riskThreshold.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many RiskThresholds and only return the `id`
-     * const riskThresholdWithIdOnly = await prisma.riskThreshold.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends RiskThresholdCreateManyAndReturnArgs>(args?: SelectSubset<T, RiskThresholdCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskThresholdPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a RiskThreshold.
@@ -30903,22 +29280,6 @@ export namespace Prisma {
      * The data used to create many RiskThresholds.
      */
     data: RiskThresholdCreateManyInput | RiskThresholdCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * RiskThreshold createManyAndReturn
-   */
-  export type RiskThresholdCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the RiskThreshold
-     */
-    select?: RiskThresholdSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many RiskThresholds.
-     */
-    data: RiskThresholdCreateManyInput | RiskThresholdCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -31360,28 +29721,6 @@ export namespace Prisma {
     store?: boolean | SkuPerformance$storeArgs<ExtArgs>
   }, ExtArgs["result"]["skuPerformance"]>
 
-  export type SkuPerformanceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    skuId?: boolean
-    skuCode?: boolean
-    seasonGroup?: boolean
-    fiscalYear?: boolean
-    storeId?: boolean
-    quantityBought?: boolean
-    quantitySold?: boolean
-    sellThroughPct?: boolean
-    avgSellingPrice?: boolean
-    totalRevenue?: boolean
-    grossMarginPct?: boolean
-    markdownPct?: boolean
-    weeksToSellThru?: boolean
-    performanceScore?: boolean
-    velocityScore?: boolean
-    marginScore?: boolean
-    createdAt?: boolean
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-    store?: boolean | SkuPerformance$storeArgs<ExtArgs>
-  }, ExtArgs["result"]["skuPerformance"]>
 
   export type SkuPerformanceSelectScalar = {
     id?: boolean
@@ -31405,10 +29744,6 @@ export namespace Prisma {
   }
 
   export type SkuPerformanceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-    store?: boolean | SkuPerformance$storeArgs<ExtArgs>
-  }
-  export type SkuPerformanceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
     store?: boolean | SkuPerformance$storeArgs<ExtArgs>
   }
@@ -31554,30 +29889,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SkuPerformanceCreateManyArgs>(args?: SelectSubset<T, SkuPerformanceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SkuPerformances and returns the data saved in the database.
-     * @param {SkuPerformanceCreateManyAndReturnArgs} args - Arguments to create many SkuPerformances.
-     * @example
-     * // Create many SkuPerformances
-     * const skuPerformance = await prisma.skuPerformance.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SkuPerformances and only return the `id`
-     * const skuPerformanceWithIdOnly = await prisma.skuPerformance.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SkuPerformanceCreateManyAndReturnArgs>(args?: SelectSubset<T, SkuPerformanceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuPerformancePayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SkuPerformance.
@@ -32056,26 +30367,6 @@ export namespace Prisma {
      * The data used to create many SkuPerformances.
      */
     data: SkuPerformanceCreateManyInput | SkuPerformanceCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SkuPerformance createManyAndReturn
-   */
-  export type SkuPerformanceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SkuPerformance
-     */
-    select?: SkuPerformanceSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SkuPerformances.
-     */
-    data: SkuPerformanceCreateManyInput | SkuPerformanceCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SkuPerformanceIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -32474,20 +30765,6 @@ export namespace Prisma {
     createdAt?: boolean
   }, ExtArgs["result"]["attributeTrend"]>
 
-  export type AttributeTrendSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    attributeType?: boolean
-    attributeValue?: boolean
-    category?: boolean
-    seasonGroup?: boolean
-    fiscalYear?: boolean
-    totalSkus?: boolean
-    avgSellThrough?: boolean
-    avgMargin?: boolean
-    trendScore?: boolean
-    yoyGrowth?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["attributeTrend"]>
 
   export type AttributeTrendSelectScalar = {
     id?: boolean
@@ -32637,30 +30914,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends AttributeTrendCreateManyArgs>(args?: SelectSubset<T, AttributeTrendCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many AttributeTrends and returns the data saved in the database.
-     * @param {AttributeTrendCreateManyAndReturnArgs} args - Arguments to create many AttributeTrends.
-     * @example
-     * // Create many AttributeTrends
-     * const attributeTrend = await prisma.attributeTrend.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many AttributeTrends and only return the `id`
-     * const attributeTrendWithIdOnly = await prisma.attributeTrend.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends AttributeTrendCreateManyAndReturnArgs>(args?: SelectSubset<T, AttributeTrendCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttributeTrendPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a AttributeTrend.
@@ -33107,22 +31360,6 @@ export namespace Prisma {
      * The data used to create many AttributeTrends.
      */
     data: AttributeTrendCreateManyInput | AttributeTrendCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * AttributeTrend createManyAndReturn
-   */
-  export type AttributeTrendCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AttributeTrend
-     */
-    select?: AttributeTrendSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many AttributeTrends.
-     */
-    data: AttributeTrendCreateManyInput | AttributeTrendCreateManyInput[]
-    skipDuplicates?: boolean
   }
 
   /**
@@ -33564,30 +31801,6 @@ export namespace Prisma {
     sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["skuRecommendation"]>
 
-  export type SkuRecommendationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    budgetDetailId?: boolean
-    category?: boolean
-    subCategory?: boolean
-    skuId?: boolean
-    skuCode?: boolean
-    productName?: boolean
-    recommendedQty?: boolean
-    recommendedValue?: boolean
-    confidence?: boolean
-    performanceScore?: boolean
-    trendScore?: boolean
-    assortmentScore?: boolean
-    priceScore?: boolean
-    overallScore?: boolean
-    riskLevel?: boolean
-    reasoning?: boolean
-    isSelected?: boolean
-    isRejected?: boolean
-    createdAt?: boolean
-    budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["skuRecommendation"]>
 
   export type SkuRecommendationSelectScalar = {
     id?: boolean
@@ -33613,10 +31826,6 @@ export namespace Prisma {
   }
 
   export type SkuRecommendationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
-    sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
-  }
-  export type SkuRecommendationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     budgetDetail?: boolean | BudgetDetailDefaultArgs<ExtArgs>
     sku?: boolean | SkuCatalogDefaultArgs<ExtArgs>
   }
@@ -33764,30 +31973,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SkuRecommendationCreateManyArgs>(args?: SelectSubset<T, SkuRecommendationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SkuRecommendations and returns the data saved in the database.
-     * @param {SkuRecommendationCreateManyAndReturnArgs} args - Arguments to create many SkuRecommendations.
-     * @example
-     * // Create many SkuRecommendations
-     * const skuRecommendation = await prisma.skuRecommendation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SkuRecommendations and only return the `id`
-     * const skuRecommendationWithIdOnly = await prisma.skuRecommendation.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SkuRecommendationCreateManyAndReturnArgs>(args?: SelectSubset<T, SkuRecommendationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuRecommendationPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SkuRecommendation.
@@ -34268,26 +32453,6 @@ export namespace Prisma {
      * The data used to create many SkuRecommendations.
      */
     data: SkuRecommendationCreateManyInput | SkuRecommendationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SkuRecommendation createManyAndReturn
-   */
-  export type SkuRecommendationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SkuRecommendation
-     */
-    select?: SkuRecommendationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SkuRecommendations.
-     */
-    data: SkuRecommendationCreateManyInput | SkuRecommendationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SkuRecommendationIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -34637,20 +32802,6 @@ export namespace Prisma {
     user?: boolean | ApprovalWorkflowStep$userArgs<ExtArgs>
   }, ExtArgs["result"]["approvalWorkflowStep"]>
 
-  export type ApprovalWorkflowStepSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    brandId?: boolean
-    stepNumber?: boolean
-    roleName?: boolean
-    roleCode?: boolean
-    userId?: boolean
-    description?: boolean
-    isActive?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    brand?: boolean | GroupBrandDefaultArgs<ExtArgs>
-    user?: boolean | ApprovalWorkflowStep$userArgs<ExtArgs>
-  }, ExtArgs["result"]["approvalWorkflowStep"]>
 
   export type ApprovalWorkflowStepSelectScalar = {
     id?: boolean
@@ -34666,10 +32817,6 @@ export namespace Prisma {
   }
 
   export type ApprovalWorkflowStepInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    brand?: boolean | GroupBrandDefaultArgs<ExtArgs>
-    user?: boolean | ApprovalWorkflowStep$userArgs<ExtArgs>
-  }
-  export type ApprovalWorkflowStepIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     brand?: boolean | GroupBrandDefaultArgs<ExtArgs>
     user?: boolean | ApprovalWorkflowStep$userArgs<ExtArgs>
   }
@@ -34807,30 +32954,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends ApprovalWorkflowStepCreateManyArgs>(args?: SelectSubset<T, ApprovalWorkflowStepCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ApprovalWorkflowSteps and returns the data saved in the database.
-     * @param {ApprovalWorkflowStepCreateManyAndReturnArgs} args - Arguments to create many ApprovalWorkflowSteps.
-     * @example
-     * // Create many ApprovalWorkflowSteps
-     * const approvalWorkflowStep = await prisma.approvalWorkflowStep.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ApprovalWorkflowSteps and only return the `id`
-     * const approvalWorkflowStepWithIdOnly = await prisma.approvalWorkflowStep.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ApprovalWorkflowStepCreateManyAndReturnArgs>(args?: SelectSubset<T, ApprovalWorkflowStepCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApprovalWorkflowStepPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a ApprovalWorkflowStep.
@@ -35301,26 +33424,6 @@ export namespace Prisma {
      * The data used to create many ApprovalWorkflowSteps.
      */
     data: ApprovalWorkflowStepCreateManyInput | ApprovalWorkflowStepCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * ApprovalWorkflowStep createManyAndReturn
-   */
-  export type ApprovalWorkflowStepCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ApprovalWorkflowStep
-     */
-    select?: ApprovalWorkflowStepSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many ApprovalWorkflowSteps.
-     */
-    data: ApprovalWorkflowStepCreateManyInput | ApprovalWorkflowStepCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ApprovalWorkflowStepIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -35451,7 +33554,8 @@ export namespace Prisma {
     ReadUncommitted: 'ReadUncommitted',
     ReadCommitted: 'ReadCommitted',
     RepeatableRead: 'RepeatableRead',
-    Serializable: 'Serializable'
+    Serializable: 'Serializable',
+    Snapshot: 'Snapshot'
   };
 
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
@@ -35933,38 +34037,6 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const JsonNullValueInput: {
-    JsonNull: typeof JsonNull
-  };
-
-  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
-
-
-  export const NullableJsonNullValueInput: {
-    DbNull: typeof DbNull,
-    JsonNull: typeof JsonNull
-  };
-
-  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
-
-
-  export const QueryMode: {
-    default: 'default',
-    insensitive: 'insensitive'
-  };
-
-  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
-
-
-  export const JsonNullValueFilter: {
-    DbNull: typeof DbNull,
-    JsonNull: typeof JsonNull,
-    AnyNull: typeof AnyNull
-  };
-
-  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
-
-
   export const NullsOrder: {
     first: 'first',
     last: 'last'
@@ -35986,13 +34058,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'String[]'
-   */
-  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -36007,30 +34072,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -36042,79 +34086,9 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Decimal[]'
-   */
-  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'BudgetStatus'
-   */
-  export type EnumBudgetStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BudgetStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'BudgetStatus[]'
-   */
-  export type ListEnumBudgetStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BudgetStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'PlanningStatus'
-   */
-  export type EnumPlanningStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlanningStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'PlanningStatus[]'
-   */
-  export type ListEnumPlanningStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlanningStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'ProposalStatus'
-   */
-  export type EnumProposalStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProposalStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'ProposalStatus[]'
-   */
-  export type ListEnumProposalStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProposalStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'ApprovalAction'
-   */
-  export type EnumApprovalActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApprovalAction'>
-    
-
-
-  /**
-   * Reference to a field of type 'ApprovalAction[]'
-   */
-  export type ListEnumApprovalActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApprovalAction[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -36130,8 +34104,8 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     passwordHash?: StringFilter<"User"> | string
     roleId?: StringFilter<"User"> | string
-    storeAccess?: StringNullableListFilter<"User">
-    brandAccess?: StringNullableListFilter<"User">
+    storeAccess?: StringFilter<"User"> | string
+    brandAccess?: StringFilter<"User"> | string
     isActive?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -36173,8 +34147,8 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     passwordHash?: StringFilter<"User"> | string
     roleId?: StringFilter<"User"> | string
-    storeAccess?: StringNullableListFilter<"User">
-    brandAccess?: StringNullableListFilter<"User">
+    storeAccess?: StringFilter<"User"> | string
+    brandAccess?: StringFilter<"User"> | string
     isActive?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -36212,8 +34186,8 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"User"> | string
     passwordHash?: StringWithAggregatesFilter<"User"> | string
     roleId?: StringWithAggregatesFilter<"User"> | string
-    storeAccess?: StringNullableListFilter<"User">
-    brandAccess?: StringNullableListFilter<"User">
+    storeAccess?: StringWithAggregatesFilter<"User"> | string
+    brandAccess?: StringWithAggregatesFilter<"User"> | string
     isActive?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -36226,7 +34200,7 @@ export namespace Prisma {
     id?: StringFilter<"Role"> | string
     name?: StringFilter<"Role"> | string
     description?: StringNullableFilter<"Role"> | string | null
-    permissions?: JsonFilter<"Role">
+    permissions?: StringFilter<"Role"> | string
     users?: UserListRelationFilter
   }
 
@@ -36245,7 +34219,7 @@ export namespace Prisma {
     OR?: RoleWhereInput[]
     NOT?: RoleWhereInput | RoleWhereInput[]
     description?: StringNullableFilter<"Role"> | string | null
-    permissions?: JsonFilter<"Role">
+    permissions?: StringFilter<"Role"> | string
     users?: UserListRelationFilter
   }, "id" | "name">
 
@@ -36266,7 +34240,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Role"> | string
     name?: StringWithAggregatesFilter<"Role"> | string
     description?: StringNullableWithAggregatesFilter<"Role"> | string | null
-    permissions?: JsonWithAggregatesFilter<"Role">
+    permissions?: StringWithAggregatesFilter<"Role"> | string
   }
 
   export type GroupBrandWhereInput = {
@@ -36277,7 +34251,7 @@ export namespace Prisma {
     code?: StringFilter<"GroupBrand"> | string
     name?: StringFilter<"GroupBrand"> | string
     groupId?: StringFilter<"GroupBrand"> | string
-    colorConfig?: JsonNullableFilter<"GroupBrand">
+    colorConfig?: StringNullableFilter<"GroupBrand"> | string | null
     isActive?: BoolFilter<"GroupBrand"> | boolean
     sortOrder?: IntFilter<"GroupBrand"> | number
     budgets?: BudgetListRelationFilter
@@ -36306,7 +34280,7 @@ export namespace Prisma {
     NOT?: GroupBrandWhereInput | GroupBrandWhereInput[]
     name?: StringFilter<"GroupBrand"> | string
     groupId?: StringFilter<"GroupBrand"> | string
-    colorConfig?: JsonNullableFilter<"GroupBrand">
+    colorConfig?: StringNullableFilter<"GroupBrand"> | string | null
     isActive?: BoolFilter<"GroupBrand"> | boolean
     sortOrder?: IntFilter<"GroupBrand"> | number
     budgets?: BudgetListRelationFilter
@@ -36337,7 +34311,7 @@ export namespace Prisma {
     code?: StringWithAggregatesFilter<"GroupBrand"> | string
     name?: StringWithAggregatesFilter<"GroupBrand"> | string
     groupId?: StringWithAggregatesFilter<"GroupBrand"> | string
-    colorConfig?: JsonNullableWithAggregatesFilter<"GroupBrand">
+    colorConfig?: StringNullableWithAggregatesFilter<"GroupBrand"> | string | null
     isActive?: BoolWithAggregatesFilter<"GroupBrand"> | boolean
     sortOrder?: IntWithAggregatesFilter<"GroupBrand"> | number
   }
@@ -36726,7 +34700,7 @@ export namespace Prisma {
     seasonType?: StringFilter<"Budget"> | string
     fiscalYear?: IntFilter<"Budget"> | number
     totalBudget?: DecimalFilter<"Budget"> | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFilter<"Budget"> | $Enums.BudgetStatus
+    status?: StringFilter<"Budget"> | string
     comment?: StringNullableFilter<"Budget"> | string | null
     createdById?: StringFilter<"Budget"> | string
     createdAt?: DateTimeFilter<"Budget"> | Date | string
@@ -36772,7 +34746,7 @@ export namespace Prisma {
     seasonType?: StringFilter<"Budget"> | string
     fiscalYear?: IntFilter<"Budget"> | number
     totalBudget?: DecimalFilter<"Budget"> | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFilter<"Budget"> | $Enums.BudgetStatus
+    status?: StringFilter<"Budget"> | string
     comment?: StringNullableFilter<"Budget"> | string | null
     createdById?: StringFilter<"Budget"> | string
     createdAt?: DateTimeFilter<"Budget"> | Date | string
@@ -36816,7 +34790,7 @@ export namespace Prisma {
     seasonType?: StringWithAggregatesFilter<"Budget"> | string
     fiscalYear?: IntWithAggregatesFilter<"Budget"> | number
     totalBudget?: DecimalWithAggregatesFilter<"Budget"> | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusWithAggregatesFilter<"Budget"> | $Enums.BudgetStatus
+    status?: StringWithAggregatesFilter<"Budget"> | string
     comment?: StringNullableWithAggregatesFilter<"Budget"> | string | null
     createdById?: StringWithAggregatesFilter<"Budget"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Budget"> | Date | string
@@ -36897,9 +34871,9 @@ export namespace Prisma {
     budgetDetailId?: StringFilter<"PlanningVersion"> | string
     versionNumber?: IntFilter<"PlanningVersion"> | number
     versionName?: StringNullableFilter<"PlanningVersion"> | string | null
-    status?: EnumPlanningStatusFilter<"PlanningVersion"> | $Enums.PlanningStatus
+    status?: StringFilter<"PlanningVersion"> | string
     isFinal?: BoolFilter<"PlanningVersion"> | boolean
-    snapshotData?: JsonNullableFilter<"PlanningVersion">
+    snapshotData?: StringNullableFilter<"PlanningVersion"> | string | null
     createdById?: StringFilter<"PlanningVersion"> | string
     createdAt?: DateTimeFilter<"PlanningVersion"> | Date | string
     updatedAt?: DateTimeFilter<"PlanningVersion"> | Date | string
@@ -36937,9 +34911,9 @@ export namespace Prisma {
     budgetDetailId?: StringFilter<"PlanningVersion"> | string
     versionNumber?: IntFilter<"PlanningVersion"> | number
     versionName?: StringNullableFilter<"PlanningVersion"> | string | null
-    status?: EnumPlanningStatusFilter<"PlanningVersion"> | $Enums.PlanningStatus
+    status?: StringFilter<"PlanningVersion"> | string
     isFinal?: BoolFilter<"PlanningVersion"> | boolean
-    snapshotData?: JsonNullableFilter<"PlanningVersion">
+    snapshotData?: StringNullableFilter<"PlanningVersion"> | string | null
     createdById?: StringFilter<"PlanningVersion"> | string
     createdAt?: DateTimeFilter<"PlanningVersion"> | Date | string
     updatedAt?: DateTimeFilter<"PlanningVersion"> | Date | string
@@ -36977,9 +34951,9 @@ export namespace Prisma {
     budgetDetailId?: StringWithAggregatesFilter<"PlanningVersion"> | string
     versionNumber?: IntWithAggregatesFilter<"PlanningVersion"> | number
     versionName?: StringNullableWithAggregatesFilter<"PlanningVersion"> | string | null
-    status?: EnumPlanningStatusWithAggregatesFilter<"PlanningVersion"> | $Enums.PlanningStatus
+    status?: StringWithAggregatesFilter<"PlanningVersion"> | string
     isFinal?: BoolWithAggregatesFilter<"PlanningVersion"> | boolean
-    snapshotData?: JsonNullableWithAggregatesFilter<"PlanningVersion">
+    snapshotData?: StringNullableWithAggregatesFilter<"PlanningVersion"> | string | null
     createdById?: StringWithAggregatesFilter<"PlanningVersion"> | string
     createdAt?: DateTimeWithAggregatesFilter<"PlanningVersion"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PlanningVersion"> | Date | string
@@ -37107,7 +35081,7 @@ export namespace Prisma {
     ticketName?: StringFilter<"Proposal"> | string
     budgetId?: StringFilter<"Proposal"> | string
     planningVersionId?: StringNullableFilter<"Proposal"> | string | null
-    status?: EnumProposalStatusFilter<"Proposal"> | $Enums.ProposalStatus
+    status?: StringFilter<"Proposal"> | string
     totalSkuCount?: IntFilter<"Proposal"> | number
     totalOrderQty?: IntFilter<"Proposal"> | number
     totalValue?: DecimalFilter<"Proposal"> | Decimal | DecimalJsLike | number | string
@@ -37146,7 +35120,7 @@ export namespace Prisma {
     ticketName?: StringFilter<"Proposal"> | string
     budgetId?: StringFilter<"Proposal"> | string
     planningVersionId?: StringNullableFilter<"Proposal"> | string | null
-    status?: EnumProposalStatusFilter<"Proposal"> | $Enums.ProposalStatus
+    status?: StringFilter<"Proposal"> | string
     totalSkuCount?: IntFilter<"Proposal"> | number
     totalOrderQty?: IntFilter<"Proposal"> | number
     totalValue?: DecimalFilter<"Proposal"> | Decimal | DecimalJsLike | number | string
@@ -37186,7 +35160,7 @@ export namespace Prisma {
     ticketName?: StringWithAggregatesFilter<"Proposal"> | string
     budgetId?: StringWithAggregatesFilter<"Proposal"> | string
     planningVersionId?: StringNullableWithAggregatesFilter<"Proposal"> | string | null
-    status?: EnumProposalStatusWithAggregatesFilter<"Proposal"> | $Enums.ProposalStatus
+    status?: StringWithAggregatesFilter<"Proposal"> | string
     totalSkuCount?: IntWithAggregatesFilter<"Proposal"> | number
     totalOrderQty?: IntWithAggregatesFilter<"Proposal"> | number
     totalValue?: DecimalWithAggregatesFilter<"Proposal"> | Decimal | DecimalJsLike | number | string
@@ -37393,7 +35367,7 @@ export namespace Prisma {
     entityId?: StringFilter<"Approval"> | string
     level?: IntFilter<"Approval"> | number
     deciderId?: StringFilter<"Approval"> | string
-    action?: EnumApprovalActionFilter<"Approval"> | $Enums.ApprovalAction
+    action?: StringFilter<"Approval"> | string
     comment?: StringNullableFilter<"Approval"> | string | null
     decidedAt?: DateTimeFilter<"Approval"> | Date | string
     decider?: XOR<UserRelationFilter, UserWhereInput>
@@ -37420,7 +35394,7 @@ export namespace Prisma {
     entityId?: StringFilter<"Approval"> | string
     level?: IntFilter<"Approval"> | number
     deciderId?: StringFilter<"Approval"> | string
-    action?: EnumApprovalActionFilter<"Approval"> | $Enums.ApprovalAction
+    action?: StringFilter<"Approval"> | string
     comment?: StringNullableFilter<"Approval"> | string | null
     decidedAt?: DateTimeFilter<"Approval"> | Date | string
     decider?: XOR<UserRelationFilter, UserWhereInput>
@@ -37451,7 +35425,7 @@ export namespace Prisma {
     entityId?: StringWithAggregatesFilter<"Approval"> | string
     level?: IntWithAggregatesFilter<"Approval"> | number
     deciderId?: StringWithAggregatesFilter<"Approval"> | string
-    action?: EnumApprovalActionWithAggregatesFilter<"Approval"> | $Enums.ApprovalAction
+    action?: StringWithAggregatesFilter<"Approval"> | string
     comment?: StringNullableWithAggregatesFilter<"Approval"> | string | null
     decidedAt?: DateTimeWithAggregatesFilter<"Approval"> | Date | string
   }
@@ -37465,7 +35439,7 @@ export namespace Prisma {
     entityType?: StringFilter<"AuditLog"> | string
     entityId?: StringFilter<"AuditLog"> | string
     action?: StringFilter<"AuditLog"> | string
-    changes?: JsonNullableFilter<"AuditLog">
+    changes?: StringNullableFilter<"AuditLog"> | string | null
     ipAddress?: StringNullableFilter<"AuditLog"> | string | null
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -37492,7 +35466,7 @@ export namespace Prisma {
     entityType?: StringFilter<"AuditLog"> | string
     entityId?: StringFilter<"AuditLog"> | string
     action?: StringFilter<"AuditLog"> | string
-    changes?: JsonNullableFilter<"AuditLog">
+    changes?: StringNullableFilter<"AuditLog"> | string | null
     ipAddress?: StringNullableFilter<"AuditLog"> | string | null
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -37521,7 +35495,7 @@ export namespace Prisma {
     entityType?: StringWithAggregatesFilter<"AuditLog"> | string
     entityId?: StringWithAggregatesFilter<"AuditLog"> | string
     action?: StringWithAggregatesFilter<"AuditLog"> | string
-    changes?: JsonNullableWithAggregatesFilter<"AuditLog">
+    changes?: StringNullableWithAggregatesFilter<"AuditLog"> | string | null
     ipAddress?: StringNullableWithAggregatesFilter<"AuditLog"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"AuditLog"> | Date | string
   }
@@ -37946,7 +35920,7 @@ export namespace Prisma {
     confidence?: DecimalFilter<"AllocationRecommendation"> | Decimal | DecimalJsLike | number | string
     reasoning?: StringNullableFilter<"AllocationRecommendation"> | string | null
     basedOnSeasons?: IntFilter<"AllocationRecommendation"> | number
-    factors?: JsonNullableFilter<"AllocationRecommendation">
+    factors?: StringNullableFilter<"AllocationRecommendation"> | string | null
     isApplied?: BoolFilter<"AllocationRecommendation"> | boolean
     createdAt?: DateTimeFilter<"AllocationRecommendation"> | Date | string
     budgetDetail?: XOR<BudgetDetailRelationFilter, BudgetDetailWhereInput>
@@ -37982,7 +35956,7 @@ export namespace Prisma {
     confidence?: DecimalFilter<"AllocationRecommendation"> | Decimal | DecimalJsLike | number | string
     reasoning?: StringNullableFilter<"AllocationRecommendation"> | string | null
     basedOnSeasons?: IntFilter<"AllocationRecommendation"> | number
-    factors?: JsonNullableFilter<"AllocationRecommendation">
+    factors?: StringNullableFilter<"AllocationRecommendation"> | string | null
     isApplied?: BoolFilter<"AllocationRecommendation"> | boolean
     createdAt?: DateTimeFilter<"AllocationRecommendation"> | Date | string
     budgetDetail?: XOR<BudgetDetailRelationFilter, BudgetDetailWhereInput>
@@ -38021,7 +35995,7 @@ export namespace Prisma {
     confidence?: DecimalWithAggregatesFilter<"AllocationRecommendation"> | Decimal | DecimalJsLike | number | string
     reasoning?: StringNullableWithAggregatesFilter<"AllocationRecommendation"> | string | null
     basedOnSeasons?: IntWithAggregatesFilter<"AllocationRecommendation"> | number
-    factors?: JsonNullableWithAggregatesFilter<"AllocationRecommendation">
+    factors?: StringNullableWithAggregatesFilter<"AllocationRecommendation"> | string | null
     isApplied?: BoolWithAggregatesFilter<"AllocationRecommendation"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"AllocationRecommendation"> | Date | string
   }
@@ -38041,8 +36015,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
-    factors?: JsonNullableFilter<"RiskAssessment">
-    warnings?: JsonNullableFilter<"RiskAssessment">
+    factors?: StringNullableFilter<"RiskAssessment"> | string | null
+    warnings?: StringNullableFilter<"RiskAssessment"> | string | null
     recommendation?: StringNullableFilter<"RiskAssessment"> | string | null
     calculatedAt?: DateTimeFilter<"RiskAssessment"> | Date | string
     calculatedBy?: StringNullableFilter<"RiskAssessment"> | string | null
@@ -38085,8 +36059,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
-    factors?: JsonNullableFilter<"RiskAssessment">
-    warnings?: JsonNullableFilter<"RiskAssessment">
+    factors?: StringNullableFilter<"RiskAssessment"> | string | null
+    warnings?: StringNullableFilter<"RiskAssessment"> | string | null
     recommendation?: StringNullableFilter<"RiskAssessment"> | string | null
     calculatedAt?: DateTimeFilter<"RiskAssessment"> | Date | string
     calculatedBy?: StringNullableFilter<"RiskAssessment"> | string | null
@@ -38133,8 +36107,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalWithAggregatesFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalWithAggregatesFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalWithAggregatesFilter<"RiskAssessment"> | Decimal | DecimalJsLike | number | string
-    factors?: JsonNullableWithAggregatesFilter<"RiskAssessment">
-    warnings?: JsonNullableWithAggregatesFilter<"RiskAssessment">
+    factors?: StringNullableWithAggregatesFilter<"RiskAssessment"> | string | null
+    warnings?: StringNullableWithAggregatesFilter<"RiskAssessment"> | string | null
     recommendation?: StringNullableWithAggregatesFilter<"RiskAssessment"> | string | null
     calculatedAt?: DateTimeWithAggregatesFilter<"RiskAssessment"> | Date | string
     calculatedBy?: StringNullableWithAggregatesFilter<"RiskAssessment"> | string | null
@@ -38647,8 +36621,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -38667,8 +36641,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -38685,8 +36659,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38705,8 +36679,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38724,8 +36698,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -38736,8 +36710,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38749,8 +36723,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38760,7 +36734,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: string
     users?: UserCreateNestedManyWithoutRoleInput
   }
 
@@ -38768,7 +36742,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: string
     users?: UserUncheckedCreateNestedManyWithoutRoleInput
   }
 
@@ -38776,7 +36750,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: StringFieldUpdateOperationsInput | string
     users?: UserUpdateManyWithoutRoleNestedInput
   }
 
@@ -38784,7 +36758,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: StringFieldUpdateOperationsInput | string
     users?: UserUncheckedUpdateManyWithoutRoleNestedInput
   }
 
@@ -38792,21 +36766,21 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: string
   }
 
   export type RoleUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: StringFieldUpdateOperationsInput | string
   }
 
   export type RoleUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: StringFieldUpdateOperationsInput | string
   }
 
   export type GroupBrandCreateInput = {
@@ -38814,7 +36788,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     budgets?: BudgetCreateNestedManyWithoutGroupBrandInput
@@ -38827,7 +36801,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     budgets?: BudgetUncheckedCreateNestedManyWithoutGroupBrandInput
@@ -38840,7 +36814,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     budgets?: BudgetUpdateManyWithoutGroupBrandNestedInput
@@ -38853,7 +36827,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     budgets?: BudgetUncheckedUpdateManyWithoutGroupBrandNestedInput
@@ -38866,7 +36840,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
   }
@@ -38876,7 +36850,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
   }
@@ -38886,7 +36860,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
   }
@@ -39298,7 +37272,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39318,7 +37292,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -39336,7 +37310,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39356,7 +37330,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39375,7 +37349,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -39389,7 +37363,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39403,7 +37377,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39474,9 +37448,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     budgetDetail: BudgetDetailCreateNestedOneWithoutPlanningVersionsInput
@@ -39491,9 +37465,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39506,9 +37480,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     budgetDetail?: BudgetDetailUpdateOneRequiredWithoutPlanningVersionsNestedInput
@@ -39523,9 +37497,9 @@ export namespace Prisma {
     budgetDetailId?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39539,9 +37513,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39552,9 +37526,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -39565,9 +37539,9 @@ export namespace Prisma {
     budgetDetailId?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39690,7 +37664,7 @@ export namespace Prisma {
   export type ProposalCreateInput = {
     id?: string
     ticketName: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -39707,7 +37681,7 @@ export namespace Prisma {
     ticketName: string
     budgetId: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -39720,7 +37694,7 @@ export namespace Prisma {
   export type ProposalUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -39737,7 +37711,7 @@ export namespace Prisma {
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -39752,7 +37726,7 @@ export namespace Prisma {
     ticketName: string
     budgetId: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -39764,7 +37738,7 @@ export namespace Prisma {
   export type ProposalUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -39777,7 +37751,7 @@ export namespace Prisma {
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -39994,7 +37968,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     level: number
-    action: $Enums.ApprovalAction
+    action: string
     comment?: string | null
     decidedAt?: Date | string
     decider: UserCreateNestedOneWithoutApprovalDecisionsInput
@@ -40006,7 +37980,7 @@ export namespace Prisma {
     entityId: string
     level: number
     deciderId: string
-    action: $Enums.ApprovalAction
+    action: string
     comment?: string | null
     decidedAt?: Date | string
   }
@@ -40016,7 +37990,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     decider?: UserUpdateOneRequiredWithoutApprovalDecisionsNestedInput
@@ -40028,7 +38002,7 @@ export namespace Prisma {
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     deciderId?: StringFieldUpdateOperationsInput | string
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40039,7 +38013,7 @@ export namespace Prisma {
     entityId: string
     level: number
     deciderId: string
-    action: $Enums.ApprovalAction
+    action: string
     comment?: string | null
     decidedAt?: Date | string
   }
@@ -40049,7 +38023,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40060,7 +38034,7 @@ export namespace Prisma {
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     deciderId?: StringFieldUpdateOperationsInput | string
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40070,7 +38044,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: string | null
     ipAddress?: string | null
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutAuditLogsInput
@@ -40082,7 +38056,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: string | null
     ipAddress?: string | null
     createdAt?: Date | string
   }
@@ -40092,7 +38066,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutAuditLogsNestedInput
@@ -40104,7 +38078,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40115,7 +38089,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: string | null
     ipAddress?: string | null
     createdAt?: Date | string
   }
@@ -40125,7 +38099,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40136,7 +38110,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40593,7 +38567,7 @@ export namespace Prisma {
     confidence: Decimal | DecimalJsLike | number | string
     reasoning?: string | null
     basedOnSeasons: number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
     isApplied?: boolean
     createdAt?: Date | string
     budgetDetail: BudgetDetailCreateNestedOneWithoutAllocationRecommendationsInput
@@ -40609,7 +38583,7 @@ export namespace Prisma {
     confidence: Decimal | DecimalJsLike | number | string
     reasoning?: string | null
     basedOnSeasons: number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
     isApplied?: boolean
     createdAt?: Date | string
   }
@@ -40623,7 +38597,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     budgetDetail?: BudgetDetailUpdateOneRequiredWithoutAllocationRecommendationsNestedInput
@@ -40639,7 +38613,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40654,7 +38628,7 @@ export namespace Prisma {
     confidence: Decimal | DecimalJsLike | number | string
     reasoning?: string | null
     basedOnSeasons: number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
     isApplied?: boolean
     createdAt?: Date | string
   }
@@ -40668,7 +38642,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40683,7 +38657,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -40700,8 +38674,8 @@ export namespace Prisma {
     vendorConcentrationScore: Decimal | DecimalJsLike | number | string
     categoryBalanceScore: Decimal | DecimalJsLike | number | string
     marginImpactScore: Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
+    warnings?: string | null
     recommendation?: string | null
     calculatedAt?: Date | string
     calculatedBy?: string | null
@@ -40720,8 +38694,8 @@ export namespace Prisma {
     vendorConcentrationScore: Decimal | DecimalJsLike | number | string
     categoryBalanceScore: Decimal | DecimalJsLike | number | string
     marginImpactScore: Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
+    warnings?: string | null
     recommendation?: string | null
     calculatedAt?: Date | string
     calculatedBy?: string | null
@@ -40740,8 +38714,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
+    warnings?: NullableStringFieldUpdateOperationsInput | string | null
     recommendation?: NullableStringFieldUpdateOperationsInput | string | null
     calculatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     calculatedBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40760,8 +38734,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
+    warnings?: NullableStringFieldUpdateOperationsInput | string | null
     recommendation?: NullableStringFieldUpdateOperationsInput | string | null
     calculatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     calculatedBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40780,8 +38754,8 @@ export namespace Prisma {
     vendorConcentrationScore: Decimal | DecimalJsLike | number | string
     categoryBalanceScore: Decimal | DecimalJsLike | number | string
     marginImpactScore: Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
+    warnings?: string | null
     recommendation?: string | null
     calculatedAt?: Date | string
     calculatedBy?: string | null
@@ -40800,8 +38774,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
+    warnings?: NullableStringFieldUpdateOperationsInput | string | null
     recommendation?: NullableStringFieldUpdateOperationsInput | string | null
     calculatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     calculatedBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40820,8 +38794,8 @@ export namespace Prisma {
     vendorConcentrationScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     categoryBalanceScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     marginImpactScore?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    factors?: NullableJsonNullValueInput | InputJsonValue
-    warnings?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
+    warnings?: NullableStringFieldUpdateOperationsInput | string | null
     recommendation?: NullableStringFieldUpdateOperationsInput | string | null
     calculatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     calculatedBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41398,8 +39372,8 @@ export namespace Prisma {
 
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -41407,16 +39381,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type StringNullableListFilter<$PrismaModel = never> = {
-    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    has?: string | StringFieldRefInput<$PrismaModel> | null
-    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
-    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -41426,8 +39391,8 @@ export namespace Prisma {
 
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -41519,6 +39484,8 @@ export namespace Prisma {
     name?: SortOrder
     passwordHash?: SortOrder
     roleId?: SortOrder
+    storeAccess?: SortOrder
+    brandAccess?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -41530,6 +39497,8 @@ export namespace Prisma {
     name?: SortOrder
     passwordHash?: SortOrder
     roleId?: SortOrder
+    storeAccess?: SortOrder
+    brandAccess?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -41537,8 +39506,8 @@ export namespace Prisma {
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -41546,7 +39515,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -41563,8 +39531,8 @@ export namespace Prisma {
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -41577,8 +39545,8 @@ export namespace Prisma {
 
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -41586,30 +39554,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-  export type JsonFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type UserListRelationFilter = {
@@ -41638,18 +39583,20 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    permissions?: SortOrder
   }
 
   export type RoleMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    permissions?: SortOrder
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -41657,64 +39604,16 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
-  export type JsonWithAggregatesFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedJsonFilter<$PrismaModel>
-    _max?: NestedJsonFilter<$PrismaModel>
-  }
-  export type JsonNullableFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -41751,6 +39650,7 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     groupId?: SortOrder
+    colorConfig?: SortOrder
     isActive?: SortOrder
     sortOrder?: SortOrder
   }
@@ -41760,6 +39660,7 @@ export namespace Prisma {
     code?: SortOrder
     name?: SortOrder
     groupId?: SortOrder
+    colorConfig?: SortOrder
     isActive?: SortOrder
     sortOrder?: SortOrder
   }
@@ -41767,36 +39668,11 @@ export namespace Prisma {
   export type GroupBrandSumOrderByAggregateInput = {
     sortOrder?: SortOrder
   }
-  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedJsonNullableFilter<$PrismaModel>
-    _max?: NestedJsonNullableFilter<$PrismaModel>
-  }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -42003,8 +39879,8 @@ export namespace Prisma {
 
   export type DecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -42092,8 +39968,8 @@ export namespace Prisma {
 
   export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -42104,13 +39980,6 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
-  }
-
-  export type EnumBudgetStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.BudgetStatus | EnumBudgetStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBudgetStatusFilter<$PrismaModel> | $Enums.BudgetStatus
   }
 
   export type GroupBrandRelationFilter = {
@@ -42205,16 +40074,6 @@ export namespace Prisma {
     totalBudget?: SortOrder
   }
 
-  export type EnumBudgetStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BudgetStatus | EnumBudgetStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBudgetStatusWithAggregatesFilter<$PrismaModel> | $Enums.BudgetStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBudgetStatusFilter<$PrismaModel>
-    _max?: NestedEnumBudgetStatusFilter<$PrismaModel>
-  }
-
   export type BudgetRelationFilter = {
     is?: BudgetWhereInput
     isNot?: BudgetWhereInput
@@ -42269,13 +40128,6 @@ export namespace Prisma {
     budgetAmount?: SortOrder
   }
 
-  export type EnumPlanningStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanningStatus | EnumPlanningStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanningStatusFilter<$PrismaModel> | $Enums.PlanningStatus
-  }
-
   export type BudgetDetailRelationFilter = {
     is?: BudgetDetailWhereInput
     isNot?: BudgetDetailWhereInput
@@ -42312,6 +40164,7 @@ export namespace Prisma {
     versionName?: SortOrder
     status?: SortOrder
     isFinal?: SortOrder
+    snapshotData?: SortOrder
     createdById?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -42325,6 +40178,7 @@ export namespace Prisma {
     versionName?: SortOrder
     status?: SortOrder
     isFinal?: SortOrder
+    snapshotData?: SortOrder
     createdById?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -42332,16 +40186,6 @@ export namespace Prisma {
 
   export type PlanningVersionSumOrderByAggregateInput = {
     versionNumber?: SortOrder
-  }
-
-  export type EnumPlanningStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanningStatus | EnumPlanningStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanningStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlanningStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumPlanningStatusFilter<$PrismaModel>
-    _max?: NestedEnumPlanningStatusFilter<$PrismaModel>
   }
 
   export type PlanningVersionRelationFilter = {
@@ -42438,13 +40282,6 @@ export namespace Prisma {
     variancePct?: SortOrder
   }
 
-  export type EnumProposalStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProposalStatus | EnumProposalStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProposalStatusFilter<$PrismaModel> | $Enums.ProposalStatus
-  }
-
   export type PlanningVersionNullableRelationFilter = {
     is?: PlanningVersionWhereInput | null
     isNot?: PlanningVersionWhereInput | null
@@ -42502,16 +40339,6 @@ export namespace Prisma {
     totalSkuCount?: SortOrder
     totalOrderQty?: SortOrder
     totalValue?: SortOrder
-  }
-
-  export type EnumProposalStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProposalStatus | EnumProposalStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProposalStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProposalStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumProposalStatusFilter<$PrismaModel>
-    _max?: NestedEnumProposalStatusFilter<$PrismaModel>
   }
 
   export type ProposalRelationFilter = {
@@ -42645,13 +40472,6 @@ export namespace Prisma {
     quantity?: SortOrder
   }
 
-  export type EnumApprovalActionFilter<$PrismaModel = never> = {
-    equals?: $Enums.ApprovalAction | EnumApprovalActionFieldRefInput<$PrismaModel>
-    in?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    not?: NestedEnumApprovalActionFilter<$PrismaModel> | $Enums.ApprovalAction
-  }
-
   export type ApprovalCountOrderByAggregateInput = {
     id?: SortOrder
     entityType?: SortOrder
@@ -42693,16 +40513,6 @@ export namespace Prisma {
     level?: SortOrder
   }
 
-  export type EnumApprovalActionWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ApprovalAction | EnumApprovalActionFieldRefInput<$PrismaModel>
-    in?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    not?: NestedEnumApprovalActionWithAggregatesFilter<$PrismaModel> | $Enums.ApprovalAction
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumApprovalActionFilter<$PrismaModel>
-    _max?: NestedEnumApprovalActionFilter<$PrismaModel>
-  }
-
   export type AuditLogCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -42720,6 +40530,7 @@ export namespace Prisma {
     entityType?: SortOrder
     entityId?: SortOrder
     action?: SortOrder
+    changes?: SortOrder
     ipAddress?: SortOrder
     createdAt?: SortOrder
   }
@@ -42730,6 +40541,7 @@ export namespace Prisma {
     entityType?: SortOrder
     entityId?: SortOrder
     action?: SortOrder
+    changes?: SortOrder
     ipAddress?: SortOrder
     createdAt?: SortOrder
   }
@@ -42940,8 +40752,8 @@ export namespace Prisma {
 
   export type DecimalNullableFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -43012,8 +40824,8 @@ export namespace Prisma {
 
   export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -43064,6 +40876,7 @@ export namespace Prisma {
     confidence?: SortOrder
     reasoning?: SortOrder
     basedOnSeasons?: SortOrder
+    factors?: SortOrder
     isApplied?: SortOrder
     createdAt?: SortOrder
   }
@@ -43078,6 +40891,7 @@ export namespace Prisma {
     confidence?: SortOrder
     reasoning?: SortOrder
     basedOnSeasons?: SortOrder
+    factors?: SortOrder
     isApplied?: SortOrder
     createdAt?: SortOrder
   }
@@ -43136,6 +40950,8 @@ export namespace Prisma {
     vendorConcentrationScore?: SortOrder
     categoryBalanceScore?: SortOrder
     marginImpactScore?: SortOrder
+    factors?: SortOrder
+    warnings?: SortOrder
     recommendation?: SortOrder
     calculatedAt?: SortOrder
     calculatedBy?: SortOrder
@@ -43154,6 +40970,8 @@ export namespace Prisma {
     vendorConcentrationScore?: SortOrder
     categoryBalanceScore?: SortOrder
     marginImpactScore?: SortOrder
+    factors?: SortOrder
+    warnings?: SortOrder
     recommendation?: SortOrder
     calculatedAt?: SortOrder
     calculatedBy?: SortOrder
@@ -43214,8 +41032,8 @@ export namespace Prisma {
 
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -43330,8 +41148,8 @@ export namespace Prisma {
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -43563,14 +41381,6 @@ export namespace Prisma {
     stepNumber?: SortOrder
   }
 
-  export type UserCreatestoreAccessInput = {
-    set: string[]
-  }
-
-  export type UserCreatebrandAccessInput = {
-    set: string[]
-  }
-
   export type RoleCreateNestedOneWithoutUsersInput = {
     create?: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
     connectOrCreate?: RoleCreateOrConnectWithoutUsersInput
@@ -43663,16 +41473,6 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type UserUpdatestoreAccessInput = {
-    set?: string[]
-    push?: string | string[]
-  }
-
-  export type UserUpdatebrandAccessInput = {
-    set?: string[]
-    push?: string | string[]
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -44789,10 +42589,6 @@ export namespace Prisma {
     connect?: BudgetSnapshotWhereUniqueInput | BudgetSnapshotWhereUniqueInput[]
   }
 
-  export type EnumBudgetStatusFieldUpdateOperationsInput = {
-    set?: $Enums.BudgetStatus
-  }
-
   export type GroupBrandUpdateOneRequiredWithoutBudgetsNestedInput = {
     create?: XOR<GroupBrandCreateWithoutBudgetsInput, GroupBrandUncheckedCreateWithoutBudgetsInput>
     connectOrCreate?: GroupBrandCreateOrConnectWithoutBudgetsInput
@@ -45115,10 +42911,6 @@ export namespace Prisma {
     connect?: ProposalWhereUniqueInput | ProposalWhereUniqueInput[]
   }
 
-  export type EnumPlanningStatusFieldUpdateOperationsInput = {
-    set?: $Enums.PlanningStatus
-  }
-
   export type BudgetDetailUpdateOneRequiredWithoutPlanningVersionsNestedInput = {
     create?: XOR<BudgetDetailCreateWithoutPlanningVersionsInput, BudgetDetailUncheckedCreateWithoutPlanningVersionsInput>
     connectOrCreate?: BudgetDetailCreateOrConnectWithoutPlanningVersionsInput
@@ -45301,10 +43093,6 @@ export namespace Prisma {
     connect?: ProposalProductWhereUniqueInput | ProposalProductWhereUniqueInput[]
   }
 
-  export type EnumProposalStatusFieldUpdateOperationsInput = {
-    set?: $Enums.ProposalStatus
-  }
-
   export type BudgetUpdateOneRequiredWithoutProposalsNestedInput = {
     create?: XOR<BudgetCreateWithoutProposalsInput, BudgetUncheckedCreateWithoutProposalsInput>
     connectOrCreate?: BudgetCreateOrConnectWithoutProposalsInput
@@ -45461,10 +43249,6 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutApprovalDecisionsInput, UserUncheckedCreateWithoutApprovalDecisionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutApprovalDecisionsInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type EnumApprovalActionFieldUpdateOperationsInput = {
-    set?: $Enums.ApprovalAction
   }
 
   export type UserUpdateOneRequiredWithoutApprovalDecisionsNestedInput = {
@@ -45679,8 +43463,8 @@ export namespace Prisma {
 
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -45698,8 +43482,8 @@ export namespace Prisma {
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -45709,8 +43493,8 @@ export namespace Prisma {
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -45726,8 +43510,8 @@ export namespace Prisma {
 
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -45745,8 +43529,8 @@ export namespace Prisma {
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -45759,8 +43543,8 @@ export namespace Prisma {
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -45773,8 +43557,8 @@ export namespace Prisma {
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -45790,63 +43574,19 @@ export namespace Prisma {
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
-  export type NestedJsonFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
-  export type NestedJsonNullableFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -45861,8 +43601,8 @@ export namespace Prisma {
 
   export type NestedFloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -45872,8 +43612,8 @@ export namespace Prisma {
 
   export type NestedDecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -45883,8 +43623,8 @@ export namespace Prisma {
 
   export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -45897,78 +43637,10 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
-  export type NestedEnumBudgetStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.BudgetStatus | EnumBudgetStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBudgetStatusFilter<$PrismaModel> | $Enums.BudgetStatus
-  }
-
-  export type NestedEnumBudgetStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BudgetStatus | EnumBudgetStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BudgetStatus[] | ListEnumBudgetStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBudgetStatusWithAggregatesFilter<$PrismaModel> | $Enums.BudgetStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBudgetStatusFilter<$PrismaModel>
-    _max?: NestedEnumBudgetStatusFilter<$PrismaModel>
-  }
-
-  export type NestedEnumPlanningStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanningStatus | EnumPlanningStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanningStatusFilter<$PrismaModel> | $Enums.PlanningStatus
-  }
-
-  export type NestedEnumPlanningStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanningStatus | EnumPlanningStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanningStatus[] | ListEnumPlanningStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanningStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlanningStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumPlanningStatusFilter<$PrismaModel>
-    _max?: NestedEnumPlanningStatusFilter<$PrismaModel>
-  }
-
-  export type NestedEnumProposalStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProposalStatus | EnumProposalStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProposalStatusFilter<$PrismaModel> | $Enums.ProposalStatus
-  }
-
-  export type NestedEnumProposalStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ProposalStatus | EnumProposalStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ProposalStatus[] | ListEnumProposalStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumProposalStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProposalStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumProposalStatusFilter<$PrismaModel>
-    _max?: NestedEnumProposalStatusFilter<$PrismaModel>
-  }
-
-  export type NestedEnumApprovalActionFilter<$PrismaModel = never> = {
-    equals?: $Enums.ApprovalAction | EnumApprovalActionFieldRefInput<$PrismaModel>
-    in?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    not?: NestedEnumApprovalActionFilter<$PrismaModel> | $Enums.ApprovalAction
-  }
-
-  export type NestedEnumApprovalActionWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ApprovalAction | EnumApprovalActionFieldRefInput<$PrismaModel>
-    in?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ApprovalAction[] | ListEnumApprovalActionFieldRefInput<$PrismaModel>
-    not?: NestedEnumApprovalActionWithAggregatesFilter<$PrismaModel> | $Enums.ApprovalAction
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumApprovalActionFilter<$PrismaModel>
-    _max?: NestedEnumApprovalActionFilter<$PrismaModel>
-  }
-
   export type NestedDecimalNullableFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -45978,8 +43650,8 @@ export namespace Prisma {
 
   export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -45994,8 +43666,8 @@ export namespace Prisma {
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -46010,8 +43682,8 @@ export namespace Prisma {
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -46023,14 +43695,14 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: string
   }
 
   export type RoleUncheckedCreateWithoutUsersInput = {
     id?: string
     name: string
     description?: string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: string
   }
 
   export type RoleCreateOrConnectWithoutUsersInput = {
@@ -46045,7 +43717,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -46064,7 +43736,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -46081,7 +43753,6 @@ export namespace Prisma {
 
   export type BudgetCreateManyCreatedByInputEnvelope = {
     data: BudgetCreateManyCreatedByInput | BudgetCreateManyCreatedByInput[]
-    skipDuplicates?: boolean
   }
 
   export type PlanningVersionCreateWithoutCreatedByInput = {
@@ -46089,9 +43760,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     budgetDetail: BudgetDetailCreateNestedOneWithoutPlanningVersionsInput
@@ -46105,9 +43776,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     details?: PlanningDetailUncheckedCreateNestedManyWithoutPlanningVersionInput
@@ -46121,13 +43792,12 @@ export namespace Prisma {
 
   export type PlanningVersionCreateManyCreatedByInputEnvelope = {
     data: PlanningVersionCreateManyCreatedByInput | PlanningVersionCreateManyCreatedByInput[]
-    skipDuplicates?: boolean
   }
 
   export type ProposalCreateWithoutCreatedByInput = {
     id?: string
     ticketName: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -46143,7 +43813,7 @@ export namespace Prisma {
     ticketName: string
     budgetId: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -46159,7 +43829,6 @@ export namespace Prisma {
 
   export type ProposalCreateManyCreatedByInputEnvelope = {
     data: ProposalCreateManyCreatedByInput | ProposalCreateManyCreatedByInput[]
-    skipDuplicates?: boolean
   }
 
   export type ApprovalCreateWithoutDeciderInput = {
@@ -46167,7 +43836,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     level: number
-    action: $Enums.ApprovalAction
+    action: string
     comment?: string | null
     decidedAt?: Date | string
   }
@@ -46177,7 +43846,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     level: number
-    action: $Enums.ApprovalAction
+    action: string
     comment?: string | null
     decidedAt?: Date | string
   }
@@ -46189,7 +43858,6 @@ export namespace Prisma {
 
   export type ApprovalCreateManyDeciderInputEnvelope = {
     data: ApprovalCreateManyDeciderInput | ApprovalCreateManyDeciderInput[]
-    skipDuplicates?: boolean
   }
 
   export type AuditLogCreateWithoutUserInput = {
@@ -46197,7 +43865,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: string | null
     ipAddress?: string | null
     createdAt?: Date | string
   }
@@ -46207,7 +43875,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: string | null
     ipAddress?: string | null
     createdAt?: Date | string
   }
@@ -46219,7 +43887,6 @@ export namespace Prisma {
 
   export type AuditLogCreateManyUserInputEnvelope = {
     data: AuditLogCreateManyUserInput | AuditLogCreateManyUserInput[]
-    skipDuplicates?: boolean
   }
 
   export type ApprovalWorkflowStepCreateWithoutUserInput = {
@@ -46253,7 +43920,6 @@ export namespace Prisma {
 
   export type ApprovalWorkflowStepCreateManyUserInputEnvelope = {
     data: ApprovalWorkflowStepCreateManyUserInput | ApprovalWorkflowStepCreateManyUserInput[]
-    skipDuplicates?: boolean
   }
 
   export type RoleUpsertWithoutUsersInput = {
@@ -46271,14 +43937,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: StringFieldUpdateOperationsInput | string
   }
 
   export type RoleUncheckedUpdateWithoutUsersInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: JsonNullValueInput | InputJsonValue
+    permissions?: StringFieldUpdateOperationsInput | string
   }
 
   export type BudgetUpsertWithWhereUniqueWithoutCreatedByInput = {
@@ -46308,7 +43974,7 @@ export namespace Prisma {
     seasonType?: StringFilter<"Budget"> | string
     fiscalYear?: IntFilter<"Budget"> | number
     totalBudget?: DecimalFilter<"Budget"> | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFilter<"Budget"> | $Enums.BudgetStatus
+    status?: StringFilter<"Budget"> | string
     comment?: StringNullableFilter<"Budget"> | string | null
     createdById?: StringFilter<"Budget"> | string
     createdAt?: DateTimeFilter<"Budget"> | Date | string
@@ -46340,9 +44006,9 @@ export namespace Prisma {
     budgetDetailId?: StringFilter<"PlanningVersion"> | string
     versionNumber?: IntFilter<"PlanningVersion"> | number
     versionName?: StringNullableFilter<"PlanningVersion"> | string | null
-    status?: EnumPlanningStatusFilter<"PlanningVersion"> | $Enums.PlanningStatus
+    status?: StringFilter<"PlanningVersion"> | string
     isFinal?: BoolFilter<"PlanningVersion"> | boolean
-    snapshotData?: JsonNullableFilter<"PlanningVersion">
+    snapshotData?: StringNullableFilter<"PlanningVersion"> | string | null
     createdById?: StringFilter<"PlanningVersion"> | string
     createdAt?: DateTimeFilter<"PlanningVersion"> | Date | string
     updatedAt?: DateTimeFilter<"PlanningVersion"> | Date | string
@@ -46372,7 +44038,7 @@ export namespace Prisma {
     ticketName?: StringFilter<"Proposal"> | string
     budgetId?: StringFilter<"Proposal"> | string
     planningVersionId?: StringNullableFilter<"Proposal"> | string | null
-    status?: EnumProposalStatusFilter<"Proposal"> | $Enums.ProposalStatus
+    status?: StringFilter<"Proposal"> | string
     totalSkuCount?: IntFilter<"Proposal"> | number
     totalOrderQty?: IntFilter<"Proposal"> | number
     totalValue?: DecimalFilter<"Proposal"> | Decimal | DecimalJsLike | number | string
@@ -46406,7 +44072,7 @@ export namespace Prisma {
     entityId?: StringFilter<"Approval"> | string
     level?: IntFilter<"Approval"> | number
     deciderId?: StringFilter<"Approval"> | string
-    action?: EnumApprovalActionFilter<"Approval"> | $Enums.ApprovalAction
+    action?: StringFilter<"Approval"> | string
     comment?: StringNullableFilter<"Approval"> | string | null
     decidedAt?: DateTimeFilter<"Approval"> | Date | string
   }
@@ -46436,7 +44102,7 @@ export namespace Prisma {
     entityType?: StringFilter<"AuditLog"> | string
     entityId?: StringFilter<"AuditLog"> | string
     action?: StringFilter<"AuditLog"> | string
-    changes?: JsonNullableFilter<"AuditLog">
+    changes?: StringNullableFilter<"AuditLog"> | string | null
     ipAddress?: StringNullableFilter<"AuditLog"> | string | null
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
   }
@@ -46478,8 +44144,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -46496,8 +44162,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -46516,7 +44182,6 @@ export namespace Prisma {
 
   export type UserCreateManyRoleInputEnvelope = {
     data: UserCreateManyRoleInput | UserCreateManyRoleInput[]
-    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithWhereUniqueWithoutRoleInput = {
@@ -46544,8 +44209,8 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     passwordHash?: StringFilter<"User"> | string
     roleId?: StringFilter<"User"> | string
-    storeAccess?: StringNullableListFilter<"User">
-    brandAccess?: StringNullableListFilter<"User">
+    storeAccess?: StringFilter<"User"> | string
+    brandAccess?: StringFilter<"User"> | string
     isActive?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -46558,7 +44223,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -46576,7 +44241,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -46594,7 +44259,6 @@ export namespace Prisma {
 
   export type BudgetCreateManyGroupBrandInputEnvelope = {
     data: BudgetCreateManyGroupBrandInput | BudgetCreateManyGroupBrandInput[]
-    skipDuplicates?: boolean
   }
 
   export type SkuCatalogCreateWithoutBrandInput = {
@@ -46640,7 +44304,6 @@ export namespace Prisma {
 
   export type SkuCatalogCreateManyBrandInputEnvelope = {
     data: SkuCatalogCreateManyBrandInput | SkuCatalogCreateManyBrandInput[]
-    skipDuplicates?: boolean
   }
 
   export type ApprovalWorkflowStepCreateWithoutBrandInput = {
@@ -46674,7 +44337,6 @@ export namespace Prisma {
 
   export type ApprovalWorkflowStepCreateManyBrandInputEnvelope = {
     data: ApprovalWorkflowStepCreateManyBrandInput | ApprovalWorkflowStepCreateManyBrandInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetUpsertWithWhereUniqueWithoutGroupBrandInput = {
@@ -46768,7 +44430,6 @@ export namespace Prisma {
 
   export type BudgetDetailCreateManyStoreInputEnvelope = {
     data: BudgetDetailCreateManyStoreInput | BudgetDetailCreateManyStoreInput[]
-    skipDuplicates?: boolean
   }
 
   export type ProductAllocationCreateWithoutStoreInput = {
@@ -46790,7 +44451,6 @@ export namespace Prisma {
 
   export type ProductAllocationCreateManyStoreInputEnvelope = {
     data: ProductAllocationCreateManyStoreInput | ProductAllocationCreateManyStoreInput[]
-    skipDuplicates?: boolean
   }
 
   export type SalesHistoryCreateWithoutStoreInput = {
@@ -46822,7 +44482,6 @@ export namespace Prisma {
 
   export type SalesHistoryCreateManyStoreInputEnvelope = {
     data: SalesHistoryCreateManyStoreInput | SalesHistoryCreateManyStoreInput[]
-    skipDuplicates?: boolean
   }
 
   export type SizeCurveRecommendationCreateWithoutStoreInput = {
@@ -46856,7 +44515,6 @@ export namespace Prisma {
 
   export type SizeCurveRecommendationCreateManyStoreInputEnvelope = {
     data: SizeCurveRecommendationCreateManyStoreInput | SizeCurveRecommendationCreateManyStoreInput[]
-    skipDuplicates?: boolean
   }
 
   export type SkuPerformanceCreateWithoutStoreInput = {
@@ -46906,7 +44564,6 @@ export namespace Prisma {
 
   export type SkuPerformanceCreateManyStoreInputEnvelope = {
     data: SkuPerformanceCreateManyStoreInput | SkuPerformanceCreateManyStoreInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetDetailUpsertWithWhereUniqueWithoutStoreInput = {
@@ -47103,7 +44760,6 @@ export namespace Prisma {
 
   export type PlanningDetailCreateManyCollectionInputEnvelope = {
     data: PlanningDetailCreateManyCollectionInput | PlanningDetailCreateManyCollectionInput[]
-    skipDuplicates?: boolean
   }
 
   export type PlanningDetailUpsertWithWhereUniqueWithoutCollectionInput = {
@@ -47165,7 +44821,6 @@ export namespace Prisma {
 
   export type CategoryCreateManyGenderInputEnvelope = {
     data: CategoryCreateManyGenderInput | CategoryCreateManyGenderInput[]
-    skipDuplicates?: boolean
   }
 
   export type PlanningDetailCreateWithoutGenderInput = {
@@ -47207,7 +44862,6 @@ export namespace Prisma {
 
   export type PlanningDetailCreateManyGenderInputEnvelope = {
     data: PlanningDetailCreateManyGenderInput | PlanningDetailCreateManyGenderInput[]
-    skipDuplicates?: boolean
   }
 
   export type CategoryUpsertWithWhereUniqueWithoutGenderInput = {
@@ -47292,7 +44946,6 @@ export namespace Prisma {
 
   export type SubCategoryCreateManyCategoryInputEnvelope = {
     data: SubCategoryCreateManyCategoryInput | SubCategoryCreateManyCategoryInput[]
-    skipDuplicates?: boolean
   }
 
   export type PlanningDetailCreateWithoutCategoryInput = {
@@ -47334,7 +44987,6 @@ export namespace Prisma {
 
   export type PlanningDetailCreateManyCategoryInputEnvelope = {
     data: PlanningDetailCreateManyCategoryInput | PlanningDetailCreateManyCategoryInput[]
-    skipDuplicates?: boolean
   }
 
   export type GenderUpsertWithoutCategoriesInput = {
@@ -47464,7 +45116,6 @@ export namespace Prisma {
 
   export type PlanningDetailCreateManySubCategoryInputEnvelope = {
     data: PlanningDetailCreateManySubCategoryInput | PlanningDetailCreateManySubCategoryInput[]
-    skipDuplicates?: boolean
   }
 
   export type CategoryUpsertWithoutSubCategoriesInput = {
@@ -47515,7 +45166,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     budgets?: BudgetCreateNestedManyWithoutGroupBrandInput
@@ -47527,7 +45178,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     budgets?: BudgetUncheckedCreateNestedManyWithoutGroupBrandInput
@@ -47590,7 +45241,6 @@ export namespace Prisma {
 
   export type ProposalProductCreateManySkuInputEnvelope = {
     data: ProposalProductCreateManySkuInput | ProposalProductCreateManySkuInput[]
-    skipDuplicates?: boolean
   }
 
   export type SizeCurveRecommendationCreateWithoutSkuInput = {
@@ -47624,7 +45274,6 @@ export namespace Prisma {
 
   export type SizeCurveRecommendationCreateManySkuInputEnvelope = {
     data: SizeCurveRecommendationCreateManySkuInput | SizeCurveRecommendationCreateManySkuInput[]
-    skipDuplicates?: boolean
   }
 
   export type SkuPerformanceCreateWithoutSkuInput = {
@@ -47674,7 +45323,6 @@ export namespace Prisma {
 
   export type SkuPerformanceCreateManySkuInputEnvelope = {
     data: SkuPerformanceCreateManySkuInput | SkuPerformanceCreateManySkuInput[]
-    skipDuplicates?: boolean
   }
 
   export type SkuRecommendationCreateWithoutSkuInput = {
@@ -47728,7 +45376,6 @@ export namespace Prisma {
 
   export type SkuRecommendationCreateManySkuInputEnvelope = {
     data: SkuRecommendationCreateManySkuInput | SkuRecommendationCreateManySkuInput[]
-    skipDuplicates?: boolean
   }
 
   export type GroupBrandUpsertWithoutSkuCatalogInput = {
@@ -47747,7 +45394,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     budgets?: BudgetUpdateManyWithoutGroupBrandNestedInput
@@ -47759,7 +45406,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     budgets?: BudgetUncheckedUpdateManyWithoutGroupBrandNestedInput
@@ -47886,7 +45533,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     skuCatalog?: SkuCatalogCreateNestedManyWithoutBrandInput
@@ -47898,7 +45545,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     skuCatalog?: SkuCatalogUncheckedCreateNestedManyWithoutBrandInput
@@ -47915,8 +45562,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -47934,8 +45581,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -47976,13 +45623,12 @@ export namespace Prisma {
 
   export type BudgetDetailCreateManyBudgetInputEnvelope = {
     data: BudgetDetailCreateManyBudgetInput | BudgetDetailCreateManyBudgetInput[]
-    skipDuplicates?: boolean
   }
 
   export type ProposalCreateWithoutBudgetInput = {
     id?: string
     ticketName: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -47997,7 +45643,7 @@ export namespace Prisma {
     id?: string
     ticketName: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -48014,7 +45660,6 @@ export namespace Prisma {
 
   export type ProposalCreateManyBudgetInputEnvelope = {
     data: ProposalCreateManyBudgetInput | ProposalCreateManyBudgetInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetAlertCreateWithoutBudgetInput = {
@@ -48052,7 +45697,6 @@ export namespace Prisma {
 
   export type BudgetAlertCreateManyBudgetInputEnvelope = {
     data: BudgetAlertCreateManyBudgetInput | BudgetAlertCreateManyBudgetInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetSnapshotCreateWithoutBudgetInput = {
@@ -48078,7 +45722,6 @@ export namespace Prisma {
 
   export type BudgetSnapshotCreateManyBudgetInputEnvelope = {
     data: BudgetSnapshotCreateManyBudgetInput | BudgetSnapshotCreateManyBudgetInput[]
-    skipDuplicates?: boolean
   }
 
   export type GroupBrandUpsertWithoutBudgetsInput = {
@@ -48097,7 +45740,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     skuCatalog?: SkuCatalogUpdateManyWithoutBrandNestedInput
@@ -48109,7 +45752,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     skuCatalog?: SkuCatalogUncheckedUpdateManyWithoutBrandNestedInput
@@ -48132,8 +45775,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48151,8 +45794,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48264,7 +45907,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -48283,7 +45926,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -48332,9 +45975,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     createdBy: UserCreateNestedOneWithoutCreatedPlanningsInput
@@ -48347,9 +45990,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -48364,7 +46007,6 @@ export namespace Prisma {
 
   export type PlanningVersionCreateManyBudgetDetailInputEnvelope = {
     data: PlanningVersionCreateManyBudgetDetailInput | PlanningVersionCreateManyBudgetDetailInput[]
-    skipDuplicates?: boolean
   }
 
   export type AllocationRecommendationCreateWithoutBudgetDetailInput = {
@@ -48376,7 +46018,7 @@ export namespace Prisma {
     confidence: Decimal | DecimalJsLike | number | string
     reasoning?: string | null
     basedOnSeasons: number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
     isApplied?: boolean
     createdAt?: Date | string
   }
@@ -48390,7 +46032,7 @@ export namespace Prisma {
     confidence: Decimal | DecimalJsLike | number | string
     reasoning?: string | null
     basedOnSeasons: number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
     isApplied?: boolean
     createdAt?: Date | string
   }
@@ -48402,7 +46044,6 @@ export namespace Prisma {
 
   export type AllocationRecommendationCreateManyBudgetDetailInputEnvelope = {
     data: AllocationRecommendationCreateManyBudgetDetailInput | AllocationRecommendationCreateManyBudgetDetailInput[]
-    skipDuplicates?: boolean
   }
 
   export type SkuRecommendationCreateWithoutBudgetDetailInput = {
@@ -48456,7 +46097,6 @@ export namespace Prisma {
 
   export type SkuRecommendationCreateManyBudgetDetailInputEnvelope = {
     data: SkuRecommendationCreateManyBudgetDetailInput | SkuRecommendationCreateManyBudgetDetailInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetUpsertWithoutDetailsInput = {
@@ -48477,7 +46117,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48496,7 +46136,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48586,7 +46226,7 @@ export namespace Prisma {
     confidence?: DecimalFilter<"AllocationRecommendation"> | Decimal | DecimalJsLike | number | string
     reasoning?: StringNullableFilter<"AllocationRecommendation"> | string | null
     basedOnSeasons?: IntFilter<"AllocationRecommendation"> | number
-    factors?: JsonNullableFilter<"AllocationRecommendation">
+    factors?: StringNullableFilter<"AllocationRecommendation"> | string | null
     isApplied?: BoolFilter<"AllocationRecommendation"> | boolean
     createdAt?: DateTimeFilter<"AllocationRecommendation"> | Date | string
   }
@@ -48635,8 +46275,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -48654,8 +46294,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -48710,13 +46350,12 @@ export namespace Prisma {
 
   export type PlanningDetailCreateManyPlanningVersionInputEnvelope = {
     data: PlanningDetailCreateManyPlanningVersionInput | PlanningDetailCreateManyPlanningVersionInput[]
-    skipDuplicates?: boolean
   }
 
   export type ProposalCreateWithoutPlanningVersionInput = {
     id?: string
     ticketName: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -48731,7 +46370,7 @@ export namespace Prisma {
     id?: string
     ticketName: string
     budgetId: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -48748,7 +46387,6 @@ export namespace Prisma {
 
   export type ProposalCreateManyPlanningVersionInputEnvelope = {
     data: ProposalCreateManyPlanningVersionInput | ProposalCreateManyPlanningVersionInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetDetailUpsertWithoutPlanningVersionsInput = {
@@ -48796,8 +46434,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48815,8 +46453,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48864,9 +46502,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     budgetDetail: BudgetDetailCreateNestedOneWithoutPlanningVersionsInput
@@ -48880,9 +46518,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -48986,9 +46624,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     budgetDetail?: BudgetDetailUpdateOneRequiredWithoutPlanningVersionsNestedInput
@@ -49002,9 +46640,9 @@ export namespace Prisma {
     budgetDetailId?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49118,7 +46756,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49137,7 +46775,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -49157,9 +46795,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     budgetDetail: BudgetDetailCreateNestedOneWithoutPlanningVersionsInput
@@ -49173,9 +46811,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49192,8 +46830,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49211,8 +46849,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49279,7 +46917,6 @@ export namespace Prisma {
 
   export type ProposalProductCreateManyProposalInputEnvelope = {
     data: ProposalProductCreateManyProposalInput | ProposalProductCreateManyProposalInput[]
-    skipDuplicates?: boolean
   }
 
   export type BudgetUpsertWithoutProposalsInput = {
@@ -49300,7 +46937,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49319,7 +46956,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49345,9 +46982,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     budgetDetail?: BudgetDetailUpdateOneRequiredWithoutPlanningVersionsNestedInput
@@ -49361,9 +46998,9 @@ export namespace Prisma {
     budgetDetailId?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49386,8 +47023,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49405,8 +47042,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49436,7 +47073,7 @@ export namespace Prisma {
   export type ProposalCreateWithoutProductsInput = {
     id?: string
     ticketName: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -49452,7 +47089,7 @@ export namespace Prisma {
     ticketName: string
     budgetId: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -49526,7 +47163,6 @@ export namespace Prisma {
 
   export type ProductAllocationCreateManyProposalProductInputEnvelope = {
     data: ProductAllocationCreateManyProposalProductInput | ProductAllocationCreateManyProposalProductInput[]
-    skipDuplicates?: boolean
   }
 
   export type ProposalUpsertWithoutProductsInput = {
@@ -49543,7 +47179,7 @@ export namespace Prisma {
   export type ProposalUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -49559,7 +47195,7 @@ export namespace Prisma {
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -49804,8 +47440,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49823,8 +47459,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49856,8 +47492,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49875,8 +47511,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49892,8 +47528,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49911,8 +47547,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -49944,8 +47580,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49963,8 +47599,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50198,7 +47834,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -50217,7 +47853,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -50250,7 +47886,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50269,7 +47905,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50286,7 +47922,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -50305,7 +47941,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -50338,7 +47974,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50357,7 +47993,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50716,7 +48352,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     budgets?: BudgetCreateNestedManyWithoutGroupBrandInput
@@ -50728,7 +48364,7 @@ export namespace Prisma {
     code: string
     name: string
     groupId: string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: string | null
     isActive?: boolean
     sortOrder?: number
     budgets?: BudgetUncheckedCreateNestedManyWithoutGroupBrandInput
@@ -50745,8 +48381,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -50764,8 +48400,8 @@ export namespace Prisma {
     name: string
     passwordHash: string
     roleId: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -50797,7 +48433,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     budgets?: BudgetUpdateManyWithoutGroupBrandNestedInput
@@ -50809,7 +48445,7 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     groupId?: StringFieldUpdateOperationsInput | string
-    colorConfig?: NullableJsonNullValueInput | InputJsonValue
+    colorConfig?: NullableStringFieldUpdateOperationsInput | string | null
     isActive?: BoolFieldUpdateOperationsInput | boolean
     sortOrder?: IntFieldUpdateOperationsInput | number
     budgets?: BudgetUncheckedUpdateManyWithoutGroupBrandNestedInput
@@ -50832,8 +48468,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50851,8 +48487,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     roleId?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50871,7 +48507,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -50883,9 +48519,9 @@ export namespace Prisma {
     budgetDetailId: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -50895,7 +48531,7 @@ export namespace Prisma {
     ticketName: string
     budgetId: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -50908,7 +48544,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     level: number
-    action: $Enums.ApprovalAction
+    action: string
     comment?: string | null
     decidedAt?: Date | string
   }
@@ -50918,7 +48554,7 @@ export namespace Prisma {
     entityType: string
     entityId: string
     action: string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: string | null
     ipAddress?: string | null
     createdAt?: Date | string
   }
@@ -50942,7 +48578,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50961,7 +48597,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50979,7 +48615,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50990,9 +48626,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     budgetDetail?: BudgetDetailUpdateOneRequiredWithoutPlanningVersionsNestedInput
@@ -51006,9 +48642,9 @@ export namespace Prisma {
     budgetDetailId?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     details?: PlanningDetailUncheckedUpdateManyWithoutPlanningVersionNestedInput
@@ -51021,9 +48657,9 @@ export namespace Prisma {
     budgetDetailId?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51031,7 +48667,7 @@ export namespace Prisma {
   export type ProposalUpdateWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -51047,7 +48683,7 @@ export namespace Prisma {
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -51061,7 +48697,7 @@ export namespace Prisma {
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -51074,7 +48710,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51084,7 +48720,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51094,7 +48730,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
-    action?: EnumApprovalActionFieldUpdateOperationsInput | $Enums.ApprovalAction
+    action?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     decidedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51104,7 +48740,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51114,7 +48750,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51124,7 +48760,7 @@ export namespace Prisma {
     entityType?: StringFieldUpdateOperationsInput | string
     entityId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
-    changes?: NullableJsonNullValueInput | InputJsonValue
+    changes?: NullableStringFieldUpdateOperationsInput | string | null
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51170,8 +48806,8 @@ export namespace Prisma {
     email: string
     name: string
     passwordHash: string
-    storeAccess?: UserCreatestoreAccessInput | string[]
-    brandAccess?: UserCreatebrandAccessInput | string[]
+    storeAccess?: string
+    brandAccess?: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -51182,8 +48818,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -51200,8 +48836,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -51218,8 +48854,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
-    storeAccess?: UserUpdatestoreAccessInput | string[]
-    brandAccess?: UserUpdatebrandAccessInput | string[]
+    storeAccess?: StringFieldUpdateOperationsInput | string
+    brandAccess?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -51232,7 +48868,7 @@ export namespace Prisma {
     seasonType: string
     fiscalYear: number
     totalBudget?: Decimal | DecimalJsLike | number | string
-    status?: $Enums.BudgetStatus
+    status?: string
     comment?: string | null
     createdById: string
     createdAt?: Date | string
@@ -51272,7 +48908,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -51290,7 +48926,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -51308,7 +48944,7 @@ export namespace Prisma {
     seasonType?: StringFieldUpdateOperationsInput | string
     fiscalYear?: IntFieldUpdateOperationsInput | number
     totalBudget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    status?: EnumBudgetStatusFieldUpdateOperationsInput | $Enums.BudgetStatus
+    status?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52249,7 +49885,7 @@ export namespace Prisma {
     id?: string
     ticketName: string
     planningVersionId?: string | null
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -52307,7 +49943,7 @@ export namespace Prisma {
   export type ProposalUpdateWithoutBudgetInput = {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -52322,7 +49958,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -52336,7 +49972,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
     planningVersionId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -52416,9 +50052,9 @@ export namespace Prisma {
     planningCode: string
     versionNumber: number
     versionName?: string | null
-    status?: $Enums.PlanningStatus
+    status?: string
     isFinal?: boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: string | null
     createdById: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52433,7 +50069,7 @@ export namespace Prisma {
     confidence: Decimal | DecimalJsLike | number | string
     reasoning?: string | null
     basedOnSeasons: number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: string | null
     isApplied?: boolean
     createdAt?: Date | string
   }
@@ -52465,9 +50101,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdBy?: UserUpdateOneRequiredWithoutCreatedPlanningsNestedInput
@@ -52480,9 +50116,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52495,9 +50131,9 @@ export namespace Prisma {
     planningCode?: StringFieldUpdateOperationsInput | string
     versionNumber?: IntFieldUpdateOperationsInput | number
     versionName?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPlanningStatusFieldUpdateOperationsInput | $Enums.PlanningStatus
+    status?: StringFieldUpdateOperationsInput | string
     isFinal?: BoolFieldUpdateOperationsInput | boolean
-    snapshotData?: NullableJsonNullValueInput | InputJsonValue
+    snapshotData?: NullableStringFieldUpdateOperationsInput | string | null
     createdById?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52512,7 +50148,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -52526,7 +50162,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -52540,7 +50176,7 @@ export namespace Prisma {
     confidence?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     reasoning?: NullableStringFieldUpdateOperationsInput | string | null
     basedOnSeasons?: IntFieldUpdateOperationsInput | number
-    factors?: NullableJsonNullValueInput | InputJsonValue
+    factors?: NullableStringFieldUpdateOperationsInput | string | null
     isApplied?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -52631,7 +50267,7 @@ export namespace Prisma {
     id?: string
     ticketName: string
     budgetId: string
-    status?: $Enums.ProposalStatus
+    status?: string
     totalSkuCount?: number
     totalOrderQty?: number
     totalValue?: Decimal | DecimalJsLike | number | string
@@ -52691,7 +50327,7 @@ export namespace Prisma {
   export type ProposalUpdateWithoutPlanningVersionInput = {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -52706,7 +50342,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -52720,7 +50356,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     ticketName?: StringFieldUpdateOperationsInput | string
     budgetId?: StringFieldUpdateOperationsInput | string
-    status?: EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+    status?: StringFieldUpdateOperationsInput | string
     totalSkuCount?: IntFieldUpdateOperationsInput | number
     totalOrderQty?: IntFieldUpdateOperationsInput | number
     totalValue?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string

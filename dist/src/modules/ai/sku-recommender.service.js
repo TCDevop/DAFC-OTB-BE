@@ -235,7 +235,7 @@ let SkuRecommenderService = SkuRecommenderService_1 = class SkuRecommenderServic
                 seasonGroup,
                 fiscalYear: { gte: currentFiscalYear - 2 },
                 OR: [
-                    { category: { contains: category, mode: 'insensitive' } },
+                    { category: { contains: category } },
                     { category: null },
                 ],
             },

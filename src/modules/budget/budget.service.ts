@@ -1,6 +1,7 @@
 import { Injectable, BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { BudgetStatus, ApprovalAction, Prisma } from '../../generated/prisma';
+import { Prisma } from '../../generated/prisma';
+import { BudgetStatus, ApprovalAction } from '../../common/enums';
 import { CreateBudgetDto, UpdateBudgetDto, ApprovalDecisionDto } from './dto/budget.dto';
 
 interface BudgetFilters {

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProposalService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../prisma/prisma.service");
-const prisma_1 = require("../../generated/prisma");
+const enums_1 = require("../../common/enums");
 let ProposalService = class ProposalService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -111,7 +111,7 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft proposals can be edited');
         }
         if (dto.planningVersionId) {
@@ -141,7 +141,7 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id: proposalId } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.ForbiddenException('Can only add products to draft proposals');
         }
         const existing = await this.prisma.proposalProduct.findFirst({
@@ -194,7 +194,7 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id: proposalId } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.ForbiddenException('Can only add products to draft proposals');
         }
         const results = [];
@@ -213,7 +213,7 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id: proposalId } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.ForbiddenException('Can only update products in draft proposals');
         }
         const product = await this.prisma.proposalProduct.findFirst({
@@ -241,7 +241,7 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id: proposalId } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.ForbiddenException('Can only remove products from draft proposals');
         }
         const product = await this.prisma.proposalProduct.findFirst({
@@ -260,7 +260,7 @@ let ProposalService = class ProposalService {
         });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.BadRequestException(`Cannot submit proposal with status: ${proposal.status}`);
         }
         if (proposal.products.length === 0) {
@@ -268,7 +268,7 @@ let ProposalService = class ProposalService {
         }
         return this.prisma.proposal.update({
             where: { id },
-            data: { status: prisma_1.ProposalStatus.SUBMITTED },
+            data: { status: enums_1.ProposalStatus.SUBMITTED },
             include: {
                 budget: { include: { groupBrand: true } },
                 _count: { select: { products: true } },
@@ -279,12 +279,12 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.SUBMITTED) {
+        if (proposal.status !== enums_1.ProposalStatus.SUBMITTED) {
             throw new common_1.BadRequestException(`Cannot approve proposal with status: ${proposal.status}`);
         }
         const newStatus = dto.action === 'APPROVED'
-            ? prisma_1.ProposalStatus.LEVEL1_APPROVED
-            : prisma_1.ProposalStatus.REJECTED;
+            ? enums_1.ProposalStatus.LEVEL1_APPROVED
+            : enums_1.ProposalStatus.REJECTED;
         await this.prisma.approval.create({
             data: {
                 entityType: 'proposal',
@@ -308,12 +308,12 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.LEVEL1_APPROVED) {
+        if (proposal.status !== enums_1.ProposalStatus.LEVEL1_APPROVED) {
             throw new common_1.BadRequestException(`Cannot approve proposal with status: ${proposal.status}`);
         }
         const newStatus = dto.action === 'APPROVED'
-            ? prisma_1.ProposalStatus.APPROVED
-            : prisma_1.ProposalStatus.REJECTED;
+            ? enums_1.ProposalStatus.APPROVED
+            : enums_1.ProposalStatus.REJECTED;
         await this.prisma.approval.create({
             data: {
                 entityType: 'proposal',
@@ -337,7 +337,7 @@ let ProposalService = class ProposalService {
         const proposal = await this.prisma.proposal.findUnique({ where: { id } });
         if (!proposal)
             throw new common_1.NotFoundException('Proposal not found');
-        if (proposal.status !== prisma_1.ProposalStatus.DRAFT) {
+        if (proposal.status !== enums_1.ProposalStatus.DRAFT) {
             throw new common_1.ForbiddenException('Only draft proposals can be deleted');
         }
         return this.prisma.proposal.delete({ where: { id } });

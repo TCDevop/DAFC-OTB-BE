@@ -20,7 +20,7 @@ export declare class PlanningController {
                         isActive: boolean;
                         code: string;
                         groupId: string;
-                        colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                        colorConfig: string | null;
                         sortOrder: number;
                     };
                 } & {
@@ -32,7 +32,7 @@ export declare class PlanningController {
                     seasonType: string;
                     fiscalYear: number;
                     comment: string | null;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    status: string;
                     budgetCode: string;
                     totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
@@ -55,14 +55,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         })[];
         meta: {
             page: number;
@@ -83,7 +83,7 @@ export declare class PlanningController {
             } & {
                 id: string;
                 comment: string | null;
-                action: import("src/generated/prisma").$Enums.ApprovalAction;
+                action: string;
                 entityType: string;
                 entityId: string;
                 level: number;
@@ -105,7 +105,7 @@ export declare class PlanningController {
                         isActive: boolean;
                         code: string;
                         groupId: string;
-                        colorConfig: import("src/generated/prisma/runtime/library").JsonValue | null;
+                        colorConfig: string | null;
                         sortOrder: number;
                     };
                 } & {
@@ -117,7 +117,7 @@ export declare class PlanningController {
                     seasonType: string;
                     fiscalYear: number;
                     comment: string | null;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    status: string;
                     budgetCode: string;
                     totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
@@ -175,14 +175,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     create(dto: CreatePlanningDto, req: any): Promise<{
@@ -205,7 +205,7 @@ export declare class PlanningController {
                     seasonType: string;
                     fiscalYear: number;
                     comment: string | null;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    status: string;
                     budgetCode: string;
                     totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
@@ -236,14 +236,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     createFromVersion(id: string, req: any): Promise<{
@@ -283,14 +283,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     update(id: string, dto: UpdatePlanningDto, req: any): Promise<{
@@ -313,7 +313,7 @@ export declare class PlanningController {
                     seasonType: string;
                     fiscalYear: number;
                     comment: string | null;
-                    status: import("src/generated/prisma").$Enums.BudgetStatus;
+                    status: string;
                     budgetCode: string;
                     totalBudget: import("src/generated/prisma/runtime/library").Decimal;
                     createdById: string;
@@ -344,14 +344,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     updateDetail(id: string, detailId: string, dto: UpdateDetailDto, req: any): Promise<{
@@ -379,14 +379,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     approveLevel1(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
@@ -410,14 +410,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     approveLevel2(id: string, dto: ApprovalDecisionDto, req: any): Promise<{
@@ -441,14 +441,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     markAsFinal(id: string, req: any): Promise<{
@@ -472,14 +472,14 @@ export declare class PlanningController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            status: import("src/generated/prisma").$Enums.PlanningStatus;
+            status: string;
             createdById: string;
             planningCode: string;
             budgetDetailId: string;
             versionNumber: number;
             versionName: string | null;
             isFinal: boolean;
-            snapshotData: import("src/generated/prisma/runtime/library").JsonValue | null;
+            snapshotData: string | null;
         };
     }>;
     remove(id: string): Promise<{
