@@ -1,27 +1,8 @@
 import { Controller, Post, Get, Body, UseGuards, Request } from '@nestjs/common';
-import { ApiTags, ApiBearerAuth, ApiOperation, ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString, IsNotEmpty } from 'class-validator';
+import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
-
-class LoginDto {
-  @ApiProperty({ example: 'admin@dafc.com' })
-  @IsEmail()
-  @IsNotEmpty()
-  email: string;
-
-  @ApiProperty({ example: 'dafc@2026' })
-  @IsString()
-  @IsNotEmpty()
-  password: string;
-}
-
-class RefreshDto {
-  @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
-  refreshToken: string;
-}
+import { LoginDto, RefreshDto } from './dto/auth.dto';
 
 @ApiTags('auth')
 @Controller('auth')
